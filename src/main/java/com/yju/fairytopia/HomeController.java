@@ -36,4 +36,10 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/nav")
+	public String nav() {
+		logger.info("nav");
+		return "fairytopia_writer";
+	}
+	
 }
