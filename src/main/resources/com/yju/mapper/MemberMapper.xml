@@ -12,4 +12,8 @@
 	<insert id="join">
 		insert into member values(#{mem_id},#{mem_passwd},#{mem_nickname},#{mem_ph},#{mem_aut})
 	</insert>
+	
+	<select id="login" resultType="com.yju.domain.MemberVO">
+		select * from member where mem_id=#{mem_id} and mem_passwd=#{mem_passwd}
+	</select>
 </mapper>

@@ -17,7 +17,7 @@
 	rel="stylesheet">
 <link href="/resources/css/owl.carousel.css" rel="stylesheet" />
 <link href="/resources/css/owl.theme.default.css" rel="stylesheet" />
-<link href="/resources/css/main.css" rel="stylesheet" />   
+<link href="/resources/css/main.css" rel="stylesheet" />
 <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -26,11 +26,6 @@
 <script src="/resources/js/owl.carousel.js"></script>
 <script src="/resources/js/owl.carousel.min.js"></script>
 
-<script>
-	$('#login').click(function(){
-			
-		});
-</script>
 
 </head>
 <body>
@@ -55,14 +50,20 @@
 					</button>
 					<ul class="dropdown-menu" role="menu">
 						<c:choose>
-							<c:when test="${empty sessionScope.id }">
-								<li><a href="/member/join"><span class="glyphicon glyphicon-pencil"></span>회원가입</a></li>
-								<li><a href="#" id="login" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span>로그인</a></li>
+							<c:when test="${empty sessionScope.user.mem_id }">
+								<li><a href="/member/join"><span
+										class="glyphicon glyphicon-pencil"></span>회원가입</a></li>
+								<li><a href="" id="login" data-toggle="modal"
+									data-target="#loginModal"><span
+										class="glyphicon glyphicon-log-in"></span>로그인</a></li>
 							</c:when>
-							<c:when test="${!empty sessionScope.id }">
+							<c:when test="${!empty sessionScope.user.mem_id }">
 								<li><a href="#"><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-book"></span>내 서재</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-book"></span>내
+										서재</a></li>
+								<li><a href="" onclick="logout()"><span
+										class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
+
 							</c:when>
 						</c:choose>
 					</ul>
@@ -71,6 +72,8 @@
 		</div>
 	</div>
 	<div class="container">
+	<c:choose>
+	<c:when test="${sessionScope.user.mem_aut == 1 }">
 		<div class="row">
 			<ul class="navtop list-inline list-unstyled">
 				<li class="col-lg-1"><a href="fairytopia_writer.html"><span
@@ -79,6 +82,10 @@
 				<li class="col-lg-2"><a href="#">작가 작품 구하기</a></li>
 			</ul>
 		</div>
+	</c:when>
+	</c:choose>
+	
+		
 	</div>
 
 	<nav class="navbar navbar-default sticky-top">
@@ -105,27 +112,68 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	
+
 	<!-- Modal -->
-	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="loginTitle">로그인</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <form action="/member/login" method="post">
-	      <div class="modal-body">
-	        <li><label for="mem_id">아이디</label> <input id="mem_id" name="mem_id" size="20" maxlength="50" autofocus> </li>
-			<li><label for="mem_passwd">비밀번호</label> <input id="mem_passwd" name="mem_passwd" type="password" size="20" maxlength="16"></li>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary">로그인</button>
-	      </div>
-	      </form>
-	    </div>
-	  </div>
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="loginTitle">로그인</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="loginForm">
+						<li><label for="mem_id">아이디</label> <input id="mem_id"
+							name="mem_id" autofocus></li>
+						<li><label for="mem_passwd">비밀번호</label> <input
+							id="mem_passwd" name="mem_passwd" type="password"></li>
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button id="loginBtn" class="btn btn-primary">로그인</button>
+				</div>
+			</div>
+		</div>
 	</div>
+
+	<script>
+		$('#loginBtn').click(function() {
+			var vo = $('#loginForm').serialize();
+			console.log(vo);
+			/* var mem_id = $('#mem_id').val();
+			var mem_passwd = $('#mem_passwd').val();
+			 */
+			$.ajax({
+				url : '${pageContext.request.contextPath}/member/login',
+				type : 'post',
+				data : vo,
+				success : function(data) {
+					console.log(data);
+					if (data == 1) {
+						window.alert('사용자 정보가 일치하지 않습니다.');
+					} else {
+						window.location.replace(document.location.href);
+						console.log('성공');
+					}
+				},
+				error : function() {
+					console.log("실패");
+				}
+			});
+		});
+
+		function logout() {
+			$.ajax({
+				url : '${pageContext.request.contextPath}/member/logout',
+				type : 'get',
+				always : function() {
+					window.location.replace(document.location.href);
+				}
+			});
+		};
+	</script>

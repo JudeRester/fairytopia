@@ -26,4 +26,11 @@ public class MemberServiceImpl implements MemberService{
 		log.info("service.....join....");
 		mapper.join(vo);
 	}
+
+	@Override
+	public MemberVO login(MemberVO vo) {
+		log.info("service.....login....");
+		log.info(mapper.login(vo).toString());
+		return mapper.login(vo);
+	}
 }

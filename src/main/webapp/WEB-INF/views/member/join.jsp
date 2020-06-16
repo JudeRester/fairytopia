@@ -4,11 +4,11 @@
 <%@include file="../hf/header.jsp"%>
 <form action="/member/join" method="post">
 	<ul>
-		<li><label for="mem_id">아이디</label> <input id="mem_id"
-			name="mem_id" size="20" maxlength="50" autofocus> <!-- <button id="checkId">ID중복확인</button> --></li>
+		<li><label for="mem_id_join">아이디</label> <input id="mem_id_join"
+			name="mem_id_join" size="20" maxlength="50" autofocus> <!-- <button id="checkId">ID중복확인</button> --></li>
 		<p id="idwarn"></p>
-		<li><label for="mem_passwd">비밀번호</label> <input id="mem_passwd"
-			name="mem_passwd" type="password" size="20" placeholder="6~16자 숫자/문자"
+		<li><label for="mem_passwd_join">비밀번호</label> <input id="mem_passwd_join"
+			name="mem_passwd_join" type="password" size="20" placeholder="6~16자 숫자/문자"
 			maxlength="16"></li>
 		<li><label for="repass">비밀번호 재입력</label> <input id="repass"
 			name="repass" type="password" size="20" placeholder="비밀번호재입력"
@@ -24,9 +24,9 @@
 	</ul>
 </form>
 <script>
-	$("#mem_id").blur(function() {
+	$("#mem_id_join").blur(function() {
 						console.log("check start");
-						var mem_id = $('#mem_id').val();
+						var mem_id = $('#mem_id_join').val();
 						$.ajax({
 									url : '${pageContext.request.contextPath}/member/checkId?mem_id='+ mem_id,
 									type : 'get',
