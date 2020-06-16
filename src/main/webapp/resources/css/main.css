@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+/*헤더*/
+#header {
+	padding: 40px 15px;
+}
+
+#header .navbar-brand {
+	color: lightsalmon;
+}
+
+.navbar-brand {
+	font-size: 25px;
+}
+
+.user .btn {
+	width: 50px;
+	margin-top: 5px;
+}
+
+.btn-user .glyphicon {
+	font-size: 20px;
+	color: lightsalmon;
+}
+
+.dropdown-menu .glyphicon {
+	margin-right: 20px;
+	color: lightsalmon;
+}
+
+/*네비*/
+.navtop {
+	padding-left: 45px;
+	padding-bottom: 20px;
+}
+
+.navtop a {
+	color: #808080;
+	text-decoration: none;
+}
+
+.navtop a:hover {
+	color: orange;
+}
+
+.navtop .glyphicon {
+	color: lightsalmon;
+	margin-right: 10px;
+	font-size: 15px;
+}
+
+.two a {
+	margin-left: 40px;
+}
+
+/*네비바*/
+.nav li {
+	margin-right: 65px;
+}
+
+.navbar-default {
+	background-color: white;
+	font-size: 15px;
+}
+
+.navbar-default .navbar-nav li a {
+	color: black;
+}
+
+.navbar-default .navbar-nav li a:hover {
+	color: orange;
+}
+
+/*도서검색*/
+#search {
+	padding: 60px 0;
+}
+
+.input-group {
+	width: 500px;
+	padding-left: 20px;
+}
+
+.input-group-btn .glyphicon {
+	color: lightsalmon;
+	font-size: 20px;
+}
+
+#search h4 {
+	padding-left: 130px;
+	color: #525252;
+}
+
+/*베스트 셀러 e8cb99  f1c0a7 #f6b07a*/
+#bestbook {
+	background-color: lightsalmon;
+	padding: 40px 0px;
+}
+
+#bestbook h4 {
+	color: white;
+	margin-left: 30px;
+}
+
+/*오늘의 신간*/
+#newbook {
+	padding: 40px 0px;
+}
+
+#newbook h4 {
+	margin-left: 30px;
+}
+
+/*owl*/
+#bookimg {
+	padding-top: 20px;
+}
+
+.owl-prev {
+	left: -50px;
+}
+
+.owl-next {
+	right: -50px;
+}
+
+.owl-prev, .owl-next {
+	position: absolute;
+	top: 25%;
+}
+
+.owl-prev span, .owl-next span {
+	font-size: 70px;
+	color: #e6e6e6;
+}
+
+.owl-theme .owl-nav [class*="owl-"]:hover {
+	background-color: transparent;
+}
+
+#bestbook .card-body h5 {
+	text-align: center;
+	color: white;
+}
+
+.card img {
+	width: auto;
+	height: auto;
+	max-width: 450px;
+	max-height: 220px;
+}
+
+/*owl2*/
+#newbook .card-body h5 {
+	text-align: center;
+	color: black;
+}
