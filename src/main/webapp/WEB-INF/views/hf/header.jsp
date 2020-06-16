@@ -33,7 +33,7 @@
 	<div class="container">
 		<div class="row" id="header">
 			<div class="col-lg-4 col-xs-6">
-				<a class="navbar-brand" href="#"> FAIRYTOPIA </a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/"> FAIRYTOPIA </a>
 			</div>
 			<div class="user col-lg-offset-6 col-lg-2">
 				<div class="btn-group" role="group">
