@@ -2,6 +2,18 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="../hf/header.jsp"%>
+
+<c:choose>
+<c:when test="${sessionScope.user.mem_aut == 1 }">
+	<script>
+		$(document).ready(function(){
+			document.location.replace('${pageContext.request.contextPath}/');
+			});
+		
+	</script>
+</c:when>
+</c:choose>
+
 <form action="/member/join" method="post">
 	<ul>
 		<li><label for="mem_id_join">아이디</label> <input id="mem_id_join"
