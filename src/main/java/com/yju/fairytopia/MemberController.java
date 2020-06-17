@@ -54,7 +54,7 @@ public class MemberController {
 	public int login(MemberVO vo, HttpServletRequest request) {
 		log.info("login...");
 		vo = service.login(vo);
-		if (vo.getMem_nickname() != null) {
+		if (vo != null) {
 			HttpSession session = request.getSession();
 			vo.setMem_passwd(null);
 			session.setAttribute("user", vo);
