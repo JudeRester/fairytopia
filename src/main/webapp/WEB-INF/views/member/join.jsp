@@ -29,7 +29,7 @@
 				class="form-control input-lg">
 		</div>
 		<div class="checkbox">
-			<label for="mem_aut"><input type="checkbox" id="mem_aut"
+			<label for="mem_aut"><input type="checkbox" id="mem_aut" name="mem_aut"
 				value='1' /> 작가 관련 서비스 이용</label>
 		</div>
 		<button type="submit" id="process"

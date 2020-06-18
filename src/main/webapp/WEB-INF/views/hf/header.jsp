@@ -58,8 +58,8 @@
 								<span class="glyphicon glyphicon-user"></span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#"><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-book"></span>내
+								<li><a href=""><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
+								<li><a href=""><span class="glyphicon glyphicon-book"></span>내
 										서재</a></li>
 								<li><a href="" onclick="logout()"><span
 										class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
@@ -76,10 +76,10 @@
 			<c:when test="${sessionScope.user.mem_aut == 1 }">
 				<div class="row">
 					<ul class="navtop list-inline list-unstyled">
-						<li class="col-lg-1"><a href="#"><span
+						<li class="col-lg-1"><a href="${pageContext.request.contextPath}/"><span
 								class="glyphicon glyphicon-home"></span>테일샵</a></li>
-						<li class="two col-lg-2"><a href="#">메이킹스튜디오</a></li>
-						<li class="col-lg-2"><a href="#">작가 작품 구하기</a></li>
+						<li class="two col-lg-2"><a href="/author/studio">메이킹스튜디오</a></li>
+						<li class="col-lg-2"><a href="">작가 작품 구하기</a></li>
 					</ul>
 				</div>
 			</c:when>
@@ -101,11 +101,11 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-left">
-					<li><a href="#">전래동화</a></li>
-					<li><a href="#">환상동화</a></li>
-					<li><a href="#">생활동화</a></li>
-					<li><a href="#">학습동화</a></li>
-					<li><a href="#">활동그림책</a></li>
+					<li><a href="">전래동화</a></li>
+					<li><a href="">환상동화</a></li>
+					<li><a href="">생활동화</a></li>
+					<li><a href="">학습동화</a></li>
+					<li><a href="">활동그림책</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -138,7 +138,7 @@
 							<input id="mem_passwd" name="mem_passwd" type="password"
 								class="form-control" placeholder="Password">
 						</div>
-						<a href="#">아이디 찾기 / 비밀번호 재설정</a>
+						<a href="">아이디 찾기 / 비밀번호 재설정</a>
 					</form>
 
 					<div class="btngroup">
@@ -169,7 +169,7 @@
 					if (data == 1) {
 						window.alert('사용자 정보가 일치하지 않습니다.');
 					} else {
-						window.location.replace(document.location.href);
+						window.location.replace('${pageContext.request.contextPath}');
 						console.log('성공');
 					}
 				},

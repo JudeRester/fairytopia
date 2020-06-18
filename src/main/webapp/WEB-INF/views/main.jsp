@@ -35,31 +35,31 @@
                     <div class="col-lg-offset-2 col-lg-8">
                         <div class="owl-carousel owl-theme" id="bookimg">
                             <div class="card">
-                                <img src="img/bestbook_again.jpeg" class="card-img-top" />
+                                <img src="/resources/img/bestbook_again.jpeg" class="card-img-top" />
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>우리는 언제나 다시만나</strong></h5>
                                 </div>
                             </div>
                             <div class="card">
-                                <img src="img/bestbook_children.jpg" class="card-img-top" />
+                                <img src="/resources/img/bestbook_children.jpg" class="card-img-top" />
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>칠판에 딱 붙은 아이들</strong></h5>
                                 </div>
                             </div>
                             <div class="card">
-                                <img src="img/bestbook_mangtae.jpg" class="card-img-top" />
+                                <img src="/resources/img/bestbook_mangtae.jpg" class="card-img-top" />
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>망태 할아버지가 온다</strong></h5>
                                 </div>
                             </div>
                             <div class="card">
-                                <img src="img/bestbook_noadult.jpg" class="card-img-top" />
+                                <img src="/resources/img/bestbook_noadult.jpg" class="card-img-top" />
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>어른들은 절대로 안 그래?</strong></h5>
                                 </div>
                             </div>
                             <div class="card">
-                                <img src="img/bestbook_piano.jpg" class="card-img-top" />
+                                <img src="/resources/img/bestbook_piano.jpg" class="card-img-top" />
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>숲속 피아노</strong></h5>
                                 </div>
@@ -81,31 +81,31 @@
             <div class="col-lg-offset-2 col-lg-8">
                 <div class="owl-carousel owl-theme" id="bookimg">
                     <div class="card">
-                        <img src="img/bestbook_again.jpeg" class="card-img-top" />
+                        <img src="/resources/img/bestbook_again.jpeg" class="card-img-top" />
                         <div class="card-body">
                             <h5 class="card-title"><strong>우리는 언제나 다시만나</strong></h5>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="img/bestbook_children.jpg" class="card-img-top" />
+                        <img src="/resources/img/bestbook_children.jpg" class="card-img-top" />
                         <div class="card-body">
                             <h5 class="card-title"><strong>칠판에 딱 붙은 아이들</strong></h5>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="img/bestbook_mangtae.jpg" class="card-img-top" />
+                        <img src="/resources/img/bestbook_mangtae.jpg" class="card-img-top" />
                         <div class="card-body">
                             <h5 class="card-title"><strong>망태 할아버지가 온다</strong></h5>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="img/bestbook_noadult.jpg" class="card-img-top" />
+                        <img src="/resources/img/bestbook_noadult.jpg" class="card-img-top" />
                         <div class="card-body">
                             <h5 class="card-title"><strong>어른들은 절대로 안 그래?</strong></h5>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="img/bestbook_piano.jpg" class="card-img-top" />
+                        <img src="/resources/img/bestbook_piano.jpg" class="card-img-top" />
                         <div class="card-body">
                             <h5 class="card-title"><strong>숲속 피아노</strong></h5>
                         </div>
