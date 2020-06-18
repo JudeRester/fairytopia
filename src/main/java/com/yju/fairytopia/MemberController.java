@@ -52,8 +52,9 @@ public class MemberController {
 	@PostMapping(value = "/login")
 	@ResponseBody
 	public int login(MemberVO vo, HttpServletRequest request) {
-		log.info("login...");
+		log.info("login...\n"+vo);
 		vo = service.login(vo);
+		System.out.println("c");
 		if (vo != null) {
 			HttpSession session = request.getSession();
 			vo.setMem_passwd(null);

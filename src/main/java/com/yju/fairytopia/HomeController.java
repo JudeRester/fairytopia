@@ -27,6 +27,9 @@ public class HomeController {
 	 * @GetMapping(value="/main") public String main() { logger.info("main"); return
 	 * "main"; }
 	 */
-	
+	@GetMapping(value="test")
+	public void test() {
+		
+	}
 	
 }

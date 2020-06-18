@@ -19,13 +19,10 @@
 <link href="/resources/css/owl.theme.default.css" rel="stylesheet" />
 <link href="/resources/css/main.css" rel="stylesheet" />
 <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="/resources/js/owl.carousel.js"></script>
 <script src="/resources/js/owl.carousel.min.js"></script>
-
 
 </head>
 <body>
@@ -33,59 +30,62 @@
 	<div class="container">
 		<div class="row" id="header">
 			<div class="col-lg-4 col-xs-6">
-				<a class="navbar-brand" href="${pageContext.request.contextPath}/"> FAIRYTOPIA </a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/">
+					FAIRYTOPIA </a>
 			</div>
-			<div class="user col-lg-offset-6 col-lg-2">
-				<div class="btn-group" role="group">
-					<button type="button" class="btn btn-default btn-user">
-						<span class="glyphicon glyphicon-envelope"></span>
-					</button>
-					<button type="button" class="btn btn-default btn-user">
-						<span class="glyphicon glyphicon-bell"></span>
-					</button>
-					<button type="button"
-						class="btn btn-default btn-user dropdown-toggle"
-						data-toggle="dropdown">
-						<span class="glyphicon glyphicon-user"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-						<c:choose>
-							<c:when test="${empty sessionScope.user.mem_id }">
-								<li><a href="/member/join"><span
-										class="glyphicon glyphicon-pencil"></span>회원가입</a></li>
-								<li><a href="" id="login" data-toggle="modal"
-									data-target="#loginModal"><span
-										class="glyphicon glyphicon-log-in"></span>로그인</a></li>
-							</c:when>
-							<c:when test="${!empty sessionScope.user.mem_id }">
+
+			<c:choose>
+				<c:when test="${empty sessionScope.user.mem_id }">
+					<div class="login col-lg-offset-6 col-lg-2 col-xs-3">
+						<button type="button" class="btn btn-default" data-toggle="modal"
+							data-target="#loginModal">
+							<strong>로그인</strong>
+						</button>
+					</div>
+				</c:when>
+				<c:when test="${!empty sessionScope.user.mem_id }">
+					<div class="user col-lg-offset-6 col-lg-2">
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-default btn-user">
+								<span class="glyphicon glyphicon-envelope"></span>
+							</button>
+							<button type="button" class="btn btn-default btn-user">
+								<span class="glyphicon glyphicon-bell"></span>
+							</button>
+							<button type="button"
+								class="btn btn-default btn-user dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="glyphicon glyphicon-user"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
 								<li><a href="#"><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
 								<li><a href="#"><span class="glyphicon glyphicon-book"></span>내
 										서재</a></li>
 								<li><a href="" onclick="logout()"><span
 										class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
+							</ul>
+						</div>
+					</div>
+				</c:when>
+			</c:choose>
 
-							</c:when>
-						</c:choose>
-					</ul>
-				</div>
-			</div>
 		</div>
 	</div>
 	<div class="container">
-	<c:choose>
-	<c:when test="${sessionScope.user.mem_aut == 1 }">
-		<div class="row">
-			<ul class="navtop list-inline list-unstyled">
-				<li class="col-lg-1"><a href="fairytopia_writer.html"><span
-						class="glyphicon glyphicon-home"></span>테일샵</a></li>
-				<li class="two col-lg-2"><a href="studio.html">메이킹스튜디오</a></li>
-				<li class="col-lg-2"><a href="#">작가 작품 구하기</a></li>
-			</ul>
-		</div>
-	</c:when>
-	</c:choose>
-	
-		
+		<c:choose>
+			<c:when test="${sessionScope.user.mem_aut == 1 }">
+				<div class="row">
+					<ul class="navtop list-inline list-unstyled">
+						<li class="col-lg-1"><a href="#"><span
+								class="glyphicon glyphicon-home"></span>테일샵</a></li>
+						<li class="two col-lg-2"><a href="#">메이킹스튜디오</a></li>
+						<li class="col-lg-2"><a href="#">작가 작품 구하기</a></li>
+					</ul>
+				</div>
+			</c:when>
+		</c:choose>
+
+
 	</div>
 
 	<nav class="navbar navbar-default sticky-top">
@@ -115,31 +115,43 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="loginTitle">로그인</h5>
+					<h4 class="modal-title text-center" id="myModalLabel">
+						<strong>FAIRYTOPIA</strong>
+					</h4>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
+					<h4 class="text-center">로그인</h4>
 					<form id="loginForm">
-						<li><label for="mem_id">아이디</label> <input id="mem_id"
-							name="mem_id" autofocus></li>
-						<li><label for="mem_passwd">비밀번호</label> <input
-							id="mem_passwd" name="mem_passwd" type="password"></li>
+						<div class="form-group">
+							<input id="mem_id" name="mem_id" type="email"
+								class="form-control" placeholder="E-mail" autofocus>
+						</div>
+						<div class="form-group">
+							<input id="mem_passwd" name="mem_passwd" type="password"
+								class="form-control" placeholder="Password">
+						</div>
+						<a href="#">아이디 찾기 / 비밀번호 재설정</a>
 					</form>
 
-				</div>
-				<div class="modal-footer">
-					<button id="loginBtn" class="btn btn-primary">로그인</button>
+					<div class="btngroup">
+						<button type="button" id="loginBtn"
+							class="btn btn-warning btn-block">로그인</button>
+						<a class="btn btn-default btn-block" href="/member/join"
+							role="button">회원가입</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 	<script>
 		$('#loginBtn').click(function() {

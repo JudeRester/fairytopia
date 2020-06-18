@@ -24,7 +24,7 @@ public class MemberTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testJoin() {
 		MemberVO vo = new MemberVO();
 		vo.setMem_id("asdff");
@@ -34,5 +34,13 @@ public class MemberTest {
 		vo.setMem_aut(1);
 		
 		service.join(vo);
+	}
+	
+	@Test
+	public void testLogin() {
+		MemberVO vo = new MemberVO();
+		vo.setMem_id("qwer");
+		vo.setMem_passwd("asdf");
+		service.login(vo);
 	}
 }

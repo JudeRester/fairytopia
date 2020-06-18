@@ -6,11 +6,19 @@
 }
 
 #header .navbar-brand {
-	color: lightsalmon;
+	/* color: lightsalmon; */
+	color: #ffa900;
 }
 
 .navbar-brand {
 	font-size: 25px;
+}
+
+.login .btn {
+	margin-top: 8px;
+	background-color: #ffa900;
+	border: 1px solid orange;
+	color: white;
 }
 
 .user .btn {
@@ -20,12 +28,14 @@
 
 .btn-user .glyphicon {
 	font-size: 20px;
-	color: lightsalmon;
+	color: #ffa900;
+	/* color: lightsalmon; */
 }
 
 .dropdown-menu .glyphicon {
 	margin-right: 20px;
-	color: lightsalmon;
+	color: #ffa900;
+	/* color: lightsalmon; */
 }
 
 /*네비*/
@@ -44,7 +54,8 @@
 }
 
 .navtop .glyphicon {
-	color: lightsalmon;
+	color: #ffa900;
+	/* color: lightsalmon; */
 	margin-right: 10px;
 	font-size: 15px;
 }
@@ -58,17 +69,21 @@
 	margin-right: 65px;
 }
 
+.nav li:hover {
+	background-color: #ffa900;
+}
+
 .navbar-default {
 	background-color: white;
 	font-size: 15px;
 }
 
-.navbar-default .navbar-nav li a {
+/* .navbar-default .navbar-nav li a {
 	color: black;
-}
-
+} */
 .navbar-default .navbar-nav li a:hover {
-	color: orange;
+	/* color: orange; */
+	color: white;
 }
 
 /*도서검색*/
@@ -82,7 +97,8 @@
 }
 
 .input-group-btn .glyphicon {
-	color: lightsalmon;
+	/* color: lightsalmon; */
+	color: #ffa900;
 	font-size: 20px;
 }
 
@@ -93,12 +109,13 @@
 
 /*베스트 셀러 e8cb99  f1c0a7 #f6b07a*/
 #bestbook {
-	background-color: lightsalmon;
+	/* background-color: lightsalmon; */
+	background-color: #f8f8f8;
 	padding: 40px 0px;
 }
 
 #bestbook h4 {
-	color: white;
+	/* color: white; */
 	margin-left: 30px;
 }
 
@@ -140,7 +157,7 @@
 
 #bestbook .card-body h5 {
 	text-align: center;
-	color: white;
+	/* color: white; */
 }
 
 .card img {
@@ -153,5 +170,42 @@
 /*owl2*/
 #newbook .card-body h5 {
 	text-align: center;
-	color: black;
+	/* color: black; */
+}
+
+/* 회원가입 */
+h3 a {
+	color: #ffa900;
+}
+
+h3 a:hover {
+	color: #ffa900;
+	text-decoration: none;
+}
+
+.signupform {
+	padding: 80px 400px;
+}
+
+/*모달*/
+#loginModal {
+	padding-top: 150px;
+}
+
+.modal-header h4 {
+	color: #ffa900;
+}
+
+.modal-body {
+	padding: 40px 150px;
+}
+
+.modal-body .btngroup {
+	padding-top: 30px;
+	/* border: 1px solid lightgray; */
+}
+
+.modal-body a {
+	text-decoration: none;
+	color: #525252;
 }
