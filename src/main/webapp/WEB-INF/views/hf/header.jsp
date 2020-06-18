@@ -1,0 +1,191 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>페어리토피아</title>
+
+<link rel="shortcut icon" href="book.ico">
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/resources/css/owl.carousel.css" rel="stylesheet" />
+<link href="/resources/css/owl.theme.default.css" rel="stylesheet" />
+<link href="/resources/css/main.css" rel="stylesheet" />
+<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="/resources/js/owl.carousel.js"></script>
+<script src="/resources/js/owl.carousel.min.js"></script>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row" id="header">
+			<div class="col-lg-4 col-xs-6">
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/">
+					FAIRYTOPIA </a>
+			</div>
+
+			<c:choose>
+				<c:when test="${empty sessionScope.user.mem_id }">
+					<div class="login col-lg-offset-6 col-lg-2 col-xs-3">
+						<button type="button" class="btn btn-default" data-toggle="modal"
+							data-target="#loginModal">
+							<strong>로그인</strong>
+						</button>
+					</div>
+				</c:when>
+				<c:when test="${!empty sessionScope.user.mem_id }">
+					<div class="user col-lg-offset-6 col-lg-2">
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-default btn-user">
+								<span class="glyphicon glyphicon-envelope"></span>
+							</button>
+							<button type="button" class="btn btn-default btn-user">
+								<span class="glyphicon glyphicon-bell"></span>
+							</button>
+							<button type="button"
+								class="btn btn-default btn-user dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="glyphicon glyphicon-user"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href=""><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
+								<li><a href=""><span class="glyphicon glyphicon-book"></span>내
+										서재</a></li>
+								<li><a href="" onclick="logout()"><span
+										class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
+							</ul>
+						</div>
+					</div>
+				</c:when>
+			</c:choose>
+
+		</div>
+	</div>
+	<div class="container">
+		<c:choose>
+			<c:when test="${sessionScope.user.mem_aut == 1 }">
+				<div class="row">
+					<ul class="navtop list-inline list-unstyled">
+						<li class="col-lg-1"><a href="${pageContext.request.contextPath}/"><span
+								class="glyphicon glyphicon-home"></span>테일샵</a></li>
+						<li class="two col-lg-2"><a href="/author/studio">메이킹스튜디오</a></li>
+						<li class="col-lg-2"><a href="">작가 작품 구하기</a></li>
+					</ul>
+				</div>
+			</c:when>
+		</c:choose>
+
+
+	</div>
+
+	<nav class="navbar navbar-default sticky-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-left">
+					<li><a href="">전래동화</a></li>
+					<li><a href="">환상동화</a></li>
+					<li><a href="">생활동화</a></li>
+					<li><a href="">학습동화</a></li>
+					<li><a href="">활동그림책</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+	<!-- Modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title text-center" id="myModalLabel">
+						<strong>FAIRYTOPIA</strong>
+					</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<h4 class="text-center">로그인</h4>
+					<form id="loginForm">
+						<div class="form-group">
+							<input id="mem_id" name="mem_id" type="email"
+								class="form-control" placeholder="E-mail" autofocus>
+						</div>
+						<div class="form-group">
+							<input id="mem_passwd" name="mem_passwd" type="password"
+								class="form-control" placeholder="Password">
+						</div>
+						<a href="">아이디 찾기 / 비밀번호 재설정</a>
+					</form>
+
+					<div class="btngroup">
+						<button type="button" id="loginBtn"
+							class="btn btn-warning btn-block">로그인</button>
+						<a class="btn btn-default btn-block" href="/member/join"
+							role="button">회원가입</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		$('#loginBtn').click(function() {
+			var vo = $('#loginForm').serialize();
+			console.log(vo);
+			/* var mem_id = $('#mem_id').val();
+			var mem_passwd = $('#mem_passwd').val();
+			 */
+			$.ajax({
+				url : '${pageContext.request.contextPath}/member/login',
+				type : 'post',
+				data : vo,
+				success : function(data) {
+					console.log(data);
+					if (data == 1) {
+						window.alert('사용자 정보가 일치하지 않습니다.');
+					} else {
+						window.location.replace('${pageContext.request.contextPath}');
+						console.log('성공');
+					}
+				},
+				error : function() {
+					console.log("실패");
+				}
+			});
+		});
+
+		function logout() {
+			$.ajax({
+				url : '${pageContext.request.contextPath}/member/logout',
+				type : 'get',
+				always : function() {
+					window.location.replace(document.location.href);
+				}
+			});
+		};
+	</script>

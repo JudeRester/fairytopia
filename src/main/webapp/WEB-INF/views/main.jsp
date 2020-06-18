@@ -1,301 +1,67 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>∆‰æÓ∏Æ≈‰««æ∆</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-<link href="resources/css/owl.carousel.css" rel="stylesheet" />
-<link href="resources/css/owl.theme.default.css" rel="stylesheet" />
-    
-    <style>
-    /*«Ï¥ı ∏∂¿Ã∆‰¿Ã¡ˆ*/
-        #header {
-            padding: 40px 15px;
-        }
+<%@include file="./hf/header.jsp"%>
 
-        #header .navbar-brand {
-            color: #ffa900;
-        }
 
-        .navbar-brand {
-            font-size: 25px;
-        }
 
-        /*
-        .login a {
-            color: #ffa900;
-            font-size: 15px;
-            text-decoration: none;
-        }
-
-        .login a:hover{
-            text-decoration:none;
-        }
-        */
-
-        .login .btn {
-            margin-top: 8px;
-            background-color: #ffa900;
-            border: 1px solid orange;
-            color: white;
-        }
-        
-
-        /*∏¥ﬁ*/
-        #myModal {
-            padding-top: 150px;
-        }
-
-        .modal-header h4 {
-            color: #ffa900;
-        }
-
-        .modal-body{
-            padding: 40px 150px;
-        }
-
-        .modal-body .btngroup{
-            padding-top: 30px;
-           /* border: 1px solid lightgray; */
-        }
-
-            .modal-body a {
-                text-decoration: none;
-                color: #525252;
-            }
-
-        /*≥◊∫ÒπŸ*/
-        .nav li {
-            margin-right: 65px;
-        }
-
-        .nav li:hover{
-            background-color:#ffa900;
-        }
-
-        .navbar-default {
-            background-color: white;
-            font-size: 15px;
-        }
-
-        .navbar-default .navbar-nav li a:hover {
-            color: white;
-        }
-
-        /*µµº≠∞Àªˆ*/
-        #search {
-            padding: 60px 0;
-        }
-
-        .input-group {
-            width: 500px;
-            padding-left: 20px;
-        }
-
-        .input-group-btn .glyphicon {
-            color: #ffa900;
-            font-size: 20px;
-        }
-
-        .input-group-btn button:hover {
-            background-color: white;
-        }
-
-        #search h4 {
-            padding-left: 130px;
-            color: #525252;
-        }
-
-        /*∫£Ω∫∆Æ ºø∑Ø e8cb99  f1c0a7*/
-        #bestbook {
-            background-color: #f8f8f8;
-            padding: 40px 0px;
-        }
-
-            #bestbook h4 {
-                margin-left: 30px;
-            }
-
-        /*ø¿¥√¿« Ω≈∞£*/
-        #newbook {
-            padding: 40px 0px;
-        }
-
-            #newbook h4 {
-                margin-left: 30px;
-            }
-
-        /*owl*/
-        #bookimg {
-            padding-top: 20px;
-        }
-
-        .owl-prev {
-            left: -50px;
-        }
-
-        .owl-next {
-            right: -50px;
-        }
-
-        .owl-prev, .owl-next {
-            position: absolute;
-            top: 25%;
-        }
-
-            .owl-prev span, .owl-next span {
-                font-size: 70px;
-                color: #e6e6e6;
-            }
-
-        .owl-theme .owl-nav [class*="owl-"]:hover {
-            background-color: transparent;
-        }
-
-        #bestbook .card-body h5 {
-            text-align: center;
-        }
-
-        .card img {
-            width: auto;
-            height: auto;
-            max-width: 450px;
-            max-height: 220px;
-        }
-
-        /*owl2*/
-        #newbook .card-body h5 {
-            text-align: center;
-            color: black;
-        }
-        
-    </style>
-</head>
-<body>
     <div class="container">
-        <div class="row" id="header">
-            <div class="col-lg-4 col-xs-6">
-                <a class="navbar-brand" href="#">
-                    <strong>FAIRYTOPIA</strong>
-                </a>
-            </div>
-            <div class="login col-lg-offset-6 col-lg-2 col-xs-3">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><strong>∑Œ±◊¿Œ</strong></button>
+        <div class="row" id="search">
+            <div class="col-lg-offset-3 col-lg-9">
+                <form class="navbar-form" role="search">
+                    <div class="input-group ">
+                        <input type="text" class="form-control input-lg" placeholder="ÎèÑÏÑúÍ≤ÄÏÉâ">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default input-lg" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div><!-- /input-group -->
+                </form>
+                <h4><strong>Ï∞æÍ≥† Ïã∂ÏùÄ ÎèÑÏÑúÎ•º ÏûÖÎ†•Ìï¥Î≥¥ÏÑ∏Ïöî.</strong></h4>
             </div>
         </div>
     </div>
 
-
-
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title text-center" id="myModalLabel"><strong>FAIRYTOPIA</strong></h4>
-                    </div>
-                    <div class="modal-body">
-                        <h4 class="text-center">∑Œ±◊¿Œ</h4>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail" placeholder="E-mail">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
-                        </div>
-                        <a href="#">æ∆¿Ãµ √£±‚ / ∫Òπ–π¯»£ ¿Áº≥¡§</a>
-                        <div class="btngroup">
-                            <button type="button" class="btn btn-warning btn-block">∑Œ±◊¿Œ</button>
-                            <a class="btn btn-default btn-block" href="sighup.html" role="button">»∏ø¯∞°¿‘</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-  
-
-
-        <nav class="navbar navbar-default sticky-top">
+    <div class="container-fuild">
+        <div class="row" id="bestbook">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li><a href="#">¿¸∑°µø»≠</a></li>
-                        <li><a href="#">»ØªÛµø»≠</a></li>
-                        <li><a href="#">ª˝»∞µø»≠</a></li>
-                        <li><a href="#">«–Ω¿µø»≠</a></li>
-                        <li><a href="#">»∞µø±◊∏≤√•</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-
-        <div class="container">
-            <div class="row" id="search">
-                <div class="col-lg-offset-3 col-lg-9">
-                    <form class="navbar-form" role="search">
-                        <div class="input-group ">
-                            <input type="text" class="form-control input-lg" placeholder="µµº≠∞Àªˆ">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default input-lg" type="button">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>
-                        </div><!-- /input-group -->
-                    </form>
-                    <h4><strong>√£∞Ì ΩÕ¿∫ µµº≠∏¶ ¿‘∑¬«ÿ∫∏ººø‰.</strong></h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fuild">
-            <div class="row" id="bestbook">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h4>
-                                <strong>∫£Ω∫∆Æºø∑Ø</strong>
-                            </h4>
-                        </div>
-                        <div class="col-lg-offset-2 col-lg-8">
-                            <div class="owl-carousel owl-theme" id="bookimg">
-                                <div class="card">
-                                    <img src="img/bestbook_again.jpeg" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>øÏ∏Æ¥¬ æ¡¶≥™ ¥ŸΩ√∏∏≥™</strong></h5>
-                                    </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>
+                            <strong>Î≤†Ïä§Ìä∏ÏÖÄÎü¨</strong>
+                        </h4>
+                    </div>
+                    <div class="col-lg-offset-2 col-lg-8">
+                        <div class="owl-carousel owl-theme" id="bookimg">
+                            <div class="card">
+                                <img src="/resources/img/bestbook_again.jpeg" class="card-img-top" />
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>Ïö∞Î¶¨Îäî Ïñ∏Ï†úÎÇò Îã§ÏãúÎßåÎÇò</strong></h5>
                                 </div>
-                                <div class="card">
-                                    <img src="img/bestbook_children.jpg" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>ƒ•∆«ø° µ¸ ∫Ÿ¿∫ æ∆¿ÃµÈ</strong></h5>
-                                    </div>
+                            </div>
+                            <div class="card">
+                                <img src="/resources/img/bestbook_children.jpg" class="card-img-top" />
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>Ïπ†ÌåêÏóê Îî± Î∂ôÏùÄ ÏïÑÏù¥Îì§</strong></h5>
                                 </div>
-                                <div class="card">
-                                    <img src="img/bestbook_mangtae.jpg" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>∏¡≈¬ «“æ∆πˆ¡ˆ∞° ø¬¥Ÿ</strong></h5>
-                                    </div>
+                            </div>
+                            <div class="card">
+                                <img src="/resources/img/bestbook_mangtae.jpg" class="card-img-top" />
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>ÎßùÌÉú Ìï†ÏïÑÎ≤ÑÏßÄÍ∞Ä Ïò®Îã§</strong></h5>
                                 </div>
-                                <div class="card">
-                                    <img src="img/bestbook_noadult.jpg" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>æÓ∏•µÈ¿∫ ¿˝¥Î∑Œ æ» ±◊∑°?</strong></h5>
-                                    </div>
+                            </div>
+                            <div class="card">
+                                <img src="/resources/img/bestbook_noadult.jpg" class="card-img-top" />
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>Ïñ¥Î•∏Îì§ÏùÄ Ï†àÎåÄÎ°ú Ïïà Í∑∏Îûò?</strong></h5>
                                 </div>
-                                <div class="card">
-                                    <img src="img/bestbook_piano.jpg" class="card-img-top" />
-                                    <div class="card-body">
-                                        <h5 class="card-title"><strong>Ω£º” ««æ∆≥Î</strong></h5>
-                                    </div>
+                            </div>
+                            <div class="card">
+                                <img src="/resources/img/bestbook_piano.jpg" class="card-img-top" />
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>Ïà≤ÏÜç ÌîºÏïÑÎÖ∏</strong></h5>
                                 </div>
                             </div>
                         </div>
@@ -304,73 +70,67 @@
             </div>
         </div>
 
-        <div class="container" id="newbook">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h4>
-                        ø¿¥√¿« Ω≈∞£
-                    </h4>
-                </div>
-                <div class="col-lg-offset-2 col-lg-8">
-                    <div class="owl-carousel owl-theme" id="bookimg">
-                        <div class="card">
-                            <img src="img/bestbook_again.jpeg" class="card-img-top" />
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>øÏ∏Æ¥¬ æ¡¶≥™ ¥ŸΩ√∏∏≥™</strong></h5>
-                            </div>
+    </div>
+
+    <div class="container" id="newbook">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>
+                    Ïò§ÎäòÏùò Ïã†Í∞Ñ
+                </h4>
+            </div>
+            <div class="col-lg-offset-2 col-lg-8">
+                <div class="owl-carousel owl-theme" id="bookimg">
+                    <div class="card">
+                        <img src="/resources/img/bestbook_again.jpeg" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Ïö∞Î¶¨Îäî Ïñ∏Ï†úÎÇò Îã§ÏãúÎßåÎÇò</strong></h5>
                         </div>
-                        <div class="card">
-                            <img src="img/bestbook_children.jpg" class="card-img-top" />
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>ƒ•∆«ø° µ¸ ∫Ÿ¿∫ æ∆¿ÃµÈ</strong></h5>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <img src="/resources/img/bestbook_children.jpg" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Ïπ†ÌåêÏóê Îî± Î∂ôÏùÄ ÏïÑÏù¥Îì§</strong></h5>
                         </div>
-                        <div class="card">
-                            <img src="img/bestbook_mangtae.jpg" class="card-img-top" />
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>∏¡≈¬ «“æ∆πˆ¡ˆ∞° ø¬¥Ÿ</strong></h5>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <img src="/resources/img/bestbook_mangtae.jpg" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>ÎßùÌÉú Ìï†ÏïÑÎ≤ÑÏßÄÍ∞Ä Ïò®Îã§</strong></h5>
                         </div>
-                        <div class="card">
-                            <img src="img/bestbook_noadult.jpg" class="card-img-top" />
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>æÓ∏•µÈ¿∫ ¿˝¥Î∑Œ æ» ±◊∑°?</strong></h5>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <img src="/resources/img/bestbook_noadult.jpg" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Ïñ¥Î•∏Îì§ÏùÄ Ï†àÎåÄÎ°ú Ïïà Í∑∏Îûò?</strong></h5>
                         </div>
-                        <div class="card">
-                            <img src="img/bestbook_piano.jpg" class="card-img-top" />
-                            <div class="card-body">
-                                <h5 class="card-title"><strong>Ω£º” ««æ∆≥Î</strong></h5>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <img src="/resources/img/bestbook_piano.jpg" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Ïà≤ÏÜç ÌîºÏïÑÎÖ∏</strong></h5>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="resources/js/owl.carousel.js"></script>
-    <script src="resources/js/owl.carousel.min.js"></script>
-
+    </div>
 
     <script>
-            $('.owl-carousel').owlCarousel({
-                margin: 20,
-                nav: true,
-                loop: true,
-                dots: false,
-                responsive: {
-                    0: {
-                        items: 2,
-                    },
-                    600: {
-                        items: 4,
-                    }
+        $('.owl-carousel').owlCarousel({
+            margin: 20,
+            nav: true,
+            loop: true,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 2,
+                },
+                600: {
+                    items: 4,
                 }
-            })
-
+            }
+        })
     </script>
-</body>
-</html>
+<%@include file="./hf/footer.jsp"%>
