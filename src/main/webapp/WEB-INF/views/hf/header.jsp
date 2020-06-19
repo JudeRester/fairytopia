@@ -46,9 +46,13 @@
 				<c:when test="${!empty sessionScope.user.mem_id }">
 					<div class="user col-lg-offset-6 col-lg-2">
 						<div class="btn-group" role="group">
-							<button type="button" class="btn btn-default btn-user">
-								<span class="glyphicon glyphicon-envelope"></span>
-							</button>
+							<c:choose>
+								<c:when test="${sessionScope.user.mem_aut == 1 }">
+									<button type="button" class="btn btn-default btn-user">
+										<span class="glyphicon glyphicon-envelope"></span>
+									</button>
+								</c:when>
+							</c:choose>
 							<button type="button" class="btn btn-default btn-user">
 								<span class="glyphicon glyphicon-bell"></span>
 							</button>
@@ -76,8 +80,8 @@
 			<c:when test="${sessionScope.user.mem_aut == 1 }">
 				<div class="row">
 					<ul class="navtop list-inline list-unstyled">
-						<li class="col-lg-1"><a href="${pageContext.request.contextPath}/"><span
-								class="glyphicon glyphicon-home"></span>테일샵</a></li>
+						<li class="col-lg-1"><a href="${pageContext.request.contextPath}/">
+						<span class="glyphicon glyphicon-home"></span>테일샵</a></li>
 						<li class="two col-lg-2"><a href="/author/studio">메이킹스튜디오</a></li>
 						<li class="col-lg-2"><a href="">작가 작품 구하기</a></li>
 					</ul>

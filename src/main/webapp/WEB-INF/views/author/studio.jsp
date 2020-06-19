@@ -38,7 +38,7 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="work">
                                     <div class="list-group" id="right-work">
-                                        <h4>진행중인 작업실<button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-warning">작업실 생성</button></h4>
+                                        <h4>진행중인 작업실<button data-toggle="modal" data-target="#studioModal" type="button" class="btn btn-warning">작업실 생성</button></h4>
                                        		 작업실섬넬
                                         <h4 class="end">완료된 작업실</h4>
                                     </div>
