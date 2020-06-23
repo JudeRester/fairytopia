@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 /*왼 네비*/
 #nav-left {
 	padding: 170px 50px;
@@ -56,23 +58,30 @@
 
 /*작업실 생성*/
 .workplace {
-    padding-top: 20px;
+    padding: 20px 0px;
 }
 
 .workplace div {
     width: 300px;
     height: 120px;
     border: 1px solid lightgray;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
-.workplace div p {
+.workplace div a p {
     text-align: center;
     font-size: 20px;
-    padding-top: 5px;
+    padding-top: 10px;
     color: #393939;
 }
 
 .workplace div a:hover{
     text-decoration: none;
+    color: #ffa900;
+}
+
+.workplace div p{
+    font-size: 15px;
+    text-align: center;
+    padding-top: 15px;
 }
