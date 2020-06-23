@@ -58,7 +58,7 @@
 
 /*작업실 생성*/
 .workplace {
-    padding: 20px 0px;
+    padding-top: 20px;
 }
 
 .workplace div {
@@ -66,6 +66,7 @@
     height: 120px;
     border: 1px solid lightgray;
     border-radius: 10px;
+    padding: 20px 0px;
 }
 
 .workplace div a p {
@@ -73,6 +74,9 @@
     font-size: 20px;
     padding-top: 10px;
     color: #393939;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .workplace div a:hover{
@@ -81,7 +85,10 @@
 }
 
 .workplace div p{
-    font-size: 15px;
-    text-align: center;
-    padding-top: 15px;
+     font-size: 15px;
+     text-align: center;
+     padding: 5px 30px;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
 }
