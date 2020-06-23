@@ -27,7 +27,7 @@
 								<div class="list-group" id="right-all">
 									<a href="#" class="list-group-item text-center">
 										<h5>
-											전체 <span class="badge">2</span>
+											전체 <span class="badge">${fn:length(wplist) }</span>
 										</h5>
 									</a> <a href="#" class="list-group-item text-center">
 										<h5>
@@ -53,7 +53,7 @@
 									</h4>
 									<!-- 작업실섬넬 -->
 									<!-- 여기부터 작업실 리스트 -->
-									<div id="wplist">
+									<div>
 										<c:forEach items="${wplist }" var="wp">
 											<c:choose>
 												<c:when test="${wp.workplace_status =='2'.charAt(0) }">
@@ -70,6 +70,22 @@
 									</div>
 									<!-- 여기까지 작업실 리스트 -->
 									<h4 class="end">완료된 작업실</h4>
+									<div>
+										<c:forEach items="${wplist }" var="wp">
+											<c:choose>
+												<c:when test="${wp.workplace_status =='1'.charAt(0) }">
+												<div>
+													<a
+														href="/author/workplace?workplace_id=${wp.workplace_id }">
+														<p>${wp.workplace_name }</p>
+													</a>
+
+												</div>
+												</c:when>
+											</c:choose>
+										</c:forEach>
+									</div>
+									</div>
 								</div>
 							</div>
 						</div>
