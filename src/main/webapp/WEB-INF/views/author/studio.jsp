@@ -51,7 +51,8 @@
 										<button data-toggle="modal" data-target="#studioModal"
 											type="button" class="btn btn-warning">작업실 생성</button>
 									</h4>
-									작업실섬넬
+									<!-- 작업실섬넬 -->
+									<!-- 여기부터 작업실 리스트 -->
 									<div id="wplist">
 										<c:forEach items="${wplist }" var="wp">
 											<c:choose>
@@ -67,6 +68,7 @@
 											</c:choose>
 										</c:forEach>
 									</div>
+									<!-- 여기까지 작업실 리스트 -->
 									<h4 class="end">완료된 작업실</h4>
 								</div>
 							</div>
