@@ -53,7 +53,7 @@
 									</h4>
 									<!-- 작업실섬넬 -->
 									<!-- 여기부터 작업실 리스트 -->
-									<div>
+									<div class="workplace">
 										<c:forEach items="${wplist }" var="wp">
 											<c:choose>
 												<c:when test="${wp.workplace_status =='2'.charAt(0) }">
@@ -62,7 +62,7 @@
 														href="/author/workplace?workplace_id=${wp.workplace_id }">
 														<p>${wp.workplace_name }</p>
 													</a>
-
+													<p>${wp.workplace_detail }</p>
 												</div>
 												</c:when>
 											</c:choose>
@@ -79,7 +79,7 @@
 														href="/author/workplace?workplace_id=${wp.workplace_id }">
 														<p>${wp.workplace_name }</p>
 													</a>
-
+													<p>${wp.workplace_name }</p>
 												</div>
 												</c:when>
 											</c:choose>
