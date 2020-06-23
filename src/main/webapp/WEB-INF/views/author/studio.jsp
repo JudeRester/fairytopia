@@ -4,7 +4,7 @@
 <%@include file="../hf/header.jsp"%>
 
 <link href="/resources/css/studio.css" rel="stylesheet" />
-
+ 
 <hr />
 
 <div class="container-fulid">
@@ -53,7 +53,19 @@
 									</h4>
 									작업실섬넬
 									<div id="wplist">
-										
+										<c:forEach items="${wplist }" var="wp">
+											<c:choose>
+												<c:when test="${wp.workplace_status =='2'.charAt(0) }">
+												<div>
+													<a
+														href="/author/workplace?workplace_id=${wp.workplace_id }">
+														<p>${wp.workplace_name }</p>
+													</a>
+
+												</div>
+												</c:when>
+											</c:choose>
+										</c:forEach>
 									</div>
 									<h4 class="end">완료된 작업실</h4>
 								</div>
@@ -82,16 +94,16 @@
 						<label for="inputname" class="col-sm-3 control-label">작업실
 							이름</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" id="workplace_name" name="workplace_name"
-								placeholder="작업실 이름을 기입해 주세요">
+							<input type="text" class="form-control" id="workplace_name"
+								name="workplace_name" placeholder="작업실 이름을 기입해 주세요">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputtext" class="col-sm-3 control-label">작업실
 							설명</label>
 						<div class="col-sm-8">
-							<textarea class="form-control" id="workplace_detail" name="workplace_detail"
-								placeholder="작업실에 대한 간략한 설명을 적어주세요"></textarea>
+							<textarea class="form-control" id="workplace_detail"
+								name="workplace_detail" placeholder="작업실에 대한 간략한 설명을 적어주세요"></textarea>
 						</div>
 					</div>
 					<!-- <div class="form-group">
@@ -117,7 +129,7 @@
 					<!-- </form> -->
 				</div>
 				<div class="modal-footer">
-					<a href="#" id="cwpBtn"><h3 class="text-center">
+					<a href="" id="cwpBtn"><h3 class="text-center">
 							<span class="glyphicon glyphicon-plus"></span>새 작업실 생성
 						</h3></a>
 				</div>
@@ -127,18 +139,23 @@
 </div>
 
 <script>
-	$('#cwpBtn').click(function() {
-		var vo = $('#cwpForm').serialize().concat('&mem_id=${sessionScope.user.mem_id}');
-		console.log(vo);
-		/* $('#wplist').children().remove(); */
-		$.ajax({
-			url : '${pageConetext.request.contextPath}/author/createwp'
-			,type : 'post'
-			,data : vo
-			,always : function(){
-				window.location.replace(document.location.href);
-				}
-			});
-	});
+	$('#cwpBtn')
+			.click(
+					function() {
+						var vo = $('#cwpForm').serialize().concat(
+								'&mem_id=${sessionScope.user.mem_id}');
+						console.log(vo);
+						/* $('#wplist').children().remove(); */
+						$
+								.ajax({
+									url : '${pageConetext.request.contextPath}/author/createwp',
+									type : 'post',
+									data : vo,
+									always : function() {
+										window.location
+												.replace('${pageConetext.request.contextPath}/author/studio');
+									}
+								});
+					});
 </script>
 <%@include file="../hf/footer.jsp"%>

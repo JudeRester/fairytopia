@@ -4,13 +4,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yju.mapper.StudioMapper">
-	<insert id="createWorkplace" useGeneratedKeys="true"
-		keyProperty="workplace_id">
+	<insert id="createWorkplace" parameterType="com.yju.domain.WorkplaceVO">
+		<selectKey order="BEFORE" keyProperty="workplace_id" resultType="String">
+			select workplace_date('now') from dual
+		</selectKey>
 		insert into workplace(workplace_id,workplace_name, workplace_detail)
-		values(wp_id.nextval,#{workplace_name},#{workplace_name})
+		values(#{workplace_id},#{workplace_name},#{workplace_name})
 	</insert>
 	
 	<insert id="addAuthor">
 		insert into workplace_person values(#{workplace_id}, #{mem_id})
 	</insert>
+	
+	<select resultType="com.yju.domain.WorkplaceVO" id="getList" >
+		select * from workplace where workplace_id in (select workplace_id from workplace_person where mem_id=#{mem_id})
+	</select>
+	
 </mapper>
