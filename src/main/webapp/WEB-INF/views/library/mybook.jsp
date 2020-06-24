@@ -32,8 +32,7 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-
-
+    
     <div class="book">
         <div class="container" id="img">
             <img src="https://via.placeholder.com/150" alt="" />
