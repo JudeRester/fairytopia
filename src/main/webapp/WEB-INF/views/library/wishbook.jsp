@@ -14,8 +14,8 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="books"><a href="#"><b>모든 책</b></a></li>
-                    <li><a href="#"><b>선호 작품</b></a></li>
+                    <li><a href="#"><b>모든 책</b></a></li>
+                    <li class="books"><a href="#"><b>선호 작품</b></a></li>
                     <li><a href="#"><b>프리 드로우</b></a></li>
                     <li><a href="#"><b>녹음한 작품</b></a></li>
                 </ul>
@@ -33,7 +33,6 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-
     <div class="book">
         <div class="container" id="img">
             <img src="https://via.placeholder.com/150" alt="" />
@@ -50,22 +49,6 @@
 
     <div class="book">
         <div class="container" id="img">
-            <img src="https://via.placeholder.com/150" alt="" />
-            <img src="https://via.placeholder.com/150" alt="" />
-            <img src="https://via.placeholder.com/150" alt="" />
-            <img src="https://via.placeholder.com/150" alt="" />
-            <img src="https://via.placeholder.com/150" alt="" />
-        </div>
-
-        <div class="container">
-            <div id="line"></div>
-        </div>
-    </div>
-
-
-    <div class="book">
-        <div class="container" id="img">
-            <img src="https://via.placeholder.com/150" alt="" />
             <img src="https://via.placeholder.com/150" alt="" />
             <img src="https://via.placeholder.com/150" alt="" />
         </div>
