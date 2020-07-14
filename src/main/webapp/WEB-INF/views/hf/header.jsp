@@ -1,7 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -33,7 +35,18 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/">
 					FAIRYTOPIA </a>
 			</div>
-
+			
+			 <div class="col-lg-6 col-xs-4">
+                <div class="input-group ">
+                    <input type="text" class="form-control input-lg" placeholder="도서검색">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default input-lg" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+			
 			<c:choose>
 				<c:when test="${empty sessionScope.user.mem_id }">
 					<div class="login col-lg-offset-6 col-lg-2 col-xs-3">
@@ -182,7 +195,6 @@
 				}
 			});
 		});
-
 		function logout() {
 			$.ajax({
 				url : '${pageContext.request.contextPath}/member/logout',
