@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+#line {
+     background-attachment: fixed;
+     width: 1046px;
+     height: 1px;
+     background: lightgray;
+}
+
+.header {
+     padding: 10px 0px;
+}
+
+.header h3 a {
+     color: #ffa900;
+}
+
+.header h3 a:hover {
+     color: #ffa900;
+     text-decoration: none;
+}
+
+.navbar {
+     background-color: white;
+}
+
+.navbar-header {
+     padding-top: 7px;
+     padding-right: 40px;
+}
+
+.navbar-default ul li a {
+     font-size: 17px;
+}
+
+.input-group {
+     width: 300px;
+}
+
+.navbar-default .nav .active {
+     background-color: white;
+}
+
+.book {
+     padding-left: 40px;
+}
+
+#img {
+     padding-top: 70px;
+}
+
+#img img {
+     padding-right: 70px;
+}
+
+.collapse ul .books a {
+     color:  #575757;
+}

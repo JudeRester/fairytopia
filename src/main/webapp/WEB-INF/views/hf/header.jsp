@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -20,8 +20,10 @@
 <link href="/resources/css/owl.theme.default.css" rel="stylesheet" />
 <link href="/resources/css/main.css" rel="stylesheet" />
 <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="/resources/js/owl.carousel.js"></script>
 <script src="/resources/js/owl.carousel.min.js"></script>
 
@@ -47,13 +49,11 @@
 				<c:when test="${!empty sessionScope.user.mem_id }">
 					<div class="user col-lg-offset-6 col-lg-2">
 						<div class="btn-group" role="group">
-							<c:choose>
-								<c:when test="${sessionScope.user.mem_aut == 1 }">
-									<button type="button" class="btn btn-default btn-user">
-										<span class="glyphicon glyphicon-envelope"></span>
-									</button>
-								</c:when>
-							</c:choose>
+							<c:if test="${sessionScope.user.mem_aut == 1 }">
+								<button type="button" class="btn btn-default btn-user">
+									<span class="glyphicon glyphicon-envelope"></span>
+								</button>
+							</c:if>
 							<button type="button" class="btn btn-default btn-user">
 								<span class="glyphicon glyphicon-bell"></span>
 							</button>
@@ -64,7 +64,7 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href=""><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
-								<li><a href=""><span class="glyphicon glyphicon-book"></span>내
+								<li><a href="/library/mybook"><span class="glyphicon glyphicon-book"></span>내
 										서재</a></li>
 								<li><a href="" onclick="logout()"><span
 										class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
@@ -77,46 +77,77 @@
 		</div>
 	</div>
 	<div class="container">
-		<c:choose>
-			<c:when test="${sessionScope.user.mem_aut == 1 }">
-				<div class="row">
-					<ul class="navtop list-inline list-unstyled">
-						<li class="col-lg-1"><a href="${pageContext.request.contextPath}/">
-						<span class="glyphicon glyphicon-home"></span>테일샵</a></li>
-						<li class="two col-lg-2"><a href="/author/studio">메이킹스튜디오</a></li>
-						<li class="col-lg-2"><a href="">작가 작품 구하기</a></li>
-					</ul>
-				</div>
-			</c:when>
-		</c:choose>
+		<c:if test="${sessionScope.user.mem_aut == 1 }">
+			<div class="row">
+				<ul class="navtop list-inline list-unstyled">
+					<li class="col-lg-1"><a
+						href="${pageContext.request.contextPath}/"> <span
+							class="glyphicon glyphicon-home"></span>테일샵
+					</a></li>
+					<li class="two col-lg-2"><a href="/author/studio">메이킹스튜디오</a></li>
+					<li class="col-lg-2"><a href="">작가 작품 구하기</a></li>
+				</ul>
+			</div>
+		</c:if>
 
 
 	</div>
+	<!-- 네비게이션바 -->
+	<%-- <c:set var="url" value="${requestScope['javax.servlet.forward.servlet_path']}"/> --%>
+	<c:set var="uri"
+		value="${ fn:split(requestScope['javax.servlet.forward.servlet_path'], '/')[0] }" />
+	<c:choose>
+		<c:when test="${uri eq 'library' }">
+			<nav class="navbar navbar-default">
+				<div class="container">
+					<div class="navbar-header">
+						<h4>
+							<strong>내 서재</strong>
+						</h4>
+					</div>
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="books"><a href="#"><b>모든 책</b></a></li>
+							<li><a href="#"><b>선호 작품</b></a></li>
+							<li><a href="#"><b>프리 드로우</b></a></li>
+							<li><a href="#"><b>녹음한 작품</b></a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+		</c:when>
+		<c:otherwise>
+			<nav class="navbar navbar-default sticky-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+					</div>
 
-	<nav class="navbar navbar-default sticky-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-			</div>
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-left">
+							<li><a href="">전래동화</a></li>
+							<li><a href="">환상동화</a></li>
+							<li><a href="">생활동화</a></li>
+							<li><a href="">학습동화</a></li>
+							<li><a href="">활동그림책</a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+		</c:otherwise>
+	</c:choose>
 
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-left">
-					<li><a href="">전래동화</a></li>
-					<li><a href="">환상동화</a></li>
-					<li><a href="">생활동화</a></li>
-					<li><a href="">학습동화</a></li>
-					<li><a href="">활동그림책</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
 
 	<!-- Modal -->
 	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
@@ -159,30 +190,35 @@
 
 
 	<script>
-		$('#loginBtn').click(function() {
-			var vo = $('#loginForm').serialize();
-			console.log(vo);
-			/* var mem_id = $('#mem_id').val();
-			var mem_passwd = $('#mem_passwd').val();
-			 */
-			$.ajax({
-				url : '${pageContext.request.contextPath}/member/login',
-				type : 'post',
-				data : vo,
-				success : function(data) {
-					console.log(data);
-					if (data == 1) {
-						window.alert('사용자 정보가 일치하지 않습니다.');
-					} else {
-						window.location.replace('${pageContext.request.contextPath}');
-						console.log('성공');
-					}
-				},
-				error : function() {
-					console.log("실패");
-				}
-			});
-		});
+		$('#loginBtn')
+				.click(
+						function() {
+							var vo = $('#loginForm').serialize();
+							console.log(vo);
+							/* var mem_id = $('#mem_id').val();
+							var mem_passwd = $('#mem_passwd').val();
+							 */
+							$
+									.ajax({
+										url : '${pageContext.request.contextPath}/member/login',
+										type : 'post',
+										data : vo,
+										success : function(data) {
+											console.log(data);
+											if (data == 1) {
+												window
+														.alert('사용자 정보가 일치하지 않습니다.');
+											} else {
+												window.location
+														.replace('${pageContext.request.contextPath}');
+												console.log('성공');
+											}
+										},
+										error : function() {
+											console.log("실패");
+										}
+									});
+						});
 
 		function logout() {
 			$.ajax({

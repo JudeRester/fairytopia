@@ -20,7 +20,7 @@ import com.yju.service.StudioService;
 @Controller
 @RequestMapping("/author")
 public class AuthorController {
-	private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger log = LoggerFactory.getLogger(AuthorController.class);
 
 	@Autowired
 	private StudioService service;
@@ -29,7 +29,7 @@ public class AuthorController {
 	public String studio(Model model, HttpServletRequest request) {
 		if (request.getSession().getAttribute("user") == null
 				|| ((MemberVO) request.getSession().getAttribute("user")).getMem_aut() == 0) {
-			return "/main";
+			return "redirect:/";
 		} else {
 			List<WorkplaceVO> list = service.getList((MemberVO) request.getSession().getAttribute("user"));
 			log.info(list.toString());

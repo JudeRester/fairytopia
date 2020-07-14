@@ -4,7 +4,7 @@
 <%@include file="../hf/header.jsp"%>
 
 <link href="/resources/css/studio.css" rel="stylesheet" />
- 
+
 <hr />
 
 <div class="container-fulid">
@@ -57,13 +57,13 @@
 										<c:forEach items="${wplist }" var="wp">
 											<c:choose>
 												<c:when test="${wp.workplace_status =='2'.charAt(0) }">
-												<div>
-													<a
-														href="/author/workplace?workplace_id=${wp.workplace_id }">
-														<p>${wp.workplace_name }</p>
-													</a>
-													<p>${wp.workplace_detail }</p>
-												</div>
+													<div>
+														<a
+															href="/author/workplace?workplace_id=${wp.workplace_id }">
+															<p>${wp.workplace_name }</p>
+														</a>
+														<p>${wp.workplace_detail }</p>
+													</div>
 												</c:when>
 											</c:choose>
 										</c:forEach>
@@ -74,17 +74,16 @@
 										<c:forEach items="${wplist }" var="wp">
 											<c:choose>
 												<c:when test="${wp.workplace_status =='1'.charAt(0) }">
-												<div>
-													<a
-														href="/author/workplace?workplace_id=${wp.workplace_id }">
+													<div>
+														<a
+															href="/author/workplace?workplace_id=${wp.workplace_id }">
+															<p>${wp.workplace_name }</p>
+														</a>
 														<p>${wp.workplace_name }</p>
-													</a>
-													<p>${wp.workplace_name }</p>
-												</div>
+													</div>
 												</c:when>
 											</c:choose>
 										</c:forEach>
-									</div>
 									</div>
 								</div>
 							</div>
@@ -92,8 +91,8 @@
 					</div>
 				</div>
 			</div>
-			<!--toppanel-->
 		</div>
+		<!--toppanel-->
 	</div>
 </div>
 
@@ -143,8 +142,8 @@
                                 </div>
                             </div>
                             <small>작업실 만든 후 변경 가능</small>
-                        </div> -->
-					<!-- </form> -->
+                        </div>
+					</form> -->
 				</div>
 				<div class="modal-footer">
 					<a href="" id="cwpBtn"><h3 class="text-center">
