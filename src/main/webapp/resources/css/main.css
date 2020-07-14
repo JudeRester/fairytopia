@@ -14,6 +14,10 @@
 	font-size: 25px;
 }
 
+.login {
+    padding-left:50px;
+}
+        
 .login .btn {
 	margin-top: 8px;
 	background-color: #ffa900;
@@ -87,24 +91,17 @@
 }
 
 /*도서검색*/
-#search {
-	padding: 60px 0;
-}
-
 .input-group {
-	width: 500px;
-	padding-left: 20px;
+    padding-left:40px;
 }
-
+        
 .input-group-btn .glyphicon {
-	/* color: lightsalmon; */
-	color: #ffa900;
-	font-size: 20px;
+    color: #ffa900;
+    font-size:20px;
 }
 
-#search h4 {
-	padding-left: 130px;
-	color: #525252;
+.input-group-btn button:hover {
+    background-color: white;
 }
 
 /*베스트 셀러 e8cb99  f1c0a7 #f6b07a*/

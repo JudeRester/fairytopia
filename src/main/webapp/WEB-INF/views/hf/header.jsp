@@ -32,14 +32,23 @@
 
 	<div class="container">
 		<div class="row" id="header">
-			<div class="col-lg-4 col-xs-6">
+			<div class="col-lg-2 col-xs-5">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/">
 					FAIRYTOPIA </a>
 			</div>
-
+			 <div class="col-lg-6 col-xs-4">
+                <div class="input-group ">
+                    <input type="text" class="form-control input-lg" placeholder="도서검색">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default input-lg" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
 			<c:choose>
 				<c:when test="${empty sessionScope.user.mem_id }">
-					<div class="login col-lg-offset-6 col-lg-2 col-xs-3">
+					<div class="login col-lg-offset-1 col-lg-2 col-xs-3">
 						<button type="button" class="btn btn-default" data-toggle="modal"
 							data-target="#loginModal">
 							<strong>로그인</strong>
