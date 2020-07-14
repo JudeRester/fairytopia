@@ -1,8 +1,11 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -53,16 +56,19 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/">
 					FAIRYTOPIA </a>
 			</div>
-			<div class="col-lg-6 col-xs-4">
-				<div class="input-group ">
-					<input type="text" class="form-control input-lg" placeholder="도서검색">
-					<span class="input-group-btn">
-						<button class="btn btn-default input-lg" type="button">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</span>
-				</div>
-			</div>
+
+			
+			 <div class="col-lg-6 col-xs-4">
+                <div class="input-group ">
+                    <input type="text" class="form-control input-lg" placeholder="도서검색">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default input-lg" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+			
 			<c:choose>
 				<c:when test="${empty sessionScope.user.mem_id }">
 					<div class="login col-lg-offset-1 col-lg-2 col-xs-3">
@@ -216,35 +222,32 @@
 
 
 	<script>
-		$('#loginBtn')
-				.click(
-						function() {
-							var dto = $('#loginForm').serialize();
-							console.log(dto);
-							/* var mem_id = $('#mem_id').val();
-							var mem_passwd = $('#mem_passwd').val();
-							 */
-							$.ajax({
-										url : '${pageContext.request.contextPath}/member/login',
-										type : 'post',
-										data : dto,
-										success : function(data) {
-											console.log(data);
-											if (data == 1) {
-												window
-														.alert('사용자 정보가 일치하지 않습니다.');
-											} else {
-												window.location
-														.replace('${pageContext.request.contextPath}');
-												console.log('성공');
-											}
-										},
-										error : function() {
-											console.log("실패");
-										}
-									});
-						});
 
+		$('#loginBtn').click(function() {
+			var vo = $('#loginForm').serialize();
+			console.log(vo);
+			/* var mem_id = $('#mem_id').val();
+			var mem_passwd = $('#mem_passwd').val();
+			 */
+			$.ajax({
+				url : '${pageContext.request.contextPath}/member/login',
+				type : 'post',
+				data : vo,
+				success : function(data) {
+					console.log(data);
+					if (data == 1) {
+						window.alert('사용자 정보가 일치하지 않습니다.');
+					} else {
+						window.location.replace('${pageContext.request.contextPath}');
+						console.log('성공');
+					}
+				},
+				error : function() {
+					console.log("실패");
+				}
+			});
+		});
+		
 		function logout() {
 			$.ajax({
 				url : '${pageContext.request.contextPath}/member/logout',
