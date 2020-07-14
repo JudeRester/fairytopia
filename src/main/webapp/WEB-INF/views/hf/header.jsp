@@ -56,7 +56,6 @@
 					FAIRYTOPIA </a>
 			</div>
 
-			
 			 <div class="col-lg-6 col-xs-4">
                 <div class="input-group ">
                     <input type="text" class="form-control input-lg" placeholder="도서검색">
@@ -265,7 +264,6 @@
 				}
 			});
 		});
-
 		function logout() {
 			$.ajax({
 				url : '${pageContext.request.contextPath}/member/logout',
