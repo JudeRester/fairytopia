@@ -260,7 +260,7 @@
 				}
 			});
 		});
-		
+
 		function logout() {
 			$.ajax({
 				url : '${pageContext.request.contextPath}/member/logout',
