@@ -4,8 +4,8 @@
 <%@include file="../hf/header.jsp"%>
 
 <link href="/resources/css/studio.css" rel="stylesheet" />
-
-<hr />
+<!-- 
+<hr /> -->
 
 <div class="container-fulid">
 	<div class="row">
