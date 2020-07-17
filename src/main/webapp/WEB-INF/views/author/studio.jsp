@@ -60,10 +60,16 @@
 													<div>
 														<a
 															href="/author/workplace?workplace_id=${wp.workplace_id }">
-															<img src="/fairy/workplace/${wp.workplace_id }/0.png" alt="" style="width:200px; height:100px;"/>
+															<img src="/fairy/workplace/${wp.workplace_id }/0.png"
+															alt="" class="img-circle" />
 															<p>${wp.workplace_name }</p>
 														</a>
-														<p>${wp.workplace_detail }</p>
+															<div class="thu">
+															<img src="https://via.placeholder.com/150" alt="..."
+																class="img-circle"> <img
+																src="https://via.placeholder.com/150" alt="..."
+																class="img-circle">
+														</div>
 													</div>
 												</c:when>
 											</c:choose>
@@ -78,9 +84,15 @@
 													<div>
 														<a
 															href="/author/workplace?workplace_id=${wp.workplace_id }">
-															<p>><br/>${wp.workplace_name }</p>
+															<p>
+																><br />${wp.workplace_name }</p>
 														</a>
-														<p>${wp.workplace_name }</p>
+														<div class="thu">
+															<img src="https://via.placeholder.com/150" alt="..."
+																class="img-circle"> <img
+																src="https://via.placeholder.com/150" alt="..."
+																class="img-circle">
+														</div>
 													</div>
 												</c:when>
 											</c:choose>
@@ -105,7 +117,9 @@
 			<div class="modal-header">
 				<h3 class="modal-title text-center" id="myModalLabel">새 작업실 만들기</h3>
 			</div>
-			<form class="form-horizontal" id="cwpForm" name="cwpForm" enctype="multipart/form-data" action="/author/createwp" method="post">
+			<form class="form-horizontal" id="cwpForm" name="cwpForm"
+				enctype="multipart/form-data" action="/author/createwp"
+				method="post">
 				<div class="modal-body">
 					<!--  <form class="form-horizontal"> -->
 					<div class="form-group">
@@ -125,34 +139,17 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="workplace_thumbnail" class="col-sm-3 control-label">작업실 썸네일</label>
-						<input type="file" id="workplace_thumbnail" name="workplace_thumbnail" placeholder="파일 선택" />
+						<label for="workplace_thumbnail" class="col-sm-3 control-label">작업실
+							썸네일</label> <input type="file" id="workplace_thumbnail"
+							name="workplace_thumbnail" placeholder="파일 선택" />
 					</div>
-					<input type="hidden" name="mem_id" value="${sessionScope.user.mem_id}"/>
-					<!-- <div class="form-group">
-                            <label for="inputtext" class="col-sm-3 control-label">장르</label>
-                            <div class="col-sm-4">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                     			   장르
-                                        <span class="caret"></span>
-                                    </button>
-                                    
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">전래동화</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">환상동화</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">생활동화</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">학습동화</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">활동그림책</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <small>작업실 만든 후 변경 가능</small>
-                        </div>
-					</form> -->
+					<input type="hidden" name="mem_id"
+						value="${sessionScope.user.mem_id}" />
+
 				</div>
 				<div class="modal-footer">
-					<a href="javascript:cwpForm.submit();" id="cwpBtn"><h3 class="text-center">
+					<a href="javascript:cwpForm.submit();" id="cwpBtn"><h3
+							class="text-center">
 							<span class="glyphicon glyphicon-plus"></span>새 작업실 생성
 						</h3></a>
 				</div>
@@ -161,25 +158,4 @@
 	</div>
 </div>
 
-<!-- <script>
-	$('#cwpBtn')
-			.click(
-					function() {
-						var vo = $('#cwpForm').serialize().concat(
-								'&mem_id=${sessionScope.user.mem_id}');
-						window.alert(vo);
-						console.log(vo);
-						/* $('#wplist').children().remove(); */
-						$
-								.ajax({
-									url : '${pageConetext.request.contextPath}/author/createwp',
-									type : 'post',
-									data : vo
-									/* always : function() {
-										 window.location
-												.replace('${pageConetext.request.contextPath}/author/studio'); 
-									} */
-								});
-					});
-</script> -->
 <%@include file="../hf/footer.jsp"%>
