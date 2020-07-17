@@ -7,6 +7,13 @@ public class WorkplaceVO {
 	char workplace_status;
 	String mem_id;
 
+	/*
+	 * MultipartFile workplace_thumbnail;
+	 * 
+	 * public MultipartFile getWorkplace_thumbnail() { return workplace_thumbnail; }
+	 * public void setWorkplace_thumbnail(MultipartFile workplace_thumbnail) {
+	 * this.workplace_thumbnail = workplace_thumbnail; }
+	 */
 	public String getMem_id() {
 		return mem_id;
 	}

@@ -19,7 +19,7 @@ import com.yju.service.MemberService;
 
 @Controller
 @RequestMapping("/android/member")
-public class MemberController {
+public class AndroidMemberController {
 
 	private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 

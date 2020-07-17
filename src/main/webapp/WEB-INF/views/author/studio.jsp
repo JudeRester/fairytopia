@@ -60,6 +60,7 @@
 													<div>
 														<a
 															href="/author/workplace?workplace_id=${wp.workplace_id }">
+															<img src="/fairy/workplace/${wp.workplace_id }/0.png" alt="" style="width:200px; height:100px;"/>
 															<p>${wp.workplace_name }</p>
 														</a>
 														<p>${wp.workplace_detail }</p>
@@ -77,7 +78,7 @@
 													<div>
 														<a
 															href="/author/workplace?workplace_id=${wp.workplace_id }">
-															<p>${wp.workplace_name }</p>
+															<p>><br/>${wp.workplace_name }</p>
 														</a>
 														<p>${wp.workplace_name }</p>
 													</div>
@@ -104,7 +105,7 @@
 			<div class="modal-header">
 				<h3 class="modal-title text-center" id="myModalLabel">새 작업실 만들기</h3>
 			</div>
-			<form class="form-horizontal" id="cwpForm">
+			<form class="form-horizontal" id="cwpForm" name="cwpForm" enctype="multipart/form-data" action="/author/createwp" method="post">
 				<div class="modal-body">
 					<!--  <form class="form-horizontal"> -->
 					<div class="form-group">
@@ -123,6 +124,11 @@
 								name="workplace_detail" placeholder="작업실에 대한 간략한 설명을 적어주세요"></textarea>
 						</div>
 					</div>
+					<div class="form-group">
+						<label for="workplace_thumbnail" class="col-sm-3 control-label">작업실 썸네일</label>
+						<input type="file" id="workplace_thumbnail" name="workplace_thumbnail" placeholder="파일 선택" />
+					</div>
+					<input type="hidden" name="mem_id" value="${sessionScope.user.mem_id}"/>
 					<!-- <div class="form-group">
                             <label for="inputtext" class="col-sm-3 control-label">장르</label>
                             <div class="col-sm-4">
@@ -146,7 +152,7 @@
 					</form> -->
 				</div>
 				<div class="modal-footer">
-					<a href="" id="cwpBtn"><h3 class="text-center">
+					<a href="javascript:cwpForm.submit();" id="cwpBtn"><h3 class="text-center">
 							<span class="glyphicon glyphicon-plus"></span>새 작업실 생성
 						</h3></a>
 				</div>
@@ -155,24 +161,25 @@
 	</div>
 </div>
 
-<script>
+<!-- <script>
 	$('#cwpBtn')
 			.click(
 					function() {
 						var vo = $('#cwpForm').serialize().concat(
 								'&mem_id=${sessionScope.user.mem_id}');
+						window.alert(vo);
 						console.log(vo);
 						/* $('#wplist').children().remove(); */
 						$
 								.ajax({
 									url : '${pageConetext.request.contextPath}/author/createwp',
 									type : 'post',
-									data : vo,
-									always : function() {
-										window.location
-												.replace('${pageConetext.request.contextPath}/author/studio');
-									}
+									data : vo
+									/* always : function() {
+										 window.location
+												.replace('${pageConetext.request.contextPath}/author/studio'); 
+									} */
 								});
 					});
-</script>
+</script> -->
 <%@include file="../hf/footer.jsp"%>

@@ -9,7 +9,7 @@
 			select workplace_date('now') from dual
 		</selectKey>
 		insert into workplace(workplace_id,workplace_name, workplace_detail)
-		values(#{workplace_id},#{workplace_name},#{workplace_name})
+		values(#{workplace_id},#{workplace_name},#{workplace_detail})
 	</insert>
 	
 	<insert id="addAuthor">
