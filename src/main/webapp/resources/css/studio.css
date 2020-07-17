@@ -55,6 +55,8 @@
 }
 
 
+/*작업실 생성*/
+
 
         .workplace {
             padding-top: 20px;
@@ -108,5 +110,4 @@
         .workplace div a:hover{
             text-decoration: none;
             color: #ffa900;
-
         }
