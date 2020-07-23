@@ -1,23 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@include file="../hf/stheader.jsp"%>
+
+<%@include file="../hf/header.jsp"%>
 
 <link href="/resources/css/workroom.css" rel="stylesheet" />
-<script src="/resources/js/workroom.js"></script>
-<div class="container">
-	<div class="row">
-		<ul class="navtop list-inline list-unstyled">
-			<li class="col-sm-2"><a href="studio">
-					<h4>
-						<span class="glyphicon glyphicon-chevron-left"></span>작업실
-					</h4>
-			</a></li>
-			<li class="col-sm-2"><h4>일정:</h4></li>
-			<li class="col-sm-2"><h4>완료 페이지:</h4></li>
-		</ul>
-	</div>
-</div>
+
+
+    <div class="container">
+        <div class="row">
+            <ul class="navtop list-inline list-unstyled">
+                <li class="col-sm-2">
+
+                	<a href="studio.html">
+                		<h4><span class="glyphicon glyphicon-chevron-left"></span>작업실</h4>
+                	</a>
+                </li>
+                <li class="col-sm-2"><h4>일정: </h4></li>
+                <li class="col-sm-2"><h4>완료 페이지: </h4></li>
+            </ul>
+        </div>
+    </div>
 
 <hr />
 
@@ -189,44 +192,37 @@
 	</div>
 </div>
 
-<!--작가 모달-->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
-	aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				작가 초대 하기
-			</div>
+	<!-- 모달 -->
 
-			<div class="modal-body" style="padding-left: 50px;">
-				<table>
-					<tr>
-						<td class="invite-list left">
-							<ul id="invite">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-							</ul>
-						</td>
-						<td><button class="btn btn-sm" id="add">< 초대</button> <br />
-							<br />
-							<button class="btn btn-sm" id="remove">취소 ></button></td>
-						<td class="invite-list right">
-							<ul id="nomi">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="myModalLabel"><b>일정</b></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
 
-							</ul>
-						</td>
-					</tr>
-				</table>
+                        <div class="input-group date" id="datetimepicker2" data-target="#datetimepicker2" data-toggle="datetimepicker" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" placeholder="시작일" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
 
-				<!-- <div class="invite-list left">
-                    	
+                            </span>
+                        </div>
                     </div>
-                    <div class="button-area" style="display:inline-block;vertical-align: middle;">
-                    	<button>< 초대</button><br />
-                    	<button>취소 ></button>
+                    <div class="form-group">
+
+                        <div class="input-group date" id="datetimepicker3" data-target="#datetimepicker3" data-toggle="datetimepicker" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" placeholder="마감일" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+
+                            </span>
+                        </div>
+
                     </div>
                     <div class="invite-list right">
                     </div> -->
@@ -284,5 +280,34 @@
 	});
 </script>
 
+
+    <script type="text/javascript">
+
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                    inline: true,
+                    sideBySide: true,
+                    format: 'L'
+
+
+                });
+            });
+
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    format: 'L'
+                });
+                $('#datetimepicker3').datetimepicker({
+                    format: 'L',
+                    useCurrent: false
+                });
+                $("#datetimepicker2").on("change.datetimepicker", function (e) {
+                    $('#datetimepicker3').datetimepicker('minDate', e.date);
+                });
+                $("#datetimepicker3").on("change.datetimepicker", function (e) {
+                    $('#datetimepicker2').datetimepicker('maxDate', e.date);
+                });
+            });
+    </script>
 
 <%@include file="../hf/footer.jsp"%>
