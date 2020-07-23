@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@include file="../hf/stheader.jsp"%>
+
+<%@include file="../hf/header.jsp"%>
 
 <link href="/resources/css/workroom.css" rel="stylesheet" />
-    
+
+
     <div class="container">
         <div class="row">
             <ul class="navtop list-inline list-unstyled">
                 <li class="col-sm-2">
-                	<a href="studio">
+
+                	<a href="studio.html">
                 		<h4><span class="glyphicon glyphicon-chevron-left"></span>작업실</h4>
                 	</a>
                 </li>
@@ -220,7 +223,9 @@
     </div> <!-- container-fuild -->
 
 	<!-- 모달 -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -229,18 +234,22 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <div class='input-group date' id='datetimepicker2'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
+
+                        <div class="input-group date" id="datetimepicker2" data-target="#datetimepicker2" data-toggle="datetimepicker" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" placeholder="시작일" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+
                             </span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class='input-group date' id='datetimepicker3'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
+
+                        <div class="input-group date" id="datetimepicker3" data-target="#datetimepicker3" data-toggle="datetimepicker" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" placeholder="마감일" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+
                             </span>
                         </div>
                     </div>
@@ -259,29 +268,34 @@
         </div>
     </div>
 
- <script type="text/javascript">
+
+    <script type="text/javascript">
+
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     inline: true,
                     sideBySide: true,
                     format: 'L'
+
+
                 });
             });
-        $(function () {
-            $('#datetimepicker2').datetimepicker({
-                format: 'L'
+
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    format: 'L'
+                });
+                $('#datetimepicker3').datetimepicker({
+                    format: 'L',
+                    useCurrent: false
+                });
+                $("#datetimepicker2").on("change.datetimepicker", function (e) {
+                    $('#datetimepicker3').datetimepicker('minDate', e.date);
+                });
+                $("#datetimepicker3").on("change.datetimepicker", function (e) {
+                    $('#datetimepicker2').datetimepicker('maxDate', e.date);
+                });
             });
-            $('#datetimepicker3').datetimepicker({
-                useCurrent: false,
-                format: 'L'
-            });
-            $("#datetimepicker2").on("dp.change", function (e) {
-                $('#datetimepicker3').data("DateTimePicker").minDate(e.date);
-            });
-            $("#datetimepicker3").on("dp.change", function (e) {
-                $('#datetimepicker2').data("DateTimePicker").maxDate(e.date);
-            });
-        });
     </script>
 
     
