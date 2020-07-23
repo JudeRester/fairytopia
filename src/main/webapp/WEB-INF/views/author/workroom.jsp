@@ -221,7 +221,8 @@
     </div> <!-- container-fuild -->
 
 	<!-- 모달 -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
         <div class="modal-dialog">
             <div class="modal-content">
@@ -232,20 +233,19 @@
                 <div class="modal-body">
                     <div class="form-group">
 
-                        <div class="input-group date" id="datetimepicker2" data-target="#datetimepicker2" data-toggle="datetimepicker" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" placeholder="시작일" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
 
                             </span>
                         </div>
                     </div>
                     <div class="form-group">
-
-                        <div class="input-group date" id="datetimepicker3" data-target="#datetimepicker3" data-toggle="datetimepicker" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" placeholder="마감일" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+                        <div class='input-group date' id='datetimepicker3'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
 
                             </span>
                         </div>
@@ -265,9 +265,7 @@
         </div>
     </div>
 
-
-    <script type="text/javascript">
-
+ <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     inline: true,
@@ -277,21 +275,21 @@
                 });
             });
 
-            $(function () {
-                $('#datetimepicker2').datetimepicker({
-                    format: 'L'
-                });
-                $('#datetimepicker3').datetimepicker({
-                    format: 'L',
-                    useCurrent: false
-                });
-                $("#datetimepicker2").on("change.datetimepicker", function (e) {
-                    $('#datetimepicker3').datetimepicker('minDate', e.date);
-                });
-                $("#datetimepicker3").on("change.datetimepicker", function (e) {
-                    $('#datetimepicker2').datetimepicker('maxDate', e.date);
-                });
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
+                format: 'L'
             });
+            $('#datetimepicker3').datetimepicker({
+                useCurrent: false,
+                format: 'L'
+            });
+            $("#datetimepicker2").on("dp.change", function (e) {
+                $('#datetimepicker3').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker3").on("dp.change", function (e) {
+                $('#datetimepicker2').data("DateTimePicker").maxDate(e.date);
+            });
+        });
     </script>
 
     
