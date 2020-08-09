@@ -19,11 +19,28 @@
 <link href="/resources/css/owl.carousel.css" rel="stylesheet" />
 <link href="/resources/css/owl.theme.default.css" rel="stylesheet" />
 <link href="/resources/css/main.css" rel="stylesheet" />
-<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous"> -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ko.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+ -->
+
 <script src="/resources/js/owl.carousel.js"></script>
 <script src="/resources/js/owl.carousel.min.js"></script>
 
@@ -36,16 +53,16 @@
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/">
 					FAIRYTOPIA </a>
 			</div>
-			 <div class="col-lg-6 col-xs-4">
-                <div class="input-group ">
-                    <input type="text" class="form-control input-lg" placeholder="도서검색">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default input-lg" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-            </div>
+			<div class="col-lg-6 col-xs-4">
+				<div class="input-group ">
+					<input type="text" class="form-control input-lg" placeholder="도서검색">
+					<span class="input-group-btn">
+						<button class="btn btn-default input-lg" type="button">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+				</div>
+			</div>
 			<c:choose>
 				<c:when test="${empty sessionScope.user.mem_id }">
 					<div class="login col-lg-offset-1 col-lg-2 col-xs-3">
@@ -56,7 +73,7 @@
 					</div>
 				</c:when>
 				<c:when test="${!empty sessionScope.user.mem_id }">
-					<div class="user col-lg-offset-6 col-lg-2">
+					<div class="user col-lg-offset-1 col-lg-2">
 						<div class="btn-group" role="group">
 							<c:if test="${sessionScope.user.mem_aut == 1 }">
 								<button type="button" class="btn btn-default btn-user">
@@ -73,8 +90,8 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href=""><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
-								<li><a href="/library/mybook"><span class="glyphicon glyphicon-book"></span>내
-										서재</a></li>
+								<li><a href="/library/mybook"><span
+										class="glyphicon glyphicon-book"></span>내 서재</a></li>
 								<li><a href="" onclick="logout()"><span
 										class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
 							</ul>
@@ -94,7 +111,7 @@
 							class="glyphicon glyphicon-home"></span>테일샵
 					</a></li>
 					<li class="two col-lg-2"><a href="/author/studio">메이킹스튜디오</a></li>
-					<li class="col-lg-2"><a href="">작가 작품 구하기</a></li>
+					<li class="col-lg-2"><a href="/author/colleague">작가 작품 구하기</a></li>
 				</ul>
 			</div>
 		</c:if>

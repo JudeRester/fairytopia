@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@include file="../hf/header.jsp"%>
+<%@include file="../hf/stheader.jsp"%>
 
 <link href="/resources/css/studio.css" rel="stylesheet" />
 <!-- 
@@ -59,7 +59,7 @@
 												<c:when test="${wp.workplace_status =='2'.charAt(0) }">
 													<div>
 														<a
-															href="/author/workplace?workplace_id=${wp.workplace_id }">
+															href="/author/workroom?workplace_id=${wp.workplace_id }">
 															<img src="/fairy/workplace/${wp.workplace_id }/0.png"
 															alt="" class="img-circle" />
 															<p>${wp.workplace_name }</p>
@@ -83,7 +83,7 @@
 												<c:when test="${wp.workplace_status =='1'.charAt(0) }">
 													<div>
 														<a
-															href="/author/workplace?workplace_id=${wp.workplace_id }">
+															href="/author/workroom?workplace_id=${wp.workplace_id }">
 															<p>
 																><br />${wp.workplace_name }</p>
 														</a>

@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+        /*헤더*/
+        #header {
+            padding: 40px 15px;
+        }
+
+            #header .navbar-brand {
+                color: #ffa900;
+            }
+
+        .navbar-brand {
+            font-size: 25px;
+        }
+
+        .user .btn {
+            width: 50px;
+            margin-top: 5px;
+        }
+
+        .btn-user .glyphicon {
+            font-size: 20px;
+            color: #ffa900;
+        }
+
+        .dropdown-menu .glyphicon {
+            margin-right: 20px;
+            color: #ffa900;
+        }
+
+        /*네비*/
+        .nav li a {
+            color: black;
+            font-size: 17px;
+            background-color: white;
+        }
+
+            .nav li a:hover {
+                color: #ffa900;
+                background-color: white;
+            }
+
+        .navtop {
+            padding-left: 45px;
+        }
+
+            .navtop a, .navtop h4 {
+                color: #5c5c5c;
+                text-decoration: none;
+            }
+
+
+        /*작가*/
+        #writer-img img {
+            padding-left: 70px;
+            padding-top: 100px;
+        }
+
+        #writer-img h4 {
+            font-weight: bold;
+            padding-left: 70px;
+            color: #ffa900;
+        }
+
+        #writer-img p {
+            font-weight: bold;
+            padding-left: 70px;
+        }
+
+        /*일정*/
+        .cal {
+            padding-top: 50px;
+            padding-left: 70px;
+        }
+
+        .info {
+            padding-top: 40px;
+        }
+
+            .info a span {
+                font-size: 25px;
+                color: #ffa900;
+            }
+
+        .con {
+            padding: 0px 140px;
+        }
+
+            .con p {
+                font-size: 18px;
+            }
+
+        /*모달*/
+        #myModal {
+            padding-top: 200px;
+        }
+
+        .modal-footer span {
+            padding-right: 10px;
+            color: #ffa900;
+        }
+
+        .modal-footer h4 {
+            color: #ffa900;
+        }
+
+        .modal-footer a {
+            text-decoration: none;
+        }
+
+        .modal-body {
+            padding: 60px 80px;
+        }
+
+        div .bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.bottom {
+            width: 300px;
+        }
+
+        div .bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.top {
+            width: 300px;
+        }
+        
+        /*파일*/
+        .file {
+            padding-top: 90px;
+        }
+
+        .panel-title label {
+            display: inline-block;
+            color: white;
+            line-height: normal;
+            vertical-align: middle;
+            background-color: #ffa900;
+            left: 180px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            padding-left: 7px;
+            padding-top: 5px;
+            cursor: pointer;
+            margin-left:500px;
+        }
+
+        .panel-title input[type="file"] { /* 파일 필드 숨기기 */
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+
+        div #headingOne.panel-heading, #headingTwo.panel-heading, #headingThree.panel-heading, #headingFour.panel-heading, #headingFive.panel-heading, #headingSix.panel-heading, #headingSeven.panel-heading {
+            background-color: white
+        }
+
+        .page {
+            padding-bottom: 10px;
+        }
+
+        .page b {
+            color: gray;
+        }
+
+        /*편집*/
+        .edit {
+            width: 950px;
+            height: 500px;
+            border: 1px solid #c9c9c9;
+        }

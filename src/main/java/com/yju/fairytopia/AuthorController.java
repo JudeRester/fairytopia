@@ -75,7 +75,11 @@ public class AuthorController {
 		
 		return "redirect:/author/studio";
 	}
-
+	
+	@GetMapping("/workroom")
+	public void workroom() {
+		
+	}
 	private String saveFile(MultipartFile file, String filename, String UPLOAD_PATH) {
 		// 파일 이름 변경
 		String saveName = filename;
