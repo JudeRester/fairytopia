@@ -25,7 +25,7 @@
 							<div role="tabpanel" class="tab-pane active" id="all">
 								<div class="list-group" id="right-all">
 									<button>
-										<a href="colleague/write">글쓰기</a>
+										<a href="coworker/write">글쓰기</a>
 									</button>
 									<div class="card-body">
 										<div class="table-responsive">

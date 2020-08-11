@@ -23,12 +23,12 @@ import com.yju.domain.WorkplaceVO;
 import com.yju.service.StudioService;
 
 @Controller
-@RequestMapping("/colleague")
-public class ColleagueController {
-	private static final Logger log = LoggerFactory.getLogger(ColleagueController.class);
+@RequestMapping("/coworker")
+public class CoworkerController {
+	private static final Logger log = LoggerFactory.getLogger(CoworkerController.class);
 
 	@GetMapping("/")
-	public void colleague() {
+	public void coworker() {
 		
 	}
 	

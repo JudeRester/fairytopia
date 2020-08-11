@@ -79,7 +79,7 @@
 						class="glyphicon glyphicon-home"></span>테일샵
 				</a></li>
 				<li class="two col-lg-2"><a href="/author/studio">메이킹스튜디오</a></li>
-				<li class="col-lg-2"><a href="/author/colleague">작가 작품 구하기</a></li>
+				<li class="col-lg-2"><a href="/author/coworker">작가 작품 구하기</a></li>
 			</ul>
 		</div>
 	</div>

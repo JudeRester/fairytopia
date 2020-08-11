@@ -1,5 +1,5 @@
 package com.yju.service;
 
-public interface ColleagueService {
+public interface CoworkerService {
 	public void getList();
 }
