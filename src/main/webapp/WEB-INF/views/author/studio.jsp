@@ -60,7 +60,7 @@
 													<div>
 														<a
 															href="/author/workroom?workplace_id=${wp.workplace_id }">
-															<img src="/fairy/workplace/${wp.workplace_id }/0.png"
+															<img src="/fairy/workplace/${wp.workplace_id }/${wp.workplace_thumbnail}"
 															alt="" class="img-circle" />
 															<p>${wp.workplace_name }</p>
 														</a>

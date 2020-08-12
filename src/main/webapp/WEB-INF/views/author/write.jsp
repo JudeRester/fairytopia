@@ -13,12 +13,37 @@
 
 <script>
 $(document).ready(function() {
+	var path = "1";
+	
 	  $('#summernote').summernote({
 	        minHeight: 370,
 	        maxHeight: null,
 	        focus: true, 
-	        lang : 'ko-KR'
+	        lang : 'ko-KR',
+	        callbacks : {
+		        	onImageUpload : function(files){
+			        		snImageUpload(files[0],this);
+			        	}
+		        }
 	  });
+
+	  function snImageUpload(file, editor){
+		  data = new FormData();
+		  data.append("file",file);
+		  data.append("path",path);
+		  $.ajax({
+			  	data : data,
+			  	type : "POST",
+			  	url : "summernoteImageUpload",
+			  	contentType : false,
+			  	processData : false,
+			  	success : function(data){
+				  		$(editor).summernote('insertImage',data.url);
+				  		path = data.path;
+				  	}
+			  })
+		  }
+	  
 	});
 </script>
 

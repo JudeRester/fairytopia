@@ -6,6 +6,7 @@ public class WorkplaceVO {
 	String workplace_detail;
 	char workplace_status;
 	String mem_id;
+	String workplace_thumbnail;
 
 	/*
 	 * MultipartFile workplace_thumbnail;
@@ -48,6 +49,12 @@ public class WorkplaceVO {
 	public String toString() {
 		return "WorkplaceVO [workplace_id=" + workplace_id + ", workplace_name=" + workplace_name
 				+ ", workplace_detail=" + workplace_detail + ", workplace_status=" + workplace_status + ", mem_id="
-				+ mem_id + "]";
+				+ mem_id + ", workplace_thumbnail=" + workplace_thumbnail + "]";
+	}
+	public String getWorkplace_thumbnail() {
+		return workplace_thumbnail;
+	}
+	public void setWorkplace_thumbnail(String workplace_thumbnail) {
+		this.workplace_thumbnail = workplace_thumbnail;
 	}
 }

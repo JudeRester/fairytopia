@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,8 +53,7 @@ public class AuthorController {
 
 		path = "d:\\fairy\\workplace\\" + vo.getWorkplace_id();
 		File Folder = new File(path);
-		String originName = file.getOriginalFilename();
-		System.out.println(originName.lastIndexOf("."));
+		String name = "0." + FilenameUtils.getExtension(file.getOriginalFilename());
 
 		// 해당 디렉토리가 없을경우 디렉토리를 생성
 //		return "redirect:/";
@@ -69,8 +69,9 @@ public class AuthorController {
 		} else {
 			System.out.println("이미 폴더가 생성되어 있습니다.");
 		}
-		saveFile(file, "0" + originName.substring(originName.lastIndexOf(".")), path);
-
+		saveFile(file, name, path);
+		vo.setWorkplace_thumbnail(name);
+		service.addThumbnail(vo);
 		service.addAuthor(vo);
 		
 		return "redirect:/author/studio";

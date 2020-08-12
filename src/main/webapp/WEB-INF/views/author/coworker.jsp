@@ -14,9 +14,9 @@
 					<div class="col-sm-2" id="nav-left">
 						<ul class="nav nav-pills nav-stacked" role="tablist">
 							<li role="presentation" class="text-center"><a
-								href="list?board_type=0">작가
+								href="/coworker/list?board_type=0">작가
 									구해요</a></li>
-							<li role="presentation" class="text-center"><a href="list?board_type=1">작품 구해요</a></li>
+							<li role="presentation" class="text-center"><a href="/coworker/list?board_type=1">작품 구해요</a></li>
 						</ul>
 					</div>
 					<div class="col-sm-8">
@@ -24,7 +24,7 @@
 							<div role="tabpanel" class="tab-pane active" id="all">
 								<div class="list-group" id="right-all">
 									<button>
-										<a href="write">글쓰기</a>
+										<a href="/coworker/write">글쓰기</a>
 									</button>
 									<div class="card-body">
 										<div class="table-responsive">
