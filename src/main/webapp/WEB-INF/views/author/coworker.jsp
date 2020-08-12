@@ -13,11 +13,10 @@
 				<div class="row">
 					<div class="col-sm-2" id="nav-left">
 						<ul class="nav nav-pills nav-stacked" role="tablist">
-							<li role="presentation" class="active text-center"><a
-								href="#all" aria-controls="all" role="tab" data-toggle="tab">작가
+							<li role="presentation" class="text-center"><a
+								href="list?board_type=0">작가
 									구해요</a></li>
-							<li role="presentation" class="text-center"><a href="#work"
-								aria-controls="work" role="tab" data-toggle="tab">작품 구해요</a></li>
+							<li role="presentation" class="text-center"><a href="list?board_type=1">작품 구해요</a></li>
 						</ul>
 					</div>
 					<div class="col-sm-8">
@@ -25,36 +24,27 @@
 							<div role="tabpanel" class="tab-pane active" id="all">
 								<div class="list-group" id="right-all">
 									<button>
-										<a href="coworker/write">글쓰기</a>
+										<a href="write">글쓰기</a>
 									</button>
 									<div class="card-body">
 										<div class="table-responsive">
 											<table class="table table-bordered" id="dataTable"
 												width="100%" cellspacing="0">
 												<thead>
-													<th>#번호</th>
 													<th>제목</th>
 													<th>작성자</th>
+													<th>조회수</th>
 													<th>작성일</th>
-													<th>수정일</th>
 												</thead>
-												<tfoot>
-													<th>#번호</th>
-													<th>제목</th>
-													<th>작성자</th>
-													<th>작성일</th>
-													<th>수정일</th>
-												</tfoot>
+												
 												<tbody>
 													<c:forEach items="${list }" var="board">
 														<tr>
-															<td><c:out value="${board.bno }" /></td>
-															<td><c:out value="${board.title }" /></td>
-															<td><c:out value="${board.writer }" /></td>
+															<td><a href="get?bno=<c:out value='${board.seq}'/>"><c:out value="${board.title }" /></a></td>
+															<td><c:out value="${board.mem_nickname}" /></td>
+															<td><c:out value="${board.hits }" /></td>
 															<td><fmt:formatDate pattern="yyyy-MM-dd"
-																	value="${board.regdate }" /></td>
-															<td><fmt:formatDate pattern="yyyy-MM-dd"
-																	value="${board.updatedate }" /></td>
+																	value="${board.wdate }" /></td>
 														</tr>
 													</c:forEach>
 												</tbody>
