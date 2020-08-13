@@ -24,4 +24,14 @@ public static final Logger log = LoggerFactory.getLogger(CoworkerService.class);
 		return mapper.getList(crt);
 	}
 
+	@Override
+	public void write(CoworkerVO vo) {
+		mapper.write(vo);
+	}
+
+	@Override
+	public CoworkerVO get(int seq) {
+		return mapper.get(seq);
+	}
+
 }

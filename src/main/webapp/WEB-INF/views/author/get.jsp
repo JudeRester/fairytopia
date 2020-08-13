@@ -23,32 +23,15 @@
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="all">
 								<div class="list-group" id="right-all">
-									<button>
-										<a href="/coworker/write">글쓰기</a>
-									</button>
 									<div class="card-body">
 										<div class="table-responsive">
-											<table class="table table-bordered" id="dataTable"
-												width="100%" cellspacing="0">
-												<thead>
-													<th>제목</th>
-													<th>작성자</th>
-													<th>조회수</th>
-													<th>작성일</th>
-												</thead>
-												
-												<tbody>
-													<c:forEach items="${list }" var="board">
-														<tr>
-															<td><a href="/coworker/get?bno=<c:out value='${board.seq}'/>"><c:out value="${board.title }" /></a></td>
-															<td><c:out value="${board.mem_nickname}" /></td>
-															<td><c:out value="${board.hits }" /></td>
-															<td><fmt:formatDate pattern="yyyy-MM-dd"
-																	value="${board.wdate }" /></td>
-														</tr>
-													</c:forEach>
-												</tbody>
-											</table>
+											<c:set var="co" value="${coworker }"/>
+											<p>${co.title }</p>
+											<hr />
+											<p>${co.mem_nickname }</p>
+											<div>
+												${co.cont }
+											</div>
 										</div>
 									</div>
 									<!-- <div role="tabpanel" class="tab-pane" id="work">

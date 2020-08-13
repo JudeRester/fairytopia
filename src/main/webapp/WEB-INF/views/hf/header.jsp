@@ -224,8 +224,7 @@
 							/* var mem_id = $('#mem_id').val();
 							var mem_passwd = $('#mem_passwd').val();
 							 */
-							$
-									.ajax({
+							$.ajax({
 										url : '${pageContext.request.contextPath}/member/login',
 										type : 'post',
 										data : vo,

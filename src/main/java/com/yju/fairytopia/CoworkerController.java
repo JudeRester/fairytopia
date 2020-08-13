@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.JsonObject;
+import com.yju.domain.CoworkerVO;
 import com.yju.domain.Criteria;
 import com.yju.service.CoworkerService;
 
@@ -42,12 +43,11 @@ public class CoworkerController {
 		return "/author/coworker";
 	}
 	
-	@GetMapping("/")
-	public String coworker(Criteria crt, Model model) {
-		log.info("coworker");
-		model.addAttribute("list", service.getList(crt));
-		return "/author/coworker";
-	}
+	/*
+	 * @GetMapping("/") public String coworker(Criteria crt, Model model) {
+	 * log.info("coworker"); model.addAttribute("list", service.getList(crt));
+	 * return "/author/coworker"; }
+	 */
 
 	@GetMapping("/list")
 	public String coworker(int board_type, Criteria crt, Model model) {
@@ -60,7 +60,30 @@ public class CoworkerController {
 	public String write() {
 		return "/author/write";
 	}
-
+	
+	@PostMapping("/write")
+	@ResponseBody
+	public void write(CoworkerVO vo) {
+//		JsonObject json = new JsonObject();
+		log.info(vo.toString());
+		service.write(vo);
+//		json.addProperty("responseCode", "success");
+//		return json;
+	}
+	
+	@GetMapping("/get")
+	public String get(@RequestParam("bno") int seq, Model model) {
+		model.addAttribute("coworker", service.get(seq));
+		return "/author/get";
+	}
+	
+	/*
+	 * @PostMapping("/write")
+	 * 
+	 * @ResponseBody public JsonObject write(CoworkerVO vo) { JsonObject json = new
+	 * JsonObject(); log.info(vo.toString()); service.write(vo);
+	 * json.addProperty("responseCode", "success"); return json; }
+	 */
 	@PostMapping(value = "/summernoteImageUpload", produces = "application/json")
 	@ResponseBody
 	public JsonObject summernoteImage(@RequestParam("file") MultipartFile multipartFile,

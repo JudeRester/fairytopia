@@ -7,4 +7,8 @@ import com.yju.domain.Criteria;
 
 public interface CoworkerService {
 	public List<CoworkerVO> getList(Criteria crt);
+	
+	public void write(CoworkerVO vo);
+
+	public CoworkerVO get(int seq);
 }

@@ -9,7 +9,7 @@ public class CoworkerVO {
 	private String mem_nickname;
 	private String title;
 	private String cont;
-	private String uploadedFile;
+	private String uploadedfile;
 	private int hits;
 	private Timestamp wdate;
 	private Timestamp udate;
@@ -64,11 +64,11 @@ public class CoworkerVO {
 	public void setCont(String cont) {
 		this.cont = cont;
 	}
-	public String getUploadedFile() {
-		return uploadedFile;
+	public String getUploadedfile() {
+		return uploadedfile;
 	}
-	public void setUploadedFile(String uploadedFile) {
-		this.uploadedFile = uploadedFile;
+	public void setUploadedfile(String uploadedfile) {
+		this.uploadedfile = uploadedfile;
 	}
 	public int getHits() {
 		return hits;
@@ -79,7 +79,7 @@ public class CoworkerVO {
 	@Override
 	public String toString() {
 		return "CoworkerVO [seq=" + seq + ", mem_id=" + mem_id + ", board_type=" + board_type + ", mem_nickname="
-				+ mem_nickname + ", title=" + title + ", cont=" + cont + ", uploadedFile=" + uploadedFile + ", hits="
+				+ mem_nickname + ", title=" + title + ", cont=" + cont + ", uploadedFile=" + uploadedfile + ", hits="
 				+ hits + ", wdate=" + wdate + ", udate=" + udate + "]";
 	}
 	

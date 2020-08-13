@@ -7,7 +7,17 @@
 
 
 	<select resultType="com.yju.domain.CoworkerVO" id="getList" >
-		select * from (select rownum as rn, b.*,c.mem_nickname from find_coworker b,member c where b.mem_id=c.mem_id and board_type=#{board_type} order by seq desc) a 
-		where a.rn between (#{pageNum}-1)*#{amount}+1 and #{pageNum}*#{amount}
+		select * from (select b.*,c.mem_nickname from find_coworker b,member c where b.mem_id=c.mem_id and board_type=#{board_type} order by seq desc) a 
+		where rownum between (#{pageNum}-1)*#{amount}+1 and #{pageNum}*#{amount}
 	</select>
+	
+	<insert id="write">
+		insert into find_coworker(seq, mem_id, board_type, title, cont, uploadedfile) 
+		values(find_coworker_seq.nextval, #{mem_id},#{board_type},#{title},#{cont},#{uploadedfile})
+	</insert>
+	
+	<select resultType="com.yju.domain.CoworkerVO" id="get">
+		select a.*,b.mem_nickname from find_coworker a, member b where seq=#{seq} and a.mem_id=b.mem_id
+	</select>
+		
 </mapper>
