@@ -1,4 +1,4 @@
-package com.yju.fairytopia;
+package com.yju.fairytopia.android;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,22 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yju.domain.MemberVO;
+import com.yju.fairytopia.HomeController;
 import com.yju.service.MemberService;
 
 @Controller
-@RequestMapping("/member")
-public class MemberController {
+@RequestMapping("/android/member")
+public class AndroidMemberController {
 
 	private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
 	@Autowired
 	private MemberService service;
-
-	@GetMapping(value = "/join")
-	public String join() {
-		log.info("join");
-		return "member/join";
-	}
 
 	@GetMapping(value = "/checkId")
 	@ResponseBody
@@ -40,27 +35,26 @@ public class MemberController {
 	}
 
 	@PostMapping(value = "/join")
-	public String joinPro(MemberVO vo, @RequestParam("mem_id_join") String mem_id,
+	public void joinPro(MemberVO vo, @RequestParam("mem_id_join") String mem_id,
 			@RequestParam("mem_passwd_join") String mem_passwd) {
 		vo.setMem_id(mem_id);
 		vo.setMem_passwd(mem_passwd);
 		log.info("register:" + vo);
 		service.join(vo);
-		return "redirect:/";
 	}
 
 	@PostMapping(value = "/login")
 	@ResponseBody
-	public int login(MemberVO vo, HttpServletRequest request) {
+	public MemberVO login(MemberVO vo, HttpServletRequest request) {
 		log.info("login...\n"+vo);
 		vo = service.login(vo);
 		if (vo != null) {
 			HttpSession session = request.getSession();
 			vo.setMem_passwd(null);
 			session.setAttribute("user", vo);
-			return 0;
+			return vo;
 		} else {
-			return 1;
+			return null;
 		}
 	}
 	
