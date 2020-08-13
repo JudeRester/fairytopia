@@ -8,4 +8,6 @@ public interface MemberService {
 	public void join(MemberVO vo);
 
 	public MemberVO login(MemberVO vo);
+
+	public void update(MemberVO vo);
 }

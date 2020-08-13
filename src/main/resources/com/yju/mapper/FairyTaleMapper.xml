@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yju.mapper.FairyTaleMapper">
+	<select id="select" resultType="com.yju.domain.FairyTaleVO">
+		select *
+		from fairytale
+		where fairytale_id in (select fairytale_id from buyinglist where mem_id = #{mem_id})
+	</select>
+	<select id="fairytale" resultType="com.yju.domain.FairyTaleVO">
+		select *
+		from fairytale
+	</select>
+	<insert id="buyinsert">
+		insert into buyinglist(buying_id, fairytale_id, mem_id) values(#{buying_id}, #{fairytale_id}, #{mem_id})
+	</insert>
+	<select id="recommendlist" resultType="com.yju.domain.FairyTaleVO">
+		select fairytale_name, fairytale_price, fai_avg_grade
+		from fairytale
+		where fai_avg_grade >= 3.5
+	</select>
+</mapper>

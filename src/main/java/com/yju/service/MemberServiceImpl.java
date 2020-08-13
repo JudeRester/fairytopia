@@ -32,4 +32,10 @@ public class MemberServiceImpl implements MemberService{
 		log.info("service.....login....");
 		return mapper.login(vo);
 	}
+	
+	@Override
+	public void update(MemberVO vo) {
+		log.info("service....update...");
+		mapper.update(vo);
+	}
 }

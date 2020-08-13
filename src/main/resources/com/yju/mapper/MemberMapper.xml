@@ -16,4 +16,10 @@
 	<select id="login" resultType="com.yju.domain.MemberVO">
 		select * from member where mem_id=#{mem_id} and mem_passwd=#{mem_passwd}
 	</select>
+
+<select id="update">
+		update member
+		set mem_passwd = #{mem_passwd}, mem_nickname = #{mem_nickname}, mem_ph = #{mem_ph}
+		where mem_id = #{mem_id}
+	</select>
 </mapper>
