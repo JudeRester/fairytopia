@@ -8,4 +8,6 @@ public interface MemberMapper {
 	public void join(MemberVO vo);
 
 	public MemberVO login(MemberVO vo);
+	
+	public MemberVO profile(String mem_id);
 }

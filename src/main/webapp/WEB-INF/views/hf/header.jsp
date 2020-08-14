@@ -89,7 +89,7 @@
 								<span class="glyphicon glyphicon-user"></span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href=""><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
+								<li><a href="/member/profile"><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
 								<li><a href="/library/mybook"><span
 										class="glyphicon glyphicon-book"></span>내 서재</a></li>
 								<li><a href="" onclick="logout()"><span

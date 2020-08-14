@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.yju.domain.MemberVO;
 import com.yju.mapper.MemberMapper;
@@ -31,5 +32,16 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO login(MemberVO vo) {
 		log.info("service.....login....");
 		return mapper.login(vo);
+	}
+
+	@Override
+	public MemberVO profile(String mem_id) {
+		return mapper.profile(mem_id);
+	}
+
+	@Override
+	public void uploadPhoto() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,17 +1,24 @@
 package com.yju.fairytopia;
 
+import java.io.File;
+import java.io.InputStream;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.yju.domain.MemberVO;
 import com.yju.service.MemberService;
@@ -69,5 +76,33 @@ public class MemberController {
 		log.info("logout....");
 		HttpSession session = request.getSession();
 		session.invalidate();
+	}
+	
+	@GetMapping("/profile")
+	public void profile(Model model, HttpServletRequest request) {
+		log.info("profile");
+		HttpSession session = request.getSession();
+		MemberVO vo = (MemberVO)session.getAttribute("user");
+		log.info(vo.toString());
+		model.addAttribute("profile",service.profile(vo.getMem_id()));
+	}
+	
+	@PostMapping("/photoupload")
+	@ResponseBody
+	public void photoUpload(@RequestParam("file") MultipartFile multipartfile, @RequestParam("mem_id") String mem_id) {
+		
+		String prefixPath = "d:\\fairy\\profile\\"+mem_id+"\\";
+		String fileName = "profile";
+		File file = new File(prefixPath, fileName);
+		
+		try {
+			InputStream fileStream = multipartfile.getInputStream();
+			FileUtils.copyInputStreamToFile(fileStream, file);
+			log.info("upload complete");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 }
