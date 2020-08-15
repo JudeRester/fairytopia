@@ -1,17 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
 <%@include file="../hf/header.jsp"%>
 
 <link href="/resources/css/workroom.css" rel="stylesheet" />
-
 
     <div class="container">
         <div class="row">
             <ul class="navtop list-inline list-unstyled">
                 <li class="col-sm-2">
-
                 	<a href="studio.html">
                 		<h4><span class="glyphicon glyphicon-chevron-left"></span>작업실</h4>
                 	</a>

@@ -242,17 +242,6 @@
 					<input type="hidden" name="mem_id"
 						value="${sessionScope.user.mem_id}" />
 
-				</div>
-				<div class="modal-footer">
-					<a href="javascript:cwpForm.submit();" id="cwpBtn"><h3
-							class="text-center">
-							<span class="glyphicon glyphicon-plus"></span>새 작업실 생성
-						</h3></a>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
 
     <div class="modal fade" id="studioModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
@@ -318,5 +307,4 @@
                         });
                 });
     </script>
-
 <%@include file="../hf/footer.jsp"%>
