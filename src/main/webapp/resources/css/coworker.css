@@ -1,4 +1,4 @@
-+@charset "UTF-8";
+@charset "UTF-8";
 
 /*왼 네비*/
 #nav-left {
@@ -84,26 +84,7 @@ nav .pagination>li>a, .pagination>li>span {
 	color: black;	
 }
 
-.name{
-     margin: 0px 35px;
-}
-
-.dropdown-menu{
-     text-align: center;
-}
-
 .name li img{
 	width: 30px;
 	
 }
-
-.name .nick{
-     color: black;
-     text-decoration: none;
-     font-size: 20px;
-}
-
-.text p {
-     margin: 30px 40px;
-     font-size: 20px;
- }
