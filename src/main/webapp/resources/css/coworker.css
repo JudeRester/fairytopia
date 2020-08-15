@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+/*왼 네비*/
+#nav-left {
+	padding-top: 170px;
+	padding-left: 60px;
+}
+
+#nav-left ul li a {
+	color: black;
+	background-color: white;
+	border: 1px solid lightgray;
+}
+
+#nav-left ul li a:hover {
+	background-color: #f3f3f3;
+}
+
+#right-all {
+	padding-top: 30px;
+	padding-right: 50px;
+}
+
+#right-all h2{
+	padding-bottom:30px;
+}
+
+.wr {
+	padding-bottom: 10px;
+}	
+
+.wr a{
+	 /*border:1px solid #f3f3f3;*/
+	 padding: 10px 40px;
+}
+
+.wr a:hover{
+	background-color: white;
+}
+
+table thead th {
+	text-align: center;
+}
+
+.title{
+	width: 300px;
+}
+
+tbody tr td {
+	text-align: center;
+}
+
+tbody tr td a {
+	color: black;
+    font-size: 17px;
+}
+
+tbody tr td a:hover{
+	color: black;
+	text-decoration:none;
+}
+
+tbody tr .name li ,.name{
+	 list-style:none;
+	 
+}
+
+tbody tr .name li ul a{
+	 text-align: center;
+	 font-size: 15px;
+}
+
+.input-group button{
+	height: 35px;
+	width: 45px;
+}
+
+nav .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+	background-color: #ffa900;
+	border-color: #ffa900;
+}
+
+nav .pagination>li>a, .pagination>li>span {
+	color: black;	
+}
+
+.name li img{
+	width: 30px;
+	
+}
+
+/*이름 클래스주고 패딩*/

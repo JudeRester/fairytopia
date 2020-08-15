@@ -3,15 +3,13 @@
 
 <%@include file="../hf/stheader.jsp"%>
 
-<link href="/resources/css/studio.css" rel="stylesheet" />
+<link href="/resources/css/coworker.css" rel="stylesheet" />
 
-
+<hr/>
 <div class="container-fulid">
-	<div class="row">
-		<div class="col-sm-12">
 			<div role="tabpanel">
 				<div class="row">
-					<div class="col-sm-2" id="nav-left">
+					<div class="col-xs-2" id="nav-left">
 						<ul class="nav nav-pills nav-stacked" role="tablist">
 							<li role="presentation" class="text-center"><a
 								href="/coworker/list?board_type=0">작가
@@ -19,19 +17,22 @@
 							<li role="presentation" class="text-center"><a href="/coworker/list?board_type=1">작품 구해요</a></li>
 						</ul>
 					</div>
-					<div class="col-sm-8">
+					<div class="col-xs-8">
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="all">
 								<div class="list-group" id="right-all">
-									<button>
-										<a href="/coworker/write">글쓰기</a>
-									</button>
+								
+								<div class="row wr">
+									<div class="col-xs-offset-10 col-xs-2">
+										<a class="btn btn-default" href="/coworker/write" role="button">글쓰기</a>
+									</div>
+								</div>
 									<div class="card-body">
 										<div class="table-responsive">
-											<table class="table table-bordered" id="dataTable"
+											<table class="table table-hover" id="dataTable"
 												width="100%" cellspacing="0">
 												<thead>
-													<th>제목</th>
+													<th class="title">제목</th>
 													<th>작성자</th>
 													<th>조회수</th>
 													<th>작성일</th>
@@ -40,8 +41,19 @@
 												<tbody>
 													<c:forEach items="${list }" var="board">
 														<tr>
-															<td><a href="/coworker/get?bno=<c:out value='${board.seq}'/>"><c:out value="${board.title }" /></a></td>
-															<td><c:out value="${board.mem_nickname}" /></td>
+															<td class="title"><a href="/coworker/get?bno=<c:out value='${board.seq}'/>"><c:out value="${board.title }" /></a></td>
+															<td class="name">
+															   		<li class="dropdown">
+															          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+																	  <c:out value="${board.mem_nickname}" />
+																          <ul class="dropdown-menu" role="menu">
+																            <li><a href="#">메시지</a></li>
+																             <li class="divider"></li>
+																            <li><a href="#">게시글 검색</a></li>
+																     	  </ul>
+																    </li>
+														     </td>
+														   
 															<td><c:out value="${board.hits }" /></td>
 															<td><fmt:formatDate pattern="yyyy-MM-dd"
 																	value="${board.wdate }" /></td>
@@ -51,6 +63,40 @@
 											</table>
 										</div>
 									</div>
+									
+									<div class="col-xs-offset-8 col-xs-4">
+										<div class="input-group">
+						                    <input type="text" class="form-control" placeholder="게시글 검색">
+						                    <span class="input-group-btn">
+						                        <button class="btn btn-default" type="button">
+						                            <span class="glyphicon glyphicon-search"></span>
+						                        </button>
+						                    </span>
+					                	</div><!-- /input-group -->
+									</div>
+										
+									<div class="col-xs-offset-5 col-xs-6 pag">
+										<nav>
+						                    <ul class="pagination">
+						                        <li >
+						                            <a href="#" aria-label="Previous">
+						                                <span aria-hidden="true">&laquo;</span>
+						                            </a>
+						                        </li>
+						                        <li class="active"><a href="#">1</a></li>
+						                        <li><a href="#">2</a></li>
+						                        <li><a href="#">3</a></li>
+						                        <li><a href="#">4</a></li>
+						                        <li><a href="#">5</a></li>
+						                        <li>
+						                            <a href="#" aria-label="Next">
+						                                <span aria-hidden="true">&raquo;</span>
+						                            </a>
+						                        </li>
+						                    </ul>
+						                </nav>
+									</div>
+									 
 									<!-- <div role="tabpanel" class="tab-pane" id="work">
 										<div class="list-group" id="right-work">게시글 위치 2</div>
 									</div> -->
@@ -58,9 +104,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<!--toppanel-->
-			</div>
+				</div><!-- row -->
+			</div><!-- tabpanel -->
 		</div>
 
 
