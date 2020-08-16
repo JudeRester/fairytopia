@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yju.domain.MemberVO;
-import com.yju.domain.WorkplaceVO;
+import com.yju.domain.MemberDTO;
+import com.yju.domain.WorkplaceDTO;
 import com.yju.mapper.StudioMapper;
 
 @Service
@@ -19,25 +19,25 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 	private StudioMapper mapper;
 	
 	@Override
-	public void createWorkplace(WorkplaceVO vo) {
+	public void createWorkplace(WorkplaceDTO dto) {
 		log.info("Workplace service ... createWorkplace");
-		mapper.createWorkplace(vo);
+		mapper.createWorkplace(dto);
 	}
 
 	@Override
-	public void addAuthor(WorkplaceVO vo) {
+	public void addAuthor(WorkplaceDTO dto) {
 		log.info("Workplace service ... addAuthor");
-		mapper.addAuthor(vo);
+		mapper.addAuthor(dto);
 	}
 
 	@Override
-	public List<WorkplaceVO> getList(MemberVO vo) {
-		return mapper.getList(vo);
+	public List<WorkplaceDTO> getList(MemberDTO dto) {
+		return mapper.getList(dto);
 		}
 
 	@Override
-	public void addThumbnail(WorkplaceVO vo) {
-		mapper.addThumbnail(vo);
+	public void addThumbnail(WorkplaceDTO dto) {
+		mapper.addThumbnail(dto);
 	}
 
 }

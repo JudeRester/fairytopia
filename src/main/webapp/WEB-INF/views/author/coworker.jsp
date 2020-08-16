@@ -62,40 +62,48 @@
 									</table>
 								</div>
 							</div>
-							
-									<div class="col-xs-offset-8 col-xs-4">
-										<div class="input-group">
-						                    <input type="text" class="form-control" placeholder="게시글 검색">
-						                    <span class="input-group-btn">
-						                        <button class="btn btn-default" type="button">
-						                            <span class="glyphicon glyphicon-search"></span>
-						                        </button>
-						                    </span>
-					                	</div><!-- /input-group -->
-									</div>
 
-									<div class="col-xs-offset-5 col-xs-6 pag">
-										<nav>
-						                    <ul class="pagination">
-						                        <li >
-						                            <a href="#" aria-label="Previous">
-						                                <span aria-hidden="true">&laquo;</span>
-						                            </a>
-						                        </li>
-						                        <li class="active"><a href="#">1</a></li>
+							<div class="col-xs-offset-8 col-xs-4">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="게시글 검색">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+								<!-- /input-group -->
+							</div>
+
+							<div class="col-xs-offset-5 col-xs-6 pag">
+								<nav>
+									<ul class="pagination">
+										<c:if test="${pdto.prev }">
+											<li><a href="#" aria-label="Previous"> <span
+													aria-hidden="true">&laquo;</span>
+											</a></li>
+										</c:if>
+
+										<c:forEach var="pnum" begin="${pdto.startPage }"
+											end="${pdto.endPage }" step="1">
+											<li><a class="${pdto.crt.pageNum==pnum?'active':'' }"
+												href="#">${pnum}</a></li>
+										</c:forEach>
+										<!--  <li class="active"><a href="#">1</a></li>
 						                        <li><a href="#">2</a></li>
 						                        <li><a href="#">3</a></li>
 						                        <li><a href="#">4</a></li>
-						                        <li><a href="#">5</a></li>
-						                        <li>
-						                            <a href="#" aria-label="Next">
-						                                <span aria-hidden="true">&raquo;</span>
-						                            </a>
-						                        </li>
-						                    </ul>
-						                </nav>
-									</div>
-							
+						                        <li><a href="#">5</a></li> -->
+										<c:if test="${pdto.next }">
+											<li><a href="#" aria-label="Next"> <span
+													aria-hidden="true">&raquo;</span>
+											</a></li>
+										</c:if>
+
+									</ul>
+								</nav>
+							</div>
+
 							<!-- <div role="tabpanel" class="tab-pane" id="work">
 										<div class="list-group" id="right-work">게시글 위치 2</div>
 									</div> -->

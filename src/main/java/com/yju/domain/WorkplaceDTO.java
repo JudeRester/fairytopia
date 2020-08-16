@@ -1,6 +1,6 @@
 package com.yju.domain;
 
-public class WorkplaceVO {
+public class WorkplaceDTO {
 	String workplace_id;
 	String workplace_name;
 	String workplace_detail;

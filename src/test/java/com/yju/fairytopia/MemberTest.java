@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 import com.yju.service.MemberService;
 
 @RunWith(SpringRunner.class)
@@ -26,21 +26,21 @@ public class MemberTest {
 	
 //	@Test
 	public void testJoin() {
-		MemberVO vo = new MemberVO();
-		vo.setMem_id("asdff");
-		vo.setMem_passwd("asdf");
-		vo.setMem_nickname("asdf");
-		vo.setMem_ph("01011112222");
-		vo.setMem_aut(1);
+		MemberDTO dto = new MemberDTO();
+		dto.setMem_id("asdff");
+		dto.setMem_passwd("asdf");
+		dto.setMem_nickname("asdf");
+		dto.setMem_ph("01011112222");
+		dto.setMem_aut(1);
 		
-		service.join(vo);
+		service.join(dto);
 	}
 	
 	@Test
 	public void testLogin() {
-		MemberVO vo = new MemberVO();
-		vo.setMem_id("qwer");
-		vo.setMem_passwd("asdf");
-		service.login(vo);
+		MemberDTO dto = new MemberDTO();
+		dto.setMem_id("qwer");
+		dto.setMem_passwd("asdf");
+		service.login(dto);
 	}
 }

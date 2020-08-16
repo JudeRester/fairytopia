@@ -49,10 +49,10 @@
 		$('#test').click(
 				function() {
 					var title = wform.title.value;
-					var vo = $('#wform').serialize();
+					var dto= $('#wform').serialize();
 					var markupStr = $('#summernote').summernote('code');
-					vo = vo + '&cont=' + markupStr + '&mem_id='+'${sessionScope.user.mem_id }'+'&uploadedfile='+path;
-					console.log(vo);
+					dto = dto + '&cont=' + markupStr + '&mem_id='+'${sessionScope.user.mem_id }'+'&uploadedfile='+path;
+					console.log(dto);
 					if (title.trim() == '') {
 						alert("제목을 입력해주세요");
 						return false;
@@ -60,7 +60,7 @@
 					$.ajax({
 						url : '/coworker/write',
 						type : 'post',
-						data : vo,
+						data : dto,
 						success : function(data) {
 							window.location.replace('/coworker/list?board_type='
 									+ wform.board_type.value);

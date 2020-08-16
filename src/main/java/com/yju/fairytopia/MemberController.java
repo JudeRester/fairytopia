@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 import com.yju.service.MemberService;
 
 @Controller
@@ -47,24 +47,24 @@ public class MemberController {
 	}
 
 	@PostMapping(value = "/join")
-	public String joinPro(MemberVO vo, @RequestParam("mem_id_join") String mem_id,
+	public String joinPro(MemberDTO dto, @RequestParam("mem_id_join") String mem_id,
 			@RequestParam("mem_passwd_join") String mem_passwd) {
-		vo.setMem_id(mem_id);
-		vo.setMem_passwd(mem_passwd);
-		log.info("register:" + vo);
-		service.join(vo);
+		dto.setMem_id(mem_id);
+		dto.setMem_passwd(mem_passwd);
+		log.info("register:" + dto);
+		service.join(dto);
 		return "redirect:/";
 	}
 
 	@PostMapping(value = "/login")
 	@ResponseBody
-	public int login(MemberVO vo, HttpServletRequest request) {
-		log.info("login...\n"+vo);
-		vo = service.login(vo);
-		if (vo != null) {
+	public int login(MemberDTO dto, HttpServletRequest request) {
+		log.info("login...\n"+dto);
+		dto = service.login(dto);
+		if (dto != null) {
 			HttpSession session = request.getSession();
-			vo.setMem_passwd(null);
-			session.setAttribute("user", vo);
+			dto.setMem_passwd(null);
+			session.setAttribute("user", dto);
 			return 0;
 		} else {
 			return 1;
@@ -82,9 +82,9 @@ public class MemberController {
 	public void profile(Model model, HttpServletRequest request) {
 		log.info("profile");
 		HttpSession session = request.getSession();
-		MemberVO vo = (MemberVO)session.getAttribute("user");
-		log.info(vo.toString());
-		model.addAttribute("profile",service.profile(vo.getMem_id()));
+		MemberDTO dto = (MemberDTO)session.getAttribute("user");
+		log.info(dto.toString());
+		model.addAttribute("profile",service.profile(dto.getMem_id()));
 	}
 	
 	@PostMapping("/photoupload")

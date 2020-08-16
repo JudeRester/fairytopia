@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yju.domain.MemberVO;
-import com.yju.domain.WorkplaceVO;
+import com.yju.domain.MemberDTO;
+import com.yju.domain.WorkplaceDTO;
 
 @Controller
 @RequestMapping("/library")
@@ -34,7 +34,7 @@ public class LibraryController {
 	}
 
 	@PostMapping("/createwp")
-	public void createWP(WorkplaceVO vo) {
+	public void createWP(WorkplaceDTO dto) {
 //		service.createWorkplace(vo);
 //		service.addAuthor(vo);
 //		return "redirect:/";

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 import com.yju.fairytopia.HomeController;
 import com.yju.service.MemberService;
 
@@ -35,24 +35,24 @@ public class AndroidMemberController {
 	}
 
 	@PostMapping(value = "/join")
-	public void joinPro(MemberVO vo, @RequestParam("mem_id_join") String mem_id,
+	public void joinPro(MemberDTO dto, @RequestParam("mem_id_join") String mem_id,
 			@RequestParam("mem_passwd_join") String mem_passwd) {
-		vo.setMem_id(mem_id);
-		vo.setMem_passwd(mem_passwd);
-		log.info("register:" + vo);
-		service.join(vo);
+		dto.setMem_id(mem_id);
+		dto.setMem_passwd(mem_passwd);
+		log.info("register:" + dto);
+		service.join(dto);
 	}
 
 	@PostMapping(value = "/login")
 	@ResponseBody
-	public MemberVO login(MemberVO vo, HttpServletRequest request) {
-		log.info("login...\n"+vo);
-		vo = service.login(vo);
-		if (vo != null) {
+	public MemberDTO login(MemberDTO dto, HttpServletRequest request) {
+		log.info("login...\n"+dto);
+		dto = service.login(dto);
+		if (dto != null) {
 			HttpSession session = request.getSession();
-			vo.setMem_passwd(null);
-			session.setAttribute("user", vo);
-			return vo;
+			dto.setMem_passwd(null);
+			session.setAttribute("user", dto);
+			return dto;
 		} else {
 			return null;
 		}

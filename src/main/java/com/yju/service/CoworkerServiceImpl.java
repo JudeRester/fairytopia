@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yju.domain.CoworkerVO;
+import com.yju.domain.CoworkerDTO;
 import com.yju.domain.Criteria;
 import com.yju.mapper.CoworkerMapper;
 
@@ -20,18 +20,23 @@ public static final Logger log = LoggerFactory.getLogger(CoworkerService.class);
 	private CoworkerMapper mapper;
 	
 	@Override
-	public List<CoworkerVO> getList(Criteria crt) {
+	public List<CoworkerDTO> getList(Criteria crt) {
 		return mapper.getList(crt);
 	}
 
 	@Override
-	public void write(CoworkerVO vo) {
-		mapper.write(vo);
+	public void write(CoworkerDTO dto) {
+		mapper.write(dto);
 	}
 
 	@Override
-	public CoworkerVO get(int seq) {
+	public CoworkerDTO get(int seq) {
 		return mapper.get(seq);
+	}
+
+	@Override
+	public int total(Criteria crt) {
+		return mapper.total(crt);
 	}
 
 }

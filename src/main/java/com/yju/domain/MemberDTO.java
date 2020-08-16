@@ -1,6 +1,6 @@
 package com.yju.domain;
 
-public class MemberVO {
+public class MemberDTO {
 	private String mem_id;
 	private String mem_passwd;
 	private String mem_nickname;

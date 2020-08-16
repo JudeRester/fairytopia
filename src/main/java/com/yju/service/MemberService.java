@@ -1,17 +1,15 @@
 package com.yju.service;
 
-import org.springframework.ui.Model;
-
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 
 public interface MemberService {
 	public int checkId(String mem_id);
 
-	public void join(MemberVO vo);
+	public void join(MemberDTO dto);
 
-	public MemberVO login(MemberVO vo);
+	public MemberDTO login(MemberDTO dto);
 	
 	public void uploadPhoto();
 
-	public MemberVO profile(String mem_id);
+	public MemberDTO profile(String mem_id);
 }

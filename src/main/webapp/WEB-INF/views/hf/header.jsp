@@ -219,15 +219,15 @@
 		$('#loginBtn')
 				.click(
 						function() {
-							var vo = $('#loginForm').serialize();
-							console.log(vo);
+							var dto = $('#loginForm').serialize();
+							console.log(dto);
 							/* var mem_id = $('#mem_id').val();
 							var mem_passwd = $('#mem_passwd').val();
 							 */
 							$.ajax({
 										url : '${pageContext.request.contextPath}/member/login',
 										type : 'post',
-										data : vo,
+										data : dto,
 										success : function(data) {
 											console.log(data);
 											if (data == 1) {

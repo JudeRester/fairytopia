@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.yju.domain.MemberVO;
-import com.yju.domain.WorkplaceVO;
+import com.yju.domain.MemberDTO;
+import com.yju.domain.WorkplaceDTO;
 import com.yju.service.StudioService;
 
 @Controller
@@ -34,10 +34,10 @@ public class AuthorController {
 	@GetMapping("/studio")
 	public String studio(Model model, HttpServletRequest request) {
 		if (request.getSession().getAttribute("user") == null
-				|| ((MemberVO) request.getSession().getAttribute("user")).getMem_aut() == 0) {
+				|| ((MemberDTO) request.getSession().getAttribute("user")).getMem_aut() == 0) {
 			return "redirect:/";
 		} else {
-			List<WorkplaceVO> list = service.getList((MemberVO) request.getSession().getAttribute("user"));
+			List<WorkplaceDTO> list = service.getList((MemberDTO) request.getSession().getAttribute("user"));
 //			log.info(list.toString());
 			model.addAttribute("wplist", list);
 			return "/author/studio";
@@ -45,13 +45,13 @@ public class AuthorController {
 	}
 
 	@PostMapping("/createwp")
-	public String createWP(WorkplaceVO vo, @RequestParam("workplace_thumbnail") MultipartFile file) {
-		log.info("createWP : " + vo);
+	public String createWP(WorkplaceDTO dto, @RequestParam("workplace_thumbnail") MultipartFile file) {
+		log.info("createWP : " + dto);
 		String path;
 		String[] token;
-		service.createWorkplace(vo);
+		service.createWorkplace(dto);
 
-		path = "d:\\fairy\\workplace\\" + vo.getWorkplace_id();
+		path = "d:\\fairy\\workplace\\" + dto.getWorkplace_id();
 		File Folder = new File(path);
 		String name = "0." + FilenameUtils.getExtension(file.getOriginalFilename());
 
@@ -70,9 +70,9 @@ public class AuthorController {
 			System.out.println("이미 폴더가 생성되어 있습니다.");
 		}
 		saveFile(file, name, path);
-		vo.setWorkplace_thumbnail(name);
-		service.addThumbnail(vo);
-		service.addAuthor(vo);
+		dto.setWorkplace_thumbnail(name);
+		service.addThumbnail(dto);
+		service.addAuthor(dto);
 		
 		return "redirect:/author/studio";
 	}

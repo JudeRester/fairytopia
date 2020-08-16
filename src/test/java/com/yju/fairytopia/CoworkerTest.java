@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.yju.domain.CoworkerVO;
+import com.yju.domain.CoworkerDTO;
 import com.yju.domain.Criteria;
 import com.yju.mapper.CoworkerMapper;
 
@@ -26,7 +26,7 @@ Logger log = Logger.getLogger(MemberTest.class);
 		Criteria crt = new Criteria();
 		crt.setBoard_type(0);
 		crt.setPageNum(3);
-		List<CoworkerVO> list = service.getList(crt);
+		List<CoworkerDTO> list = service.getList(crt);
 		list.forEach(board->System.out.println(board));
 	}
 }

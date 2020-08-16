@@ -2,7 +2,7 @@ package com.yju.domain;
 
 import java.sql.Timestamp;
 
-public class CoworkerVO {
+public class CoworkerDTO {
 	private int seq;
 	private String mem_id;
 	private int board_type;
@@ -78,7 +78,7 @@ public class CoworkerVO {
 	}
 	@Override
 	public String toString() {
-		return "CoworkerVO [seq=" + seq + ", mem_id=" + mem_id + ", board_type=" + board_type + ", mem_nickname="
+		return "CoworkerDTO [seq=" + seq + ", mem_id=" + mem_id + ", board_type=" + board_type + ", mem_nickname="
 				+ mem_nickname + ", title=" + title + ", cont=" + cont + ", uploadedFile=" + uploadedfile + ", hits="
 				+ hits + ", wdate=" + wdate + ", udate=" + udate + "]";
 	}

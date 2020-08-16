@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.JsonObject;
-import com.yju.domain.CoworkerVO;
+import com.yju.domain.CoworkerDTO;
 import com.yju.domain.Criteria;
+import com.yju.domain.PageDTO;
 import com.yju.service.CoworkerService;
 
 @Controller
@@ -38,8 +39,8 @@ public class CoworkerController {
 	 */
 	@GetMapping("")
 	public String coworker1(Criteria crt, Model model) {
-		log.info("coworker");
 		model.addAttribute("list", service.getList(crt));
+		model.addAttribute("pdto", new PageDTO(crt, service.total(crt)));
 		return "/author/coworker";
 	}
 	
@@ -53,6 +54,7 @@ public class CoworkerController {
 	public String coworker(int board_type, Criteria crt, Model model) {
 		crt.setBoard_type(board_type);
 		model.addAttribute("list", service.getList(crt));
+		model.addAttribute("pdto",new PageDTO(crt, service.total(crt)));
 		return "/author/coworker";
 	}
 
@@ -63,10 +65,10 @@ public class CoworkerController {
 	
 	@PostMapping("/write")
 	@ResponseBody
-	public void write(CoworkerVO vo) {
+	public void write(CoworkerDTO dto) {
 //		JsonObject json = new JsonObject();
-		log.info(vo.toString());
-		service.write(vo);
+		log.info(dto.toString());
+		service.write(dto);
 //		json.addProperty("responseCode", "success");
 //		return json;
 	}
@@ -86,8 +88,7 @@ public class CoworkerController {
 	 */
 	@PostMapping(value = "/summernoteImageUpload", produces = "application/json")
 	@ResponseBody
-	public JsonObject summernoteImage(@RequestParam("file") MultipartFile multipartFile,
-			@RequestParam("path") String path) {
+	public JsonObject summernoteImage(@RequestParam("file") MultipartFile multipartFile, @RequestParam("path") String path) {
 		log.info("uploading image");
 		JsonObject json = new JsonObject();
 		String prefixPath = "d:\\fairy\\workplace\\coworkers\\";

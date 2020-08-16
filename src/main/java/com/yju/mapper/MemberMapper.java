@@ -1,13 +1,13 @@
 package com.yju.mapper;
 
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 
 public interface MemberMapper {
 	public int checkId(String mem_id);
 	
-	public void join(MemberVO vo);
+	public void join(MemberDTO dto);
 
-	public MemberVO login(MemberVO vo);
+	public MemberDTO login(MemberDTO dto);
 	
-	public MemberVO profile(String mem_id);
+	public MemberDTO profile(String mem_id);
 }
