@@ -23,6 +23,11 @@ public class Criteria {
 	public Criteria(int pageNum, int amount,int board_type) {
 		this.pageNum = pageNum;
 		this.amount = amount;
+		this.board_type = board_type;
+	}
+	
+	public Criteria(int pageNum, int board_type) {
+		this(pageNum,10,board_type);
 	}
 	
 	public int getPageNum() {

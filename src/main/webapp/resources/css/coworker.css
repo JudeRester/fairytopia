@@ -84,9 +84,26 @@ nav .pagination>li>a, .pagination>li>span {
 	color: black;	
 }
 
+.name{
+     margin: 0px 35px;
+}
+
+.dropdown-menu{
+     text-align: center;
+}
+
 .name li img{
 	width: 30px;
 	
 }
 
-/*이름 클래스주고 패딩*/
+.name .nick{
+     color: black;
+     text-decoration: none;
+     font-size: 20px;
+}
+
+.text p {
+     margin: 30px 40px;
+     font-size: 20px;
+ }
