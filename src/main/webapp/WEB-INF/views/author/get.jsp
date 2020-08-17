@@ -6,6 +6,7 @@
 <link href="/resources/css/coworker.css" rel="stylesheet" />
 
 
+<hr/>
 <div class="container-fulid">
 	<div class="row">
 		<div class="col-xs-12">
@@ -25,32 +26,34 @@
 								<div class="list-group" id="right-all">
 									<div class="card-body">
 										<div class="table-responsive">
-											<c:set var="co" value="${coworker }" />
+
+											<c:set var="co" value="${coworker }"/>
 											<h2 class="text-center">${co.title }</h2>
 											<div class="name">
-												<div class="row">
-													<div class="col-xs-9">
-														<li class="dropdown"><a href="#"
-															class="dropdown-toggle" data-toggle="dropdown"
-															role="button" aria-expanded="false" />
+                                                    <div class="row">
+                                                        <div class="col-xs-9">
+                                                            <li class="dropdown">
+                                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" />
 
-															<div class="nick">
-																<img src="https://via.placeholder.com/150" alt="..."
-																	class="img-circle"> ${co.mem_nickname }
-															</div>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="#">메시지</a></li>
-																<li class="divider"></li>
-																<li><a href="#">게시글 검색</a></li>
-															</ul></li>
-													</div>
+                                                                <div class="nick">
+                                                                    <img src="https://via.placeholder.com/150" alt="..." class="img-circle">
+                                                                    ${co.mem_nickname }
+                                                                </div>
+                                                                <ul class="dropdown-menu" role="menu">
+                                                                    <li><a href="#">메시지</a></li>
+                                                                    <li class="divider"></li>
+                                                                    <li><a href="#">게시글 검색</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </div>
 
-													<div class="col-xs-3">
-														<button class="btn btn-default" type="submit">수정</button>
-														<button class="btn btn-default" type="submit">삭제</button>
-													</div>
-												</div>
-											</div>
+                                                        <div class="col-xs-3">
+                                                            <button class="btn btn-default" type="submit">수정</button>
+                                                            <button class="btn btn-default" type="submit">삭제</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
 											<hr />
 											<div class="text">
 												<p>${co.cont }</p>
@@ -65,11 +68,11 @@
 						</div>
 					</div>
 				</div>
-				<!--toppanel-->
-			</div>
-		</div>
-	</div>
-</div>
 
+				
+			</div><!--toppanel-->
+		</div> <!-- col -->
+	</div> <!-- row -->
+</div>
 
 <%@include file="../hf/footer.jsp"%>

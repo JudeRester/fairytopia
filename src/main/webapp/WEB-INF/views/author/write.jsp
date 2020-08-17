@@ -86,21 +86,27 @@
 					});
 </script>
 
-
 <hr />
-<form id="wform">
-	<div class="drop">
-		<select name="board_type" id="">
-			<option value="0">작가 구해요</option>
-			<option value="1">작품 구해요</option>
-		</select>
-	</div>
-	<div class="row">
-		<div class="col-xs-5 title">
-			<input type="text" class="form-control" placeholder="제목" name="title">
+	<form id="wform">
+		<div class="drop">
+			<select name="board_type" id="">
+				<option value="0">작가 구해요</option>
+				<option value="1">작품 구해요</option>
+			</select>
 		</div>
-	</div>
-	<div id="summernote"></div>
-	<button class="btn btn-default" type="button" id="test">등록</button>
-</form>
+
+		<div class="row">
+			<div class="col-xs-5 title">
+				<input type="text" class="form-control" placeholder="제목" name="title">
+			</div>
+		</div>
+
+		<div id="summernote"></div>
+		<!-- <input type="submit" value="작성"/> -->
+
+		<button class="btn btn-default" type="submit" id="test">등록</button>
+	</form>
+	<script>
+
+	</script>
 <%@include file="../hf/footer.jsp"%>
