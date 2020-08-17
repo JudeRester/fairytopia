@@ -84,8 +84,28 @@ nav .pagination>li>a, .pagination>li>span {
 	color: black;	
 }
 
-.name li img{
-	width: 30px;
-	
+
+.name{
+     margin: 0px 35px;
 }
+
+.dropdown-menu{
+     text-align: center;
+}
+
+.name li img {
+     width: 45px;
+     margin-right: 10px;
+}
+
+.name .nick{
+     color: black;
+     text-decoration: none;
+     font-size: 20px;
+}
+
+.text p {
+     margin: 30px 40px;
+     font-size: 20px;
+ }
 
