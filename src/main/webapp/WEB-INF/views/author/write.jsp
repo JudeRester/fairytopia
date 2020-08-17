@@ -3,7 +3,7 @@
 
 <%@include file="../hf/stheader.jsp"%>
 
-<link href="/resources/css/studio.css" rel="stylesheet" />
+<link href="/resources/css/write.css" rel="stylesheet" />
 <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
 
@@ -74,18 +74,27 @@
 	});
 </script>
 
+<hr />
+	<form id="wform">
+		<div class="drop">
+			<select name="board_type" id="">
+				<option value="0">작가 구해요</option>
+				<option value="1">작품 구해요</option>
+			</select>
+		</div>
 
-<form id="wform">
-	<select name="board_type" id="">
-		<option value="0">작가 구해요</option>
-		<option value="1">작품 구해요</option>
-	</select><label for="">제목</label><input type="text" name="title" /><br />
-	<div id="summernote"></div>
-	<!-- <input type="submit" value="작성"/> -->
-</form>
+		<div class="row">
+			<div class="col-xs-5 title">
+				<input type="text" class="form-control" placeholder="제목" name="title">
+			</div>
+		</div>
 
-<button id="test">ㅎㅇ</button>
-<script>
+		<div id="summernote"></div>
+		<!-- <input type="submit" value="작성"/> -->
 
-</script>
+		<button class="btn btn-default" type="submit" id="test">등록</button>
+	</form>
+	<script>
+
+	</script>
 <%@include file="../hf/footer.jsp"%>
