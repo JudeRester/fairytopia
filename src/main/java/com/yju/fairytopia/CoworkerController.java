@@ -53,6 +53,7 @@ public class CoworkerController {
 	@GetMapping("/list")
 	public String coworker(int board_type, Criteria crt, Model model) {
 		crt.setBoard_type(board_type);
+		log.info(crt.toString());
 		model.addAttribute("list", service.getList(crt));
 		model.addAttribute("pdto",new PageDTO(crt, service.total(crt)));
 		return "/author/coworker";

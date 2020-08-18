@@ -7,8 +7,8 @@
 
 
 	<select resultType="com.yju.domain.CoworkerDTO" id="getList" >
-		select * from (select b.*,c.mem_nickname from find_coworker b,member c where b.mem_id=c.mem_id and board_type=#{board_type} order by seq desc) a 
-		where rownum between (#{pageNum}-1)*#{amount}+1 and #{pageNum}*#{amount}
+		select * from (select row_number() over (order by a.seq desc) as rn,a.*, b.mem_nickname from find_coworker a, member b where a.mem_id=b.mem_id and board_type=#{board_type}) a 
+		where a.rn between (#{pageNum}-1)*#{amount}+1 and #{pageNum}*#{amount}
 	</select>
 	
 	<insert id="write">

@@ -87,7 +87,7 @@
 										<c:forEach var="pnum" begin="${pdto.startPage }"
 											end="${pdto.endPage }" step="1">
 											<li><a class="${pdto.crt.pageNum==pnum?'active':'' }"
-												href="#">${pnum}</a></li>
+												href="/coworker/list?board_type=${empty pdto.crt.board_type?'0':pdto.crt.board_type }&pageNum=${pnum}">${pnum}</a></li>
 										</c:forEach>
 										<!--  <li class="active"><a href="#">1</a></li>
 						                        <li><a href="#">2</a></li>
