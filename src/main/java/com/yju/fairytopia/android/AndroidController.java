@@ -94,4 +94,16 @@ public class AndroidController {
 	public ArrayList<FairyTaleVO> recommend() {
 		return buy.recommendlist();
 	}
+	
+	@PostMapping(value = "/tagrecommend")
+	@ResponseBody
+	public ArrayList<FairyTaleVO> tagrecommend() {
+		int i = buy.maxcount();
+		String tag = buy.gettag(i);
+		if(tag!=null) {
+			return buy.tagrecommend(tag);
+		} else {
+			return buy.recommendlist();
+		}
+	}
 }

@@ -39,4 +39,19 @@ public class FairyTaleServiceImpl implements FairyTaleService{
 	public ArrayList<FairyTaleVO> recommendlist(){
 		return mapper.recommendlist();
 	}
+
+	@Override
+	public int maxcount() {
+		return mapper.maxcount();
+	}
+	
+	@Override
+	public String gettag(int i) {
+		return mapper.gettag(i);
+	}
+	
+	@Override
+	public ArrayList<FairyTaleVO> tagrecommend(String tag){
+		return mapper.tagrecommend(tag);
+	}
 }

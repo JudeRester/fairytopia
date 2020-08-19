@@ -1,4 +1,4 @@
-package com.yju.service;
+﻿package com.yju.service;
 
 import java.util.ArrayList;
 
@@ -18,4 +18,14 @@ public interface FairyTaleService {
 	
 	//테일샵에서 동화 구매
 	public void buyinsert(BuyinglistVO vo);
+
+	//가장 많이 구매한 태그의 수를 찾음
+	public int maxcount();
+	
+	//가장 많이 구매한 태그를 찾음
+	public String gettag(int i);
+	
+	//가장 많이 구매한 태그를 이용하여 그와 같은 태그를 보여준다.
+	public ArrayList<FairyTaleVO> tagrecommend(String tag);
+
 }

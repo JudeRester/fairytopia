@@ -14,4 +14,10 @@ public interface FairyTaleMapper {
 	public void buyinsert(BuyinglistVO vo);
 	
 	public ArrayList<FairyTaleVO> recommendlist();
+
+	public int maxcount();
+	
+	public String gettag(int i);
+	
+	public ArrayList<FairyTaleVO> tagrecommend(String tag);
 }
