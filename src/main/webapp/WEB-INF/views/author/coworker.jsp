@@ -48,7 +48,7 @@
 															role="button" aria-expanded="false"> <c:out
 																	value="${board.mem_nickname}" />
 																<ul class="dropdown-menu" role="menu">
-																	<li><a href="#">메시지</a></li>
+																	<li><a href="#" onclick="noteTo('${board.mem_nickname }','${board.mem_id}')">메시지</a></li>
 																	<li class="divider"></li>
 																	<li><a href="#">게시글 검색</a></li>
 																</ul></li>
@@ -89,11 +89,6 @@
 											<li><a class="${pdto.crt.pageNum==pnum?'active':'' }"
 												href="/coworker/list?board_type=${empty pdto.crt.board_type?'0':pdto.crt.board_type }&pageNum=${pnum}">${pnum}</a></li>
 										</c:forEach>
-										<!--  <li class="active"><a href="#">1</a></li>
-						                        <li><a href="#">2</a></li>
-						                        <li><a href="#">3</a></li>
-						                        <li><a href="#">4</a></li>
-						                        <li><a href="#">5</a></li> -->
 										<c:if test="${pdto.next }">
 											<li><a href="#" aria-label="Next"> <span
 													aria-hidden="true">&raquo;</span>
@@ -115,6 +110,11 @@
 		<!--toppanel-->
 	</div>
 </div>
-
+<script>
+	function noteTo(tn,t){
+			console.log(tn+','+t);
+			var popup = window.open('/note?toNick='+tn+'&to='+t+'&from=${sessionScope.user.mem_id}','메세지보내기',"width=430px,height=400px",true);
+		}
+</script>
 
 <%@include file="../hf/footer.jsp"%>
