@@ -17,8 +17,4 @@ public class HomeController {
 		return "main";
 	}
 
-	@GetMapping(value = "/note")
-	public void note() {
-	}
-
 }

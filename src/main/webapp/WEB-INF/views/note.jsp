@@ -40,10 +40,11 @@
 			var data = new FormData();
 			data.append('to','${param.to}');
 			data.append('from','${param.from}');
+			data.append('cont',$('#writeNote').val());
 			console.log(data);
 			$.ajax({
 				type : "POST",
-				url : "/sendNote",
+				url : "/note/sendNote",
 				processData : false,
 				contentType : false,
 				data : data,
