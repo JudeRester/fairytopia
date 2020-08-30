@@ -42,4 +42,9 @@ public class NoteController {
 		}
 		return json;
 	}
+	
+	@GetMapping(value="/notelist")
+	public String notelist() {
+		return "/author/notelist";
+	}
 }
