@@ -8,8 +8,8 @@
 		<selectKey order="BEFORE" keyProperty="workplace_id" resultType="String">
 			select workplace_date('now') from dual
 		</selectKey>
-		insert into workplace(workplace_id,workplace_name, workplace_detail,workplace_thumbnale)
-		values(#{workplace_id},#{workplace_name},#{workplace_detail},#{workplace_thumbnail})
+		insert into workplace(workplace_id,workplace_name, workplace_detail)
+		values(#{workplace_id},#{workplace_name},#{workplace_detail})
 	</insert>
 	
 	<insert id="addAuthor">

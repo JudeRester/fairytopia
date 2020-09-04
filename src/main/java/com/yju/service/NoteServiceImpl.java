@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.yju.domain.Criteria;
 import com.yju.domain.MemberDTO;
-import com.yju.domain.NoteDTO;
 import com.yju.domain.TalkContentDTO;
 import com.yju.domain.TalkRoomDTO;
 import com.yju.mapper.NoteMapper;
@@ -28,9 +27,8 @@ public class NoteServiceImpl implements NoteService {
 	}
 
 	@Override
-	public NoteDTO get(int seq) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<TalkContentDTO> get(String talk_id) {
+		return mapper.get(talk_id);
 	}
 
 	@Override

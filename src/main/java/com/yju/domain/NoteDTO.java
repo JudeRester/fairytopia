@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class NoteDTO {
 	private int seq;
-	private String reciever;
+	private String receiver;
 	private String sender;
 	private String cont;
 	private Date sdate;
@@ -16,12 +16,8 @@ public class NoteDTO {
 	public void setSeq(int seq) {
 		this.seq = seq;
 	}
-	public String getReciever() {
-		return reciever;
-	}
-	public void setReciever(String reciever) {
-		this.reciever = reciever;
-	}
+
+
 	public String getSender() {
 		return sender;
 	}
@@ -48,7 +44,13 @@ public class NoteDTO {
 	}
 	@Override
 	public String toString() {
-		return "NoteDTO [seq=" + seq + ", reciever=" + reciever + ", sender=" + sender + ", cont=" + cont + ", sdate="
+		return "NoteDTO [seq=" + seq + ", reciever=" + receiver + ", sender=" + sender + ", cont=" + cont + ", sdate="
 				+ sdate + ", checked=" + checked + "]";
+	}
+	public String getReceiver() {
+		return receiver;
+	}
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
 	}
 }

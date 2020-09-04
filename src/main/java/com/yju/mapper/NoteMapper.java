@@ -18,4 +18,6 @@ public interface NoteMapper {
 
 	public void makeRoom(TalkContentDTO dto);
 
+	public List<TalkContentDTO> get(String talk_id);
+
 }

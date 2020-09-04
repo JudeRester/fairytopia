@@ -139,9 +139,9 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="workplace_thumbnail" class="col-sm-3 control-label">작업실
-							썸네일</label> <input type="file" id="workplace_thumbnail"
-							name="workplace_thumbnail" placeholder="파일 선택" />
+						<label for="upload_thumbnail" class="col-sm-3 control-label">작업실
+							썸네일</label> <input type="file" id="upload_thumbnail"
+							name="upload_thumbnail" placeholder="파일 선택" />
 					</div>
 					<input type="hidden" name="mem_id"
 						value="${sessionScope.user.mem_id}" />

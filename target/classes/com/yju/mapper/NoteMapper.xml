@@ -15,12 +15,12 @@
 	</select>
 	
 	<insert id="send">
-		insert into talk_content(talk_id, mem_send, mem_recieve, cont) 
-		values(#{talk_id}, #{mem_send},#{mem_recieve},#{cont})
+		insert into talk_content(talk_id, mem_send, mem_receive, cont) 
+		values(#{talk_id}, #{mem_send},#{mem_receive},#{cont})
 	</insert>
 	
-	<select id="checkRoom" resultType="com.yju.domain.TalkContentDTO">
-		select * from talkroom where (mem_a=#{mem_send}or mem_a=#{mem_recieve}) and (mem_b=#{mem_send} or mem_b=#{mem_recieve});
+	<select id="checkRoom" resultType="String">
+		select talk_id from talkroom where (mem_a=#{mem_send} or mem_a=#{mem_receive}) and (mem_b=#{mem_send} or mem_b=#{mem_receive})
 	</select>
 	
 	<insert id="makeRoom" parameterType="com.yju.domain.TalkContentDTO">
@@ -31,8 +31,8 @@
 		values(#{talk_id},#{mem_send},#{mem_receive})
 	</insert>
 	
-	<select resultType="com.yju.domain.NoteDTO" id="get">
-		select a.*,b.mem_nickname from find_coworker a, member b where seq=#{seq} and a.mem_id=b.mem_id
+	<select resultType="com.yju.domain.TalkContentDTO" id="get" parameterType="com.yju.domain.TalkContentDTO">
+		select * from talk_content where talk_id=#{talk_id} order by send_date desc
 	</select>
 
 	<select id="total" resultType="Integer">

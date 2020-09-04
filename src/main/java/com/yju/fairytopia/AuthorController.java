@@ -45,12 +45,12 @@ public class AuthorController {
 	}
 
 	@PostMapping("/createwp")
-	public String createWP(WorkplaceDTO dto, @RequestParam("workplace_thumbnail") MultipartFile file) {
+	public String createWP(WorkplaceDTO dto, @RequestParam("upload_thumbnail") MultipartFile file) {
 		log.info("createWP : " + dto);
 		String path;
 		String[] token;
 		service.createWorkplace(dto);
-
+		System.out.println("workplace created");
 		path = "d:\\fairy\\workplace\\" + dto.getWorkplace_id();
 		File Folder = new File(path);
 		String name = "0." + FilenameUtils.getExtension(file.getOriginalFilename());
