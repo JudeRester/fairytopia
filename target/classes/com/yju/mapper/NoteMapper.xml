@@ -6,14 +6,29 @@
 <mapper namespace="com.yju.mapper.NoteMapper">
 
 
-	<select resultType="com.yju.domain.NoteDTO" id="getList" >
-		select * from (select row_number() over (order by a.seq desc) as rn,a.*, b.mem_nickname from find_coworker a, member b where a.mem_id=b.mem_id and board_type=#{board_type}) a 
-		where a.rn between (#{pageNum}-1)*#{amount}+1 and #{pageNum}*#{amount}
+	<select resultType="com.yju.domain.TalkRoomDTO" id="getList" >
+		select talk_id, mem_a,mem_b from talkroom where mem_a=#{mem_id} or mem_b=#{mem_id} order by last_update desc
+	</select>
+	
+	<select resultType="String" id="getSnippet" >
+		select * from  (select cont as snippet from talk_content where talk_id=#{talk_id} and rownum = 1 order by send_date desc)
 	</select>
 	
 	<insert id="send">
-		insert into note(seq, reciever, sender, cont) 
-		values(note_seq.nextval, #{reciever},#{sender},#{cont})
+		insert into talk_content(talk_id, mem_send, mem_recieve, cont) 
+		values(#{talk_id}, #{mem_send},#{mem_recieve},#{cont})
+	</insert>
+	
+	<select id="checkRoom" resultType="com.yju.domain.TalkContentDTO">
+		select * from talkroom where (mem_a=#{mem_send}or mem_a=#{mem_recieve}) and (mem_b=#{mem_send} or mem_b=#{mem_recieve});
+	</select>
+	
+	<insert id="makeRoom" parameterType="com.yju.domain.TalkContentDTO">
+		<selectKey order="BEFORE" keyProperty="talk_id" resultType="String">
+			select talkroom_date('now') from dual
+		</selectKey>
+		insert into talkroom(talk_id,mem_a, mem_b)
+		values(#{talk_id},#{mem_send},#{mem_receive})
 	</insert>
 	
 	<select resultType="com.yju.domain.NoteDTO" id="get">

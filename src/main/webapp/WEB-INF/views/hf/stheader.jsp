@@ -49,7 +49,7 @@
 				<div class="btn-group" role="group">
 					<c:if test="${sessionScope.user.mem_aut == 1 }">
 						<button type="button" class="btn btn-default btn-user">
-							<span class="glyphicon glyphicon-envelope"></span>
+							<a href="/note/notelist"><span class="glyphicon glyphicon-envelope"></span></a>
 						</button>
 					</c:if>
 					<button type="button" class="btn btn-default btn-user">
