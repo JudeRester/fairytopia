@@ -1,238 +1,190 @@
 @charset "UTF-8";
 
-/*헤더*/
-#header {
-	padding: 40px 15px;
-}
+        /*헤더*/
+        #header {
+            padding: 40px 15px;
+        }
 
-#header .navbar-brand {
-	color: #ffa900;
-}
+            #header .navbar-brand {
+                color: #ffa900;
+            }
 
-.navbar-brand {
-	font-size: 25px;
-}
+        .navbar-brand {
+            font-size: 25px;
+        }
 
-.user .btn {
-	width: 50px;
-	margin-top: 5px;
-}
+        .user .btn {
+            width: 50px;
+            margin-top: 5px;
+        }
 
-.btn-user .glyphicon {
-	font-size: 20px;
-	color: #ffa900;
-}
+        .btn-user .glyphicon {
+            font-size: 20px;
+            color: #ffa900;
+        }
 
-.dropdown-menu .glyphicon {
-	margin-right: 20px;
-	color: #ffa900;
-}
+        .dropdown-menu .glyphicon {
+            margin-right: 20px;
+            color: #ffa900;
+        }
 
-/*네비*/
-.nav li a {
-	color: black;
-	font-size: 17px;
-	background-color: white;
-}
+        /*네비*/
+        .nav li a {
+            color: black;
+            font-size: 17px;
+            background-color: white;
+        }
 
-.nav li a:hover {
-	color: #ffa900;
-	background-color: white;
-}
+            .nav li a:hover {
+                color: #ffa900;
+                background-color: white;
+            }
 
-.navtop {
-	padding-left: 45px;
-}
+        .navtop {
+            padding-left: 45px;
+        }
 
-.navtop a, .navtop h4 {
-	color: #5c5c5c;
-	text-decoration: none;
-}
+            .navtop a, .navtop h4 {
+                color: #5c5c5c;
+                text-decoration: none;
+            }
 
-/*작가*/
-#writer-img img {
-	width: 220px;
-	height: 250px;
-	padding-left: 70px;
-	padding-top: 100px;
-}
 
-#writer-img h4 {
-	font-weight: bold;
-	padding-left: 70px;
-	color: #ffa900;
-}
+        /*작가*/
+        #writer-img img {
+            padding-left: 70px;
+            padding-top: 100px;
+        }
 
-#writer-img p {
-	font-weight: bold;
-	padding-left: 70px;
-}
+        #writer-img h4 {
+            font-weight: bold;
+            padding-left: 70px;
+            color: #ffa900;
+        }
 
-#writer-img .box {
-	border: 1px solid #cecece;
-	width: 150px;
-	height: 150px;
-	margin-left: 70px;
-	margin-top: 100px;
-}
+        #writer-img p {
+            font-weight: bold;
+            padding-left: 70px;
+        }
+        
+         #writer-img .box {
+            border: 1px solid #cecece;
+            width: 150px;
+            height: 150px;
+            margin-left: 70px;
+            margin-top: 100px;
+        }
 
-#myModal2 {
-	padding-top: 200px;
-}
+        #myModal2 {
+            padding-top: 200px;
+        }
 
-.box a span {
-	font-size: 35px;
-	color: #ffa900;
-	margin: 45px 30px;
-}
+        .box a span {
+            font-size: 35px;
+            color: #ffa900;
+            margin:45px 30px;
+        }
 
-/*일정*/
-.cal {
-	padding-top: 50px;
-	padding-left: 70px;
-}
+        /*일정*/
+        .cal {
+            padding-top: 50px;
+            padding-left: 70px;
+        }
 
-.info {
-	padding-top: 40px;
-}
+        .info {
+            padding-top: 40px;
+        }
 
-.info a span {
-	font-size: 25px;
-	color: #ffa900;
-}
+            .info a span {
+                font-size: 25px;
+                color: #ffa900;
+            }
 
-.con {
-	padding: 0px 140px;
-}
+        .con {
+            padding: 0px 140px;
+        }
 
-.con p {
-	font-size: 18px;
-}
+            .con p {
+                font-size: 18px;
+            }
 
-/*모달*/
-#myModal {
-	padding-top: 200px;
-}
+        /*모달*/
+        #myModal {
+            padding-top: 200px;
+        }
 
-.modal-footer span {
-	padding-right: 10px;
-	color: #ffa900;
-}
+        .modal-footer span {
+            padding-right: 10px;
+            color: #ffa900;
+        }
 
-.modal-footer h4 {
-	color: #ffa900;
-}
+        .modal-footer h4 {
+            color: #ffa900;
+        }
 
-.modal-footer a {
-	text-decoration: none;
-}
+        .modal-footer a {
+            text-decoration: none;
+        }
 
-.modal-body {
-	padding: 60px 80px;
-}
+        .modal-body {
+            padding: 60px 80px;
+        }
 
-div .bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.bottom
-	{
-	width: 300px;
-}
+        div .bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.bottom {
+            width: 300px;
+        }
 
-div .bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.top {
-	width: 300px;
-}
+        div .bootstrap-datetimepicker-widget.dropdown-menu.usetwentyfour.top {
+            width: 300px;
+        }
+        
+        /*파일*/
+        .file {
+            padding-top: 90px;
+        }
 
-/*파일*/
-.file {
-	padding-top: 90px;
-}
+        .panel-title label {
+            display: inline-block;
+            color: white;
+            line-height: normal;
+            vertical-align: middle;
+            background-color: #ffa900;
+            left: 180px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            padding-left: 7px;
+            padding-top: 5px;
+            cursor: pointer;
+            margin-left:500px;
+        }
 
-.panel-title label {
-	display: inline-block;
-	color: white;
-	line-height: normal;
-	vertical-align: middle;
-	background-color: #ffa900;
-	left: 180px;
-	border-radius: 50%;
-	width: 30px;
-	height: 30px;
-	padding-left: 7px;
-	padding-top: 5px;
-	cursor: pointer;
-	margin-left: 500px;
-}
+        .panel-title input[type="file"] { /* 파일 필드 숨기기 */
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
 
-.panel-title input[type="file"] { /* 파일 필드 숨기기 */
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
-}
+        div #headingOne.panel-heading, #headingTwo.panel-heading, #headingThree.panel-heading, #headingFour.panel-heading, #headingFive.panel-heading, #headingSix.panel-heading, #headingSeven.panel-heading {
+            background-color: white
+        }
 
-div #headingOne.panel-heading, #headingTwo.panel-heading, #headingThree.panel-heading,
-	#headingFour.panel-heading, #headingFive.panel-heading, #headingSix.panel-heading,
-	#headingSeven.panel-heading {
-	background-color: white
-}
+        .page {
+            padding-bottom: 10px;
+        }
 
-.page {
-	padding-bottom: 10px;
-}
+        .page b {
+            color: gray;
+        }
 
-.page b {
-	color: gray;
-}
-
-/*편집*/
-.edit {
-	width: 950px;
-	height: 500px;
-	border: 1px solid #c9c9c9;
-}
-
-/* 작가 모달 */
-.invite-list {
-	display: inline-block;
-	overflow: auto;
-	width: 200px;
-	height: 400px;
-	margin: 10px;
-	border: inset;
-}
-
-.invite-list ul {
-	padding: 0px;
-}
-
-.invite-list li {
-	list-style: none;
-}
-
-.selected {
-	background-color: #03d3fc;
-}
-
-.progress {
-	position: relative;
-	width: 100%;
-	border: 1px solid #ddd;
-	padding: 1px;
-	border-radius: 3px;
-}
-
-.bar {
-	background-color: #337ab7;
-	width: 0%;
-	height: 20px;
-	border-radius: 3px;
-}
-
-.percent {
-	position: absolute;
-	display: inline-block;
-	top: 1px;
-	left: 48%;
-}
+        /*편집*/
+        .edit {
+            width: 950px;
+            height: 500px;
+            border: 1px solid #c9c9c9;
+        }

@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
 <%@include file="../hf/header.jsp"%>
 
 <link href="/resources/css/workroom.css" rel="stylesheet" />
+
 
     <div class="container">
         <div class="row">
@@ -20,39 +22,27 @@
         </div>
     </div>
 
-<hr />
+    <hr />
 
-<div class="container-fuild">
-	<div class="row">
-		<div class="col-xs-offset-1 col-xs-10 content">
-			<div role="tabpanel">
+    <div class="container-fuild">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10 content">
+                <div role="tabpanel">
 
-				<!-- Nav tabs -->
-				<ul class="nav nav-justified" role="tablist">
-					<li role="presentation" class="active"><a href="#writer"
-						aria-controls="writer" role="tab" data-toggle="tab">작가</a></li>
-					<li role="presentation"><a href="#calendar"
-						aria-controls="calendar" role="tab" data-toggle="tab">일정</a></li>
-					<li role="presentation"><a href="#file" aria-controls="file"
-						role="tab" data-toggle="tab">파일</a></li>
-					<li role="presentation"><a href="#edit" aria-controls="edit"
-						role="tab" data-toggle="tab">편집</a></li>
-				</ul>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-justified" role="tablist">
+                        <li role="presentation" class="active"><a href="#writer" aria-controls="writer" role="tab" data-toggle="tab">작가</a></li>
+                        <li role="presentation"><a href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">일정</a></li>
+                        <li role="presentation"><a href="#file" aria-controls="file" role="tab" data-toggle="tab">파일</a></li>
+                        <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">편집</a></li>
+                    </ul>
 
-				<!-- 작가 -->
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane fade in active" id="writer">
-						<div class="row" id="writer-img">
-							<c:forEach items="${members}" var="m">
-								<div class="col-xs-offset-1 col-xs-3">
-									<img src="/fairy/profile/${m.mem_id }/profile"
-										onerror="this.src='/resources/img/empty_profile.png'"
-										alt="...">
-									<h4>${m.mem_nickname }</h4>
-									<p>${m.mem_role }</p>
-								</div>
-							</c:forEach>
-							<!-- <div class="col-xs-offset-1 col-xs-3">
+                    <!-- 작가 -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="writer">
+                            <div class="row" id="writer-img">
+                                <div class="col-xs-offset-1 col-xs-3">
+
                                     <img src="https://via.placeholder.com/150" alt="...">
                                     <h4>A</h4>
                                     <p>시나리오 작가</p>
@@ -61,22 +51,23 @@
                                     <img src="https://via.placeholder.com/150" alt="...">
                                     <h4>B</h4>
                                     <p>일러스트 작가</p>
-                                </div> -->
-							<div class="col-xs-3 box">
-								<a href="" class="btn btn-link" role="button"
-									data-toggle="modal" data-target="#myModal2" id="newAuthor">
-									<span class="glyphicon glyphicon-plus"></span>
-								</a>
-							</div>
-						</div>
-					</div>
 
-					<!--일정-->
-					<div role="tabpanel" class="tab-pane fade" id="calendar">
-						<div class="row">
-							<div class="col-xs-4 cal">
-								<div id="datetimepicker1"></div>
-								<!--
+                                </div>
+                                <div class="col-xs-3 box">
+                                    <a href="" class="btn btn-link" role="button" data-toggle="modal" data-target="#myModal2">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--일정-->
+                        <div role="tabpanel" class="tab-pane fade" id="calendar">
+                            <div class="row">
+                                <div class="col-xs-4 cal">
+                                    <div id="datetimepicker1"></div>
+                                    <!--
+
                                         <div class="form-group">
                                             <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                                                 <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
@@ -191,7 +182,6 @@
 </div>
 
 	<!-- 모달 -->
-
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
         <div class="modal-dialog">
@@ -249,33 +239,24 @@
             </div>
         </div>
     </div>
-</div>
-
-
-<script type="text/javascript">
-	$(function() {
-		$('#datetimepicker1').datetimepicker({
-			inline : true,
-			sideBySide : true,
-			format : 'L'
-		});
-	});
-	$(function() {
-		$('#datetimepicker2').datetimepicker({
-			format : 'L'
-		});
-		$('#datetimepicker3').datetimepicker({
-			useCurrent : false,
-			format : 'L'
-		});
-		$("#datetimepicker2").on("dp.change", function(e) {
-			$('#datetimepicker3').data("DateTimePicker").minDate(e.date);
-		});
-		$("#datetimepicker3").on("dp.change", function(e) {
-			$('#datetimepicker2').data("DateTimePicker").maxDate(e.date);
-		});
-	});
-</script>
+    
+    <!--작가 모달-->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    header
+                </div>
+                <div class="modal-body">
+                    body
+                </div>
+                <div class="modal-footer">
+                    footer
+                </div>
+            </div>
+        </div>
+    </div>
 
  <script type="text/javascript">
             $(function () {
