@@ -38,15 +38,20 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="writer">
                             <div class="row" id="writer-img">
-                                <div class="col-xs-offset-3 col-xs-3">
+                                <div class="col-xs-offset-1 col-xs-3">
                                     <img src="https://via.placeholder.com/150" alt="...">
                                     <h4>A</h4>
                                     <p>시나리오 작가</p>
                                 </div>
-                                <div class="col-xs-4">
+                                <div class="col-xs-3">
                                     <img src="https://via.placeholder.com/150" alt="...">
                                     <h4>B</h4>
                                     <p>일러스트 작가</p>
+                                </div>
+                                 <div class="col-xs-3 box">
+                                    <a href="" class="btn btn-link" role="button" data-toggle="modal" data-target="#myModal2">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -254,6 +259,24 @@
                             <b>저장</b>
                         </h4>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--작가 모달-->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    header
+                </div>
+                <div class="modal-body">
+                    body
+                </div>
+                <div class="modal-footer">
+                    footer
                 </div>
             </div>
         </div>

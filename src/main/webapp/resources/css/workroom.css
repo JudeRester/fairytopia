@@ -66,6 +66,24 @@
             font-weight: bold;
             padding-left: 70px;
         }
+        
+         #writer-img .box {
+            border: 1px solid #cecece;
+            width: 150px;
+            height: 150px;
+            margin-left: 70px;
+            margin-top: 100px;
+        }
+
+        #myModal2 {
+            padding-top: 200px;
+        }
+
+        .box a span {
+            font-size: 35px;
+            color: #ffa900;
+            margin:45px 30px;
+        }
 
         /*일정*/
         .cal {

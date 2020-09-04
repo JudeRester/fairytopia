@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+#fairytale {
+       padding-left: 50px;
+       padding-top: 30px;
+}
+
+#fairytale button {
+      margin-top: 10px;
+      margin-left: 13px;
+      width: 100px;
+}
+
+/*별점*/
+.star_rating {
+      font-size:0; 
+      letter-spacing:-4px;
+      margin-top: 20px;
+}
+
+.star_rating a {
+      font-size:22px;
+      letter-spacing:0;
+      display:inline-block;
+      margin-left:5px;
+      color:#ccc;
+      text-decoration:none;
+}
+
+.star_rating a:first-child {margin-left:0;}
+
+.star_rating a.on {color:#777;}
+
+/*리뷰*/
+.tab {
+      margin-top: 40px;
+}
+
+.tab .nav li a {
+      color: black;
+      font-size: 15px;
+      border:1px solid #ececec;
+}
+
+.tab-content {
+      padding: 40px;
+}
+
+#review .row{
+      margin-bottom: 20px;
+}
+
+#review a {
+      color: black;
+      text-decoration: none;
+}
+
+/*리뷰 페이지네이션*/
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+      background-color: #ffa900;
+      border-color: #ffa900;
+}
+
+/*작가의 다른책*/
+#ot div h4{
+      margin-bottom:50px; 
+      color: black;
+}
+
+#ot div a:hover {
+      text-decoration:none;
+}
+
+/*관련된 책*/
+#re div h4 {
+      margin-bottom: 50px;
+      color: black;
+}
+
+#re div a:hover {
+      text-decoration: none;
+}
