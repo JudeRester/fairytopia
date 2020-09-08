@@ -7,7 +7,12 @@
 
 
 	<select resultType="com.yju.domain.TalkRoomDTO" id="getList" >
-		select talk_id, mem_a,mem_b from talkroom where mem_a=#{mem_id} or mem_b=#{mem_id} order by last_update desc
+		<!-- select talk_id, mem_a,mem_b from talkroom where mem_a=#{mem_id} or mem_b=#{mem_id} order by last_update desc -->
+		select a.talk_id, a.mem_a, b.mem_nickname as anick,a.mem_b,c.mem_nickname as bnick 
+		from talkroom a,member b, member c 
+		where a.mem_a=b.mem_id and a.mem_b=c.mem_id and 
+		(mem_a=#{mem_id} or mem_b=#{mem_id}) 
+		order by last_update desc
 	</select>
 	
 	<select resultType="String" id="getSnippet" >
@@ -32,7 +37,7 @@
 	</insert>
 	
 	<select resultType="com.yju.domain.TalkContentDTO" id="get" parameterType="com.yju.domain.TalkContentDTO">
-		select * from talk_content where talk_id=#{talk_id} order by send_date desc
+		select b.mem_nickname,a.* from member b,talk_content a where talk_id=#{talk_id} and a.mem_send=b.mem_id order by send_date desc
 	</select>
 
 	<select id="total" resultType="Integer">

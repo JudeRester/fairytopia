@@ -6,6 +6,7 @@ public class TalkContentDTO {
 	private Date send_date;
 	private String talk_id;
 	private String mem_send;
+	private String mem_nickname;
 	private String mem_receive;
 	private String talk_cont_file;
 	private String cont;
@@ -55,7 +56,13 @@ public class TalkContentDTO {
 	@Override
 	public String toString() {
 		return "TalkContentDTO [send_date=" + send_date + ", talk_id=" + talk_id + ", mem_send=" + mem_send
-				+ ", mem_receive=" + mem_receive + ", talk_cont_file=" + talk_cont_file + ", cont=" + cont
-				+ ", checked=" + checked + "]";
+				+ ", mem_nickname=" + mem_nickname + ", mem_receive=" + mem_receive + ", talk_cont_file="
+				+ talk_cont_file + ", cont=" + cont + ", checked=" + checked + "]";
+	}
+	public String getMem_nickname() {
+		return mem_nickname;
+	}
+	public void setMem_nickname(String mem_nickname) {
+		this.mem_nickname = mem_nickname;
 	}
 }

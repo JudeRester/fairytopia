@@ -3,6 +3,8 @@ package com.yju.domain;
 public class TalkRoomDTO {
 	private String talk_id;
 	private String mem_a;
+	private String anick;
+	private String bnick;
 	private String mem_b;
 	private char favorite;
 	private String snippet;
@@ -32,13 +34,25 @@ public class TalkRoomDTO {
 	}
 	@Override
 	public String toString() {
-		return "TalkRoomDTO [talk_id=" + talk_id + ", mem_a=" + mem_a + ", mem_b=" + mem_b + ", favorite=" + favorite
-				+ ", snippet=" + snippet + "]";
+		return "TalkRoomDTO [talk_id=" + talk_id + ", mem_a=" + mem_a + ", anick=" + anick + ", bnick=" + bnick
+				+ ", mem_b=" + mem_b + ", favorite=" + favorite + ", snippet=" + snippet + "]";
 	}
 	public String getSnippet() {
 		return snippet;
 	}
 	public void setSnippet(String snippet) {
 		this.snippet = snippet;
+	}
+	public String getAnick() {
+		return anick;
+	}
+	public void setAnick(String anick) {
+		this.anick = anick;
+	}
+	public String getBnick() {
+		return bnick;
+	}
+	public void setBnick(String bnick) {
+		this.bnick = bnick;
 	}
 }

@@ -27,7 +27,7 @@
 									<div class="th_user_info">
 										<div class="tui_username">
 											<!-- <i class="fa fa-check-circle offline-now tui_check"></i> -->
-											<div class="tui_el">${t.mem_a eq sessionScope.user.mem_id ? t.mem_b: t.mem_a }
+											<div class="tui_el">${t.mem_a eq sessionScope.user.mem_id ? t.bnick: t.anick }
 											</div>
 										</div>
 									</div>
@@ -189,7 +189,7 @@
 							for ( var a in data) {
 								var temp = body;
 								body = "<div class=\"pm_msg\"><div class=\"msg_user_thumb\"><a href=\"#\"	class=\"thumb_link\"><img src=\"/fairy/profile/"+data[a].mem_send+"/profile\" class=\"thumb\"></a></div><div class=\"msg_user\"><a href=\"#\" class=\"msg_username\">"
-										+ data[a].mem_send
+										+ data[a].mem_nickname
 										+ "</a></div><div class=\"msg_buttons\"><div class=\"pm_time\">"
 										+ data[a].send_date
 										+ "</div></div><div class=\"msg_body\">"
