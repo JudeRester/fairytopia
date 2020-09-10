@@ -43,5 +43,14 @@
 		(select mem_id 
 		from workplace_person 
 		where workplace_id=#{workplace_id})
+		and mem_id not in
+        (select mem_receive
+        from workplace_invitation
+        where workplace_id=#{workplace_id})
 	</select>
+	
+	<insert id="sendInvite">
+		insert into workplace_invitation(workplace_id,mem_send,mem_receive)
+		values(#{workplace_id},#{mem_send},#{mem_receive})
+	</insert>
 </mapper>

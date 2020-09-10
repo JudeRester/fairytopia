@@ -4,6 +4,7 @@
 <html>
 <head>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="/resources/css/note.css" rel="stylesheet" />
 <meta charset="UTF-8">
 <title>쪽지 쓰기</title>
 </head>

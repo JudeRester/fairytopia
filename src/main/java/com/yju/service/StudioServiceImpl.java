@@ -1,6 +1,7 @@
 package com.yju.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +44,16 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 	@Override
 	public List<MemberDTO> getMembers(String workplace_id) {
 		return mapper.getMembers(workplace_id);
+	}
+
+	@Override
+	public List<MemberDTO> getInvite(WorkplaceDTO dto) {
+		return mapper.getInvite(dto);
+	}
+
+	@Override
+	public void sendInvite(Map<String,String> invitation) {
+		mapper.sendInvite(invitation);
 	}
 
 }

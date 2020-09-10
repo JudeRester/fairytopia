@@ -113,7 +113,7 @@
 <script>
 	function noteTo(tn,t){
 			console.log(tn+','+t);
-			var popup = window.open('/note?toNick='+tn+'&to='+t+'&from=${sessionScope.user.mem_id}','메세지보내기',"width=430px,height=400px",true);
+			var popup = window.open('/note?toNick='+tn+'&to='+t+'&from=${sessionScope.user.mem_id}','메세지보내기',"width=445px,height=420px",true);
 		}
 </script>
 

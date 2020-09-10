@@ -2,10 +2,12 @@ package com.yju.fairytopia;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
-import java.util.StringTokenizer;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
@@ -15,8 +17,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yju.domain.MemberDTO;
@@ -47,7 +51,7 @@ public class AuthorController {
 			return "/author/studio";
 		}
 	}
-
+	
 	@PostMapping("/createwp")
 	public String createWP(WorkplaceDTO dto, @RequestParam("upload_thumbnail") MultipartFile file) {
 		log.info("createWP : " + dto);
@@ -85,6 +89,31 @@ public class AuthorController {
 	public void workroom(Model model, String workplace_id) {
 		model.addAttribute("members",service.getMembers(workplace_id));
 	}
+	
+	@PostMapping("/getInvite")
+	@ResponseBody
+	public List<MemberDTO> getInvite(String workplace_id, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		WorkplaceDTO dto = new WorkplaceDTO();
+		dto.setMem_id(((MemberDTO)session.getAttribute("user")).getMem_id());
+		dto.setWorkplace_id(workplace_id);
+		List<MemberDTO> list = service.getInvite(dto);
+		return list;	
+	}
+	
+	@PostMapping("/sendInvite")
+	@ResponseBody
+	public void sendInvite(@RequestBody List<Map<String, String>> list,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		for(Map<String, String> i : list) {
+			Map<String, String> invitation = new HashMap<>();
+			invitation.put("workplace_id",i.get("workplace_id"));
+			invitation.put("mem_send", ((MemberDTO)session.getAttribute("user")).getMem_id());
+			invitation.put("mem_receive",i.get("mem_receive"));
+			service.sendInvite(invitation);
+		}
+	}
+	
 	private String saveFile(MultipartFile file, String filename, String UPLOAD_PATH) {
 		// 파일 이름 변경
 		String saveName = filename;

@@ -4,7 +4,7 @@
 <%@include file="../hf/stheader.jsp"%>
 
 <link href="/resources/css/workroom.css" rel="stylesheet" />
-
+<script src="/resources/js/workroom.js"></script>
 <div class="container">
 	<div class="row">
 		<ul class="navtop list-inline list-unstyled">
@@ -345,64 +345,13 @@
                     </div> -->
 			</div>
 			<div class="modal-footer">
-				<button class="btn">확인</button>
+				<button class="btn" onclick="sendInvite()" class="close" data-dismiss="modal"
+					aria-label="Close">확인</button>
 			</div>
 		</div>
 	</div>
 </div>
-<style>
-.invite-list {
-	display: inline-block;
-	overflow: auto;
-	width: 200px;
-	height: 400px;
-	margin: 10px;
-	border: inset;
-}
 
-.invite-list ul {
-	padding: 0px;
-}
-
-.invite-list li {
-	list-style: none;
-}
-
-.selected {
-	background-color: #03d3fc;
-}
-</style>
-<script>
-	$('#nomi').click(function(e) {
-		var ta = e.target;
-		console.log(ta)
-		$('#nomi').find('.selected').removeClass('selected');
-		$(ta).addClass("selected");
-		if ($('#nomi').hasClass('selected'))
-			$('#nomi').removeClass('selected');
-	});
-
-	$('#add').click(function() {
-		var ta = $('#nomi').find('.selected');
-		console.log(ta);
-		console.log($(ta).children().val());
-		if (ta.length != 0) {
-			$('#invite').append("<li>"+$(ta).html()+"</li>");
-		}
-		
-		ta.remove();
-	});
-
-	$('#newAuthor').click(function(){
-		$.ajax({
-			data : ,
-			type : ,
-			url : ,
-			success : function(){
-				}
-			});
-		});
-</script>
 
 <script type="text/javascript">
 	$(function() {
