@@ -40,4 +40,9 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 		mapper.addThumbnail(dto);
 	}
 
+	@Override
+	public List<MemberDTO> getMembers(String workplace_id) {
+		return mapper.getMembers(workplace_id);
+	}
+
 }

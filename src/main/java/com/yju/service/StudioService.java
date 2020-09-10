@@ -13,4 +13,6 @@ public interface StudioService {
 	public List<WorkplaceDTO> getList(MemberDTO dto);
 	
 	public void addThumbnail(WorkplaceDTO dto);
+
+	public List<MemberDTO> getMembers(String workplace_id);
 }

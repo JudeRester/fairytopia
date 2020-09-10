@@ -61,14 +61,18 @@
 														<a
 															href="/author/workroom?workplace_id=${wp.workplace_id }">
 															<img src="/fairy/workplace/${wp.workplace_id }/${wp.workplace_thumbnail}"
+															onerror="this.src='/resources/img/workshop.png'; this.classList.remove('img-circle');"
 															alt="" class="img-circle" />
 															<p>${wp.workplace_name }</p>
 														</a>
-															<div class="thu">
-															<img src="https://via.placeholder.com/150" alt="..."
-																class="img-circle"> <img
-																src="https://via.placeholder.com/150" alt="..."
-																class="img-circle">
+														<div class="thu">
+														<c:forEach items="${wp.members }" var="m">
+															<img src="/fairy/profile/${m.mem_id }/profile" 
+															onerror="this.src='/resources/img/empty_profile.png'"
+															alt="..." class="img-circle" >
+														</c:forEach>
+															 
+															<!-- <img src="https://via.placeholder.com/150" alt="..." class="img-circle"> -->
 														</div>
 													</div>
 												</c:when>

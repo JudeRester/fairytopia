@@ -71,8 +71,12 @@
 
 .workplace div .thu img {
 	width: 35px;
-	display: inline-block;
-	margin: 10px;
+	float:inherit;
+	margin:10px;
+	margin-left:-10px;
+	margin-right:-10px;
+	/* display: inline-block;
+	margin: 10px; */
 }
 
 .workplace div a p {

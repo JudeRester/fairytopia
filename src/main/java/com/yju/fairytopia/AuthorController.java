@@ -39,6 +39,10 @@ public class AuthorController {
 		} else {
 			List<WorkplaceDTO> list = service.getList((MemberDTO) request.getSession().getAttribute("user"));
 //			log.info(list.toString());
+			for(WorkplaceDTO i : list) {
+				i.setMembers(service.getMembers(i.getWorkplace_id()));
+				System.out.println(i.getMembers().size());
+			}
 			model.addAttribute("wplist", list);
 			return "/author/studio";
 		}
@@ -78,8 +82,8 @@ public class AuthorController {
 	}
 	
 	@GetMapping("/workroom")
-	public void workroom() {
-		
+	public void workroom(Model model, String workplace_id) {
+		model.addAttribute("members",service.getMembers(workplace_id));
 	}
 	private String saveFile(MultipartFile file, String filename, String UPLOAD_PATH) {
 		// 파일 이름 변경

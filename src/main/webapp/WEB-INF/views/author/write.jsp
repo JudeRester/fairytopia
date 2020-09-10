@@ -47,7 +47,7 @@
 											data.url);
 									path = data.path;
 								}
-							})
+							});
 						}
 						$('#test')
 								.click(

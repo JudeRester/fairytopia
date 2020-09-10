@@ -52,6 +52,8 @@
 
         /*작가*/
         #writer-img img {
+        	width:220px;
+        	height:250px;
             padding-left: 70px;
             padding-top: 100px;
         }

@@ -16,6 +16,13 @@
 		insert into workplace_person values(#{workplace_id}, #{mem_id})
 	</insert>
 	
+	<select id="getMembers" resultType="com.yju.domain.MemberDTO">
+		<!-- select mem_id from workplace_person where workplace_id=#{workplace_id} -->
+		select a.mem_id,b.mem_nickname,a.mem_role
+		from workplace_person a,member b 
+		where workplace_id=#{workplace_id} and a.mem_id=b.mem_id
+	</select>
+	
 	<select resultType="com.yju.domain.WorkplaceDTO" id="getList" >
 		select * from workplace where workplace_id in (select workplace_id from workplace_person where mem_id=#{mem_id})
 	</select>
@@ -23,4 +30,18 @@
 	<update id="addThumbnail">
 		update workplace set workplace_thumbnail=#{workplace_thumbnail} where workplace_id=#{workplace_id}
 	</update>
+	
+	<select id="getInvite" resultType="com.yju.domain.MemberDTO">
+		select mem_id, mem_nickname from member a, (select
+		case when mem_a=#{mem_id}
+		then mem_b else mem_a end as mem
+		from talkroom
+		where mem_a=#{mem_id}
+		or mem_b=#{mem_id}) b
+		where a.mem_id=b.mem
+		and mem_id not in
+		(select mem_id 
+		from workplace_person 
+		where workplace_id=#{workplace_id})
+	</select>
 </mapper>
