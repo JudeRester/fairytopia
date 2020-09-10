@@ -2,7 +2,6 @@
 
 span .recipient{
 	font-weight: bold;
-
 }
 
 span #who {
@@ -27,4 +26,4 @@ span #who {
 	color: black;
     text-decoration: none;
     border-radius: 5px;
-} 
+}
