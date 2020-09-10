@@ -54,7 +54,6 @@
 	background-color: white;
 }
 
-/*작업실 생성*/
 
 
         .workplace {
@@ -109,5 +108,4 @@
         .workplace div a:hover{
             text-decoration: none;
             color: #ffa900;
-
         }

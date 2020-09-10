@@ -5,7 +5,6 @@
 
 <link href="/resources/css/coworker.css" rel="stylesheet" />
 
-
 <hr/>
 <div class="container-fulid">
 	<div class="row">
@@ -53,7 +52,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
 											<hr />
 											<div class="text">
 												<p>${co.cont }</p>
@@ -68,7 +66,6 @@
 						</div>
 					</div>
 				</div>
-
 				
 			</div><!--toppanel-->
 		</div> <!-- col -->

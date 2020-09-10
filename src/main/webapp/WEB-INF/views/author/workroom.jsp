@@ -248,6 +248,7 @@
                         </div>
                     </div>
                     <div class="form-group">
+
                         <div class='input-group date' id='datetimepicker3'>
                             <input type='text' class="form-control" />
                             <span class="input-group-addon">
@@ -290,6 +291,7 @@
     </div>
 
  <script type="text/javascript">
+
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     inline: true,

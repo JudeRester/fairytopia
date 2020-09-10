@@ -135,6 +135,9 @@
 									</div> -->
 						</div>
 					</div>
+				</div><!-- row -->
+			</div><!-- tabpanel -->
+		</div>
 
 				</div><!-- row -->
 			</div><!-- tabpanel -->
