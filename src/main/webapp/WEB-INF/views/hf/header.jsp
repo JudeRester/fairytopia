@@ -15,7 +15,6 @@
 
 <title>페어리토피아</title>
 
-<link rel="shortcut icon" href="book.ico">
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -57,17 +56,18 @@
 					FAIRYTOPIA </a>
 			</div>
 
-			<div class="col-lg-6 col-xs-4">
-				<div class="input-group ">
-					<input type="text" class="form-control input-lg" placeholder="도서검색">
-					<span class="input-group-btn">
-						<button class="btn btn-default input-lg" type="button">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</span>
-				</div>
-			</div>
-
+			
+			 <div class="col-lg-6 col-xs-4">
+                <div class="input-group ">
+                    <input type="text" class="form-control input-lg" placeholder="도서검색">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default input-lg" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+			
 			<c:choose>
 				<c:when test="${empty sessionScope.user.mem_id }">
 					<div class="login col-lg-offset-1 col-lg-2 col-xs-3">
@@ -78,28 +78,45 @@
 					</div>
 				</c:when>
 				<c:when test="${!empty sessionScope.user.mem_id }">
-					<div class="user col-lg-offset-1 col-lg-2">
+					<div class="user col-lg-offset-1 col-lg-3">
 						<div class="btn-group" role="group">
 							<c:if test="${sessionScope.user.mem_aut == 1 }">
 								<button type="button" class="btn btn-default btn-user">
 									<a href="/note/notelist"><span class="glyphicon glyphicon-envelope"></span></a>
 								</button>
 							</c:if>
-							<button type="button" class="btn btn-default btn-user">
-								<span class="glyphicon glyphicon-bell"></span>
-							</button>
-							<button type="button"
-								class="btn btn-default btn-user dropdown-toggle"
-								data-toggle="dropdown">
-								<span class="glyphicon glyphicon-user"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="/member/profile"><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
-								<li><a href="/library/mybook"><span
-										class="glyphicon glyphicon-book"></span>내 서재</a></li>
-								<li><a href="" onclick="logout()"><span
-										class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
-							</ul>
+							
+							 <div class="dropdown btn-group" role="group">
+								<button type="button" class="btn btn-default btn-user dropdown-toggle"
+										data-toggle="dropdown">
+									<span class="glyphicon glyphicon-bell">
+									</span>
+									<!-- <span class="badge">4</span>  -->
+									
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="">ooo님의 쪽지입니다.</a></li>
+									<li class="divider"></li>
+									<li><a href="">신간알림 ㅣ ooooooo가 출간되었습니다.</a></li>
+									<li class="divider"></li>
+									<li><a href="">오늘의 신작! 구독하러 가기</a></li>
+								</ul>
+							 </div>
+							
+							 <div class="dropdown btn-group" role="group">
+								<button type="button"
+									class="btn btn-default btn-user dropdown-toggle"
+									data-toggle="dropdown">
+									<span class="glyphicon glyphicon-user"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="/member/profile"><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
+									<li><a href="/library/mybook"><span
+											class="glyphicon glyphicon-book"></span>내 서재</a></li>
+									<li><a href="" onclick="logout()"><span
+											class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</c:when>
