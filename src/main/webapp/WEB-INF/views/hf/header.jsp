@@ -15,7 +15,6 @@
 
 <title>페어리토피아</title>
 
-<link rel="shortcut icon" href="book.ico">
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -86,6 +85,7 @@
 									<a href="/note/notelist"><span class="glyphicon glyphicon-envelope"></span></a>
 								</button>
 							</c:if>
+
 							 <div class="dropdown btn-group" role="group">
 								<button type="button" class="btn btn-default btn-user dropdown-toggle"
 										data-toggle="dropdown">
@@ -102,18 +102,23 @@
 									<li><a href="">오늘의 신작! 구독하러 가기</a></li>
 								</ul>
 							 </div>
-							<button type="button"
-								class="btn btn-default btn-user dropdown-toggle"
-								data-toggle="dropdown">
-								<span class="glyphicon glyphicon-user"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="/member/profile"><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
-								<li><a href="/library/mybook"><span
-										class="glyphicon glyphicon-book"></span>내 서재</a></li>
-								<li><a href="" onclick="logout()"><span
-										class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
-							</ul>
+
+							
+							 <div class="dropdown btn-group" role="group">
+								<button type="button"
+									class="btn btn-default btn-user dropdown-toggle"
+									data-toggle="dropdown">
+									<span class="glyphicon glyphicon-user"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="/member/profile"><span class="glyphicon glyphicon-user"></span>마이페이지</a></li>
+									<li><a href="/library/mybook"><span
+											class="glyphicon glyphicon-book"></span>내 서재</a></li>
+									<li><a href="" onclick="logout()"><span
+											class="glyphicon glyphicon-log-out"></span>로그아웃</a></li>
+								</ul>
+							</div>
+
 						</div>
 					</div>
 				</c:when>
