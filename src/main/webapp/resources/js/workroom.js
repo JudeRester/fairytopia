@@ -70,7 +70,7 @@ $(document).ready(function(){
 		
 		});
 
-	function sendInvite(){
+	$('#sendInvite').click(function(){
 		$.urlParam = function(name){
 		    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 		    if (results==null){
@@ -102,7 +102,7 @@ $(document).ready(function(){
 				}
 			});
 		
-		};
+		});
 })
 	
 	

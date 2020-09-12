@@ -122,14 +122,15 @@
 
 								<div class="panel-group" id="accordion" role="tablist"
 									aria-multiselectable="true">
+									
 									<div class="panel panel-default">
 										<div class="panel-heading" role="tab" id="headingOne">
 											<h4 class="panel-title">
 												<a data-toggle="collapse" data-parent="#accordion"
 													href="#collapseOne" aria-expanded="true"
 													aria-controls="collapseOne"> A </a> <label for="exfile"><span
-													class="glyphicon glyphicon-plus"></span></label> <input type="file"
-													id="exfile">
+													class="glyphicon glyphicon-plus"></span></label> 
+													<input type="file" id="">
 											</h4>
 										</div>
 										<div id="collapseOne" class="panel-collapse collapse in"
@@ -137,7 +138,8 @@
 											<div class="panel-body"></div>
 										</div>
 									</div>
-									<div class="panel panel-default">
+									
+									<!-- <div class="panel panel-default">
 										<div class="panel-heading" role="tab" id="headingTwo">
 											<h4 class="panel-title">
 												<a class="collapsed" data-toggle="collapse"
@@ -167,7 +169,7 @@
 											role="tabpanel" aria-labelledby="headingThree">
 											<div class="panel-body"></div>
 										</div>
-									</div>
+									</div> -->
 								</div>
 								<!--panel-group-->
 							</div>
@@ -345,7 +347,7 @@
                     </div> -->
 			</div>
 			<div class="modal-footer">
-				<button class="btn" onclick="sendInvite()" class="close" data-dismiss="modal"
+				<button class="btn" id="sendInvite" class="close" data-dismiss="modal"
 					aria-label="Close">확인</button>
 			</div>
 		</div>
