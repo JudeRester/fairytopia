@@ -53,4 +53,15 @@
 		insert into workplace_invitation(workplace_id,mem_send,mem_receive)
 		values(#{workplace_id},#{mem_send},#{mem_receive})
 	</insert>
+	
+	<select id="getPages" resultType="com.yju.domain.WorkplaceFileDTO">
+		select file_page,workplace_id from workplace_file where workplace_id=#{workplace_id} group by file_page,workplace_id order by file_page
+	</select>
+	<select id="getFiles" resultType="com.yju.domain.WorkplaceFileDTO">
+		select * from workplace_file where workplace_id=#{workplace_id} and file_page=#{file_page}
+	</select>
+	
+	<insert id="uploadFile">
+		insert into workplace_file values(workfile_date('now'),#{workplace_id},#{file_name},#{file_page},'')
+	</insert>
 </mapper>

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.yju.domain.MemberDTO;
 import com.yju.domain.WorkplaceDTO;
+import com.yju.domain.WorkplaceFileDTO;
 
 public interface StudioService {
 	public void createWorkplace(WorkplaceDTO dto);
@@ -20,4 +21,10 @@ public interface StudioService {
 	public List<MemberDTO> getInvite(WorkplaceDTO dto);
 
 	public void sendInvite(Map<String,String> invitation);
+	
+	public List<WorkplaceFileDTO> getPages(String workplace_id);
+	
+	public List<WorkplaceFileDTO> getFiles(WorkplaceFileDTO dto);
+
+	public void uploadFile(WorkplaceFileDTO dto);
 }

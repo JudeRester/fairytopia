@@ -214,3 +214,25 @@ div #headingOne.panel-heading, #headingTwo.panel-heading, #headingThree.panel-he
 .selected {
 	background-color: #03d3fc;
 }
+
+.progress {
+	position: relative;
+	width: 100%;
+	border: 1px solid #ddd;
+	padding: 1px;
+	border-radius: 3px;
+}
+
+.bar {
+	background-color: #337ab7;
+	width: 0%;
+	height: 20px;
+	border-radius: 3px;
+}
+
+.percent {
+	position: absolute;
+	display: inline-block;
+	top: 1px;
+	left: 48%;
+}

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.yju.domain.MemberDTO;
 import com.yju.domain.WorkplaceDTO;
+import com.yju.domain.WorkplaceFileDTO;
 import com.yju.mapper.StudioMapper;
 
 @Service
@@ -54,6 +55,21 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 	@Override
 	public void sendInvite(Map<String,String> invitation) {
 		mapper.sendInvite(invitation);
+	}
+
+	@Override
+	public List<WorkplaceFileDTO> getPages(String workplace_id) {
+		return mapper.getPages(workplace_id);
+	}
+
+	@Override
+	public List<WorkplaceFileDTO> getFiles(WorkplaceFileDTO dto) {
+		return mapper.getFiles(dto);
+	}
+
+	@Override
+	public void uploadFile(WorkplaceFileDTO dto) {
+		mapper.uploadFile(dto);
 	}
 
 }

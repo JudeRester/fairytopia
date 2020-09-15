@@ -2,6 +2,7 @@ package com.yju.fairytopia;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.yju.domain.MemberDTO;
 import com.yju.domain.WorkplaceDTO;
+import com.yju.domain.WorkplaceFileDTO;
 import com.yju.service.StudioService;
 
 @Controller
@@ -111,6 +114,77 @@ public class AuthorController {
 			invitation.put("mem_send", ((MemberDTO)session.getAttribute("user")).getMem_id());
 			invitation.put("mem_receive",i.get("mem_receive"));
 			service.sendInvite(invitation);
+		}
+	}
+	
+	@PostMapping("/newpage")
+	@ResponseBody
+	public void newPage(WorkplaceDTO dto, @RequestParam("upload_thumbnail") MultipartFile file) {
+		String path;
+		path = "d:\\fairy\\workplace\\" + dto.getWorkplace_id()+"\\페이지숫자";
+		File Folder = new File(path);
+		// 해당 디렉토리가 없을경우 디렉토리를 생성
+		if (!Folder.exists()) {
+			try {
+				Folder.mkdir(); // 폴더 생성합니다.
+				System.out.println("폴더가 생성되었습니다.");
+
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+		} else {
+			System.out.println("이미 폴더가 생성되어 있습니다.");
+		}
+	}
+	
+	@PostMapping("/getPage")
+	@ResponseBody
+	public Map<Integer,List<WorkplaceFileDTO>> getPage(String workplace_id) {
+		log.info("getPage workplace_id : "+workplace_id);
+		List<WorkplaceFileDTO> pagenum = service.getPages(workplace_id);
+		Map<Integer, List<WorkplaceFileDTO>> list = new HashMap<>();
+		for(WorkplaceFileDTO i : pagenum) {
+			list.put(i.getFile_page(), service.getFiles(i));
+		}
+		return list;
+	}
+	
+	@PostMapping("/fileupload")
+	@ResponseBody
+	public void photoUpload(@RequestParam("file") MultipartFile multipartfile,
+			@RequestParam("workplace_id")String workplace_id,
+			@RequestParam("file_page") int file_page) {
+		
+		String prefixPath = "d:\\fairy\\workplace\\"+workplace_id+"\\"+file_page;
+		String fileName = multipartfile.getOriginalFilename();
+		File file = new File(prefixPath, fileName);
+		System.out.println(fileName);
+		File Folder = new File(prefixPath);
+		WorkplaceFileDTO dto = new WorkplaceFileDTO();
+		dto.setFile_name(fileName);
+		dto.setWorkplace_id(workplace_id);
+		dto.setFile_page(file_page);
+		// 해당 디렉토리가 없을경우 디렉토리를 생성
+		if (!Folder.exists()) {
+			try {
+				Folder.mkdir(); // 폴더 생성합니다.
+				System.out.println("폴더가 생성되었습니다.");
+
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+		} else {
+			System.out.println("이미 폴더가 생성되어 있습니다.");
+		}
+		
+		try {
+			InputStream fileStream = multipartfile.getInputStream();
+			FileUtils.copyInputStreamToFile(fileStream, file);
+			log.info("upload complete");
+			
+			service.uploadFile(dto);
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	

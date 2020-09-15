@@ -63,9 +63,8 @@
                                 </div> -->
 							<div class="col-xs-3 box">
 								<a href="" class="btn btn-link" role="button"
-									data-toggle="modal" data-target="#myModal2"
-									id="newAuthor"> <span
-									class="glyphicon glyphicon-plus"></span>
+									data-toggle="modal" data-target="#myModal2" id="newAuthor">
+									<span class="glyphicon glyphicon-plus"></span>
 								</a>
 							</div>
 						</div>
@@ -115,63 +114,17 @@
 							<div class="col-xs-offset-3 col-xs-6">
 								<!-- 페이지 추가 -->
 								<div class="page">
-									<a href="" class="btn btn-default" role="button"> <b>페이지
-											추가</b>
+									<a href="#" class="btn btn-default" role="button" id="addPage">
+										<input type='hidden' value='-1'/>
+										<b>페이지 추가</b>
 									</a>
 								</div>
-
-								<div class="panel-group" id="accordion" role="tablist"
-									aria-multiselectable="true">
-									
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingOne">
-											<h4 class="panel-title">
-												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapseOne" aria-expanded="true"
-													aria-controls="collapseOne"> A </a> <label for="exfile"><span
-													class="glyphicon glyphicon-plus"></span></label> 
-													<input type="file" id="">
-											</h4>
-										</div>
-										<div id="collapseOne" class="panel-collapse collapse in"
-											role="tabpanel" aria-labelledby="headingOne">
-											<div class="panel-body"></div>
-										</div>
-									</div>
-									
-									<!-- <div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingTwo">
-											<h4 class="panel-title">
-												<a class="collapsed" data-toggle="collapse"
-													data-parent="#accordion" href="#collapseTwo"
-													aria-expanded="false" aria-controls="collapseTwo"> B </a> <label
-													for="exfile"><span class="glyphicon glyphicon-plus"></span></label>
-												<input type="file" id="exfile">
-											</h4>
-										</div>
-										<div id="collapseTwo" class="panel-collapse collapse"
-											role="tabpanel" aria-labelledby="headingTwo">
-											<div class="panel-body"></div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingThree">
-											<h4 class="panel-title">
-												<a class="collapsed" data-toggle="collapse"
-													data-parent="#accordion" href="#collapseThree"
-													aria-expanded="false" aria-controls="collapseThree"> C
-												</a> <label for="exfile"><span
-													class="glyphicon glyphicon-plus"></span></label> <input type="file"
-													id="exfile">
-											</h4>
-										</div>
-										<div id="collapseThree" class="panel-collapse collapse"
-											role="tabpanel" aria-labelledby="headingThree">
-											<div class="panel-body"></div>
-										</div>
-									</div> -->
+								<div id="page-list">
+									페이지가 없습니다
 								</div>
 								<!--panel-group-->
+								</div>
+
 							</div>
 							<!--col-->
 						</div>
@@ -324,13 +277,12 @@
 
 							</ul>
 						</td>
-						<td><button class="btn btn-sm" id="add">< 초대</button>
+						<td><button class="btn btn-sm" id="add">< 초대</button> <br />
 							<br />
-						<br />
 							<button class="btn btn-sm" id="remove">취소 ></button></td>
 						<td class="invite-list right">
 							<ul id="nomi">
-								
+
 							</ul>
 						</td>
 					</tr>
@@ -347,11 +299,30 @@
                     </div> -->
 			</div>
 			<div class="modal-footer">
-				<button class="btn" id="sendInvite" class="close" data-dismiss="modal"
-					aria-label="Close">확인</button>
+				<button class="btn" id="sendInvite" class="close"
+					data-dismiss="modal" aria-label="Close">확인</button>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- progress Modal -->
+<div class="modal fade" id="pleaseWaitDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>업로드 중 페이지를 벗어나시면 업로드가 취소됩니다.</h3>
+            </div>
+            <div class="modal-body">
+                <!-- progress , bar, percent를 표시할 div 생성한다. -->
+                <div class="progress">
+                    <div class="bar"></div>
+                    <div class="percent">0%</div>
+                </div>
+                <div id="status"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
