@@ -188,6 +188,11 @@ public class AuthorController {
 		}
 	}
 	
+	@GetMapping("/editContents")
+	public void editContents(){
+		log.info("editContents");
+	}
+	
 	private String saveFile(MultipartFile file, String filename, String UPLOAD_PATH) {
 		// 파일 이름 변경
 		String saveName = filename;
