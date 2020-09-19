@@ -56,17 +56,17 @@
 					FAIRYTOPIA </a>
 			</div>
 
-			 <div class="col-lg-6 col-xs-4">
-                <div class="input-group ">
-                    <input type="text" class="form-control input-lg" placeholder="도서검색">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default input-lg" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-            </div>
-			
+			<div class="col-lg-6 col-xs-4">
+				<div class="input-group ">
+					<input type="text" class="form-control input-lg" placeholder="도서검색">
+					<span class="input-group-btn">
+						<button class="btn btn-default input-lg" type="button">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+				</div>
+			</div>
+
 			<c:choose>
 				<c:when test="${empty sessionScope.user.mem_id }">
 					<div class="login col-lg-offset-1 col-lg-2 col-xs-3">
