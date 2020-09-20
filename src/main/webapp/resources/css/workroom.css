@@ -172,7 +172,7 @@
         }
 
         div #headingOne.panel-heading, #headingTwo.panel-heading, #headingThree.panel-heading, #headingFour.panel-heading, #headingFive.panel-heading, #headingSix.panel-heading, #headingSeven.panel-heading {
-            background-color: white
+            background-color: white;
         }
 
         .page {
@@ -182,10 +182,4 @@
         .page b {
             color: gray;
         }
-
-        /*편집*/
-        .edit {
-            width: 950px;
-            height: 500px;
-            border: 1px solid #c9c9c9;
-        }
+        
