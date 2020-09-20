@@ -111,7 +111,7 @@
         <hr />
 
         <div class="row">
-            <div class="col-xs-3">
+            <div class="col-xs-2">
                 <div class="page">
                     <a href="" class="btn btn-default" role="button">
                         <b>페이지 추가</b>
