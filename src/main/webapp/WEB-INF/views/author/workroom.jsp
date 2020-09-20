@@ -34,8 +34,7 @@
 						aria-controls="calendar" role="tab" data-toggle="tab">일정</a></li>
 					<li role="presentation"><a href="#file" aria-controls="file"
 						role="tab" data-toggle="tab">파일</a></li>
-					<li role="presentation"><a href="#edit" aria-controls="edit"
-						role="tab" data-toggle="tab">편집</a></li>
+					<li role="presentation"><a href="#" id="edit">편집</a></li>
 				</ul>
 
 				<!-- 작가 -->

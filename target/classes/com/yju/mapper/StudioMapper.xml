@@ -64,4 +64,32 @@
 	<insert id="uploadFile">
 		insert into workplace_file values(workfile_date('now'),#{workplace_id},#{file_name},#{file_page},'')
 	</insert>
+	
+	<select id="getInfo" resultType="com.yju.domain.FairytaleDTO">
+		select * from fairytale where workplace_id=#{workplace_id}
+	</select>
+	
+	<insert id="insertInfo" parameterType="com.yju.domain.FairytaleDTO">
+		<selectKey order="BEFORE" keyProperty="fairytale_id" resultType="String">
+			select fairytale_date('now') from dual
+		</selectKey>
+		insert into fairytale(fairytale_id,workplace_id,fairytale_name,fairytale_detail)
+		values(#{fairytale_id},#{workplace_id},#{fairytale_name},#{fairytale_detail})
+	</insert>
+	
+	<update id="updateInfo" parameterType="com.yju.domain.FairytaleDTO">
+		update fairytale 
+		set fairytale_name=#{fairytale_name},
+			fairytale_detail=#{fairytale_detail}
+		where workplace_id=#{workplace_id}
+	</update>
+	
+	<select id="getWorkingPages" resultType="com.yju.domain.FairytaleContentDTO">
+		select * from fairytale_content 
+		where fairytale_id=
+		(select fairytale_id 
+		from fairytale 
+		where workplace_id=#{workplace_id}) 
+		order by fai_cont_page
+	</select>
 </mapper>

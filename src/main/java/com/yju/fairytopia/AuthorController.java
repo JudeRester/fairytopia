@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yju.domain.FairytaleContentDTO;
+import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
 import com.yju.service.StudioService;
+
+import nl.siegmann.epublib.epub.EpubReader;
 
 @Controller
 @RequestMapping("/author")
@@ -117,26 +122,6 @@ public class AuthorController {
 		}
 	}
 	
-	@PostMapping("/newpage")
-	@ResponseBody
-	public void newPage(WorkplaceDTO dto, @RequestParam("upload_thumbnail") MultipartFile file) {
-		String path;
-		path = "d:\\fairy\\workplace\\" + dto.getWorkplace_id()+"\\페이지숫자";
-		File Folder = new File(path);
-		// 해당 디렉토리가 없을경우 디렉토리를 생성
-		if (!Folder.exists()) {
-			try {
-				Folder.mkdir(); // 폴더 생성합니다.
-				System.out.println("폴더가 생성되었습니다.");
-
-			} catch (Exception e) {
-				e.getStackTrace();
-			}
-		} else {
-			System.out.println("이미 폴더가 생성되어 있습니다.");
-		}
-	}
-	
 	@PostMapping("/getPage")
 	@ResponseBody
 	public Map<Integer,List<WorkplaceFileDTO>> getPage(String workplace_id) {
@@ -191,6 +176,69 @@ public class AuthorController {
 	@GetMapping("/editContents")
 	public void editContents(){
 		log.info("editContents");
+		File f = new File("/fairy/workplace/");
+		try {
+			EpubReader epubReader = new EpubReader();
+			if(f.exists()) {
+				
+			}else {
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@PostMapping("/getInfo")
+	@ResponseBody
+	public FairytaleDTO getInfo(String workplace_id) {
+		log.info(workplace_id);
+		return service.getInfo(workplace_id);
+	}
+	
+	@PostMapping("/updateInfo")
+	@ResponseBody
+	public void updateInfo(FairytaleDTO dto ) {
+		if(service.getInfo(dto.getWorkplace_id()) == null) {
+			log.info("1:"+dto.toString());
+			service.insertInfo(dto);
+		}else {
+			log.info("2:"+dto.toString());
+			service.updateInfo(dto);
+		}
+	}
+	
+	@PostMapping("/getWorkingPages")
+	@ResponseBody
+	public List<FairytaleContentDTO> getWorkingPages(String workplace_id) {
+		log.info("getWorkingPages workplace_id : "+workplace_id);
+		List<FairytaleContentDTO>  list = service.getWorkingPages(workplace_id);
+		return list;
+	}
+	
+	@PostMapping("/newPage")
+	@ResponseBody
+	public void newPage(@RequestParam("workplace_id")String workplace_id,
+			@RequestParam("file_page") int file_page) {
+		
+		/*
+		 * String prefixPath = "d:\\fairy\\workplace\\"+workplace_id+"\\"+file_page;
+		 * String fileName = ""; File file = new File(prefixPath, fileName);
+		 * System.out.println(fileName); File Folder = new File(prefixPath);
+		 * WorkplaceFileDTO dto = new WorkplaceFileDTO(); dto.setFile_name(fileName);
+		 * dto.setWorkplace_id(workplace_id); dto.setFile_page(file_page); // 해당 디렉토리가
+		 * 없을경우 디렉토리를 생성 if (!Folder.exists()) { try { Folder.mkdir(); // 폴더 생성합니다.
+		 * System.out.println("폴더가 생성되었습니다.");
+		 * 
+		 * } catch (Exception e) { e.getStackTrace(); } } else {
+		 * System.out.println("이미 폴더가 생성되어 있습니다."); }
+		 * 
+		 * try { InputStream fileStream = multipartfile.getInputStream();
+		 * FileUtils.copyInputStreamToFile(fileStream, file);
+		 * log.info("upload complete");
+		 * 
+		 * service.uploadFile(dto); }catch (Exception e) { e.printStackTrace(); }
+		 */
 	}
 	
 	private String saveFile(MultipartFile file, String filename, String UPLOAD_PATH) {
@@ -211,4 +259,5 @@ public class AuthorController {
 
 		return saveName;
 	} // end saveFile(
+	
 }

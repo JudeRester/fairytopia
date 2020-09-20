@@ -12,7 +12,7 @@
 		<div class="col-sm-12">
 			<div role="tabpanel">
 				<div class="row">
-					<div class="col-sm-2" id="nav-left">
+					<div class="col-sm-3" id="nav-left">
 						<ul class="nav nav-pills nav-stacked" role="tablist">
 							<li role="presentation" class="active text-center"><a
 								href="#all" aria-controls="all" role="tab" data-toggle="tab">전체
