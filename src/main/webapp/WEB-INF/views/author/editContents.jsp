@@ -62,6 +62,30 @@
 						}
 					});
 				});
+
+				$('#addPage').click(function(){
+					key =parseInt($('#addPage').children().val())+1;
+					$.ajax({
+						url : '/author/addWorkingPage',
+						type : 'post',
+						data : dto,
+						success : function(data) {
+							str = '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">'
+								 +'<!-- 페이지 --><div class="panel panel-default">'
+								 +'<div class="panel-heading" role="tab" id="heading'+key+'">'
+								 +'<h4 class="panel-title"><!-- 페이지 번호 -->'
+								 +'<a data-toggle="collapse" data-parent="#accordion" href="#collapse'+key+'"'
+								 +' aria-expanded="true" aria-controls="collapse'+key+'">'+key+'페이지</a>';
+							$('#page-list').append(str);
+							$('#addPage').children().val(key)
+							$('#no-page').remove();
+						},
+						error : function() {
+							console.log("실패");
+						}
+					});
+					
+				});
 			});
 
 	function getInfo() {
