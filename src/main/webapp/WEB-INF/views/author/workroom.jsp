@@ -6,42 +6,53 @@
 
 <link href="/resources/css/workroom.css" rel="stylesheet" />
 
+<script src="/resources/js/workroom.js"></script>
+<div class="container">
+	<div class="row">
+		<ul class="navtop list-inline list-unstyled">
+			<li class="col-sm-2"><a href="studio">
+					<h4>
+						<span class="glyphicon glyphicon-chevron-left"></span>작업실
+					</h4>
+			</a></li>
+			<li class="col-sm-2"><h4>일정:</h4></li>
+			<li class="col-sm-2"><h4>완료 페이지:</h4></li>
+		</ul>
+	</div>
+</div>
 
-    <div class="container">
-        <div class="row">
-            <ul class="navtop list-inline list-unstyled">
-                <li class="col-sm-2">
+<hr />
 
-                	<a href="studio.html">
-                		<h4><span class="glyphicon glyphicon-chevron-left"></span>작업실</h4>
-                	</a>
-                </li>
-                <li class="col-sm-2"><h4>일정: </h4></li>
-                <li class="col-sm-2"><h4>완료 페이지: </h4></li>
-            </ul>
-        </div>
-    </div>
+<div class="container-fuild">
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-10 content">
+			<div role="tabpanel">
 
-    <hr />
+				<!-- Nav tabs -->
+				<ul class="nav nav-justified" role="tablist">
+					<li role="presentation" class="active"><a href="#writer"
+						aria-controls="writer" role="tab" data-toggle="tab">작가</a></li>
+					<li role="presentation"><a href="#calendar"
+						aria-controls="calendar" role="tab" data-toggle="tab">일정</a></li>
+					<li role="presentation"><a href="#file" aria-controls="file"
+						role="tab" data-toggle="tab">파일</a></li>
+					<li role="presentation"><a href="#" id="edit">편집</a></li>
+				</ul>
 
-    <div class="container-fuild">
-        <div class="row">
-            <div class="col-xs-offset-1 col-xs-10 content">
-                <div role="tabpanel">
-
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-justified" role="tablist">
-                        <li role="presentation" class="active"><a href="#writer" aria-controls="writer" role="tab" data-toggle="tab">작가</a></li>
-                        <li role="presentation"><a href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">일정</a></li>
-                        <li role="presentation"><a href="#file" aria-controls="file" role="tab" data-toggle="tab">파일</a></li>
-                        <li role="presentation"><a href="#edit" aria-controls="edit" role="tab" data-toggle="tab">편집</a></li>
-                    </ul>
-
-                    <!-- 작가 -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in active" id="writer">
-                            <div class="row" id="writer-img">
-                                <div class="col-xs-offset-1 col-xs-3">
+				<!-- 작가 -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="writer">
+						<div class="row" id="writer-img">
+							<c:forEach items="${members}" var="m">
+								<div class="col-xs-offset-1 col-xs-3">
+									<img src="/fairy/profile/${m.mem_id }/profile"
+										onerror="this.src='/resources/img/empty_profile.png'"
+										alt="...">
+									<h4>${m.mem_nickname }</h4>
+									<p>${m.mem_role }</p>
+								</div>
+							</c:forEach>
+							<!-- <div class="col-xs-offset-1 col-xs-3">
                                     <img src="https://via.placeholder.com/150" alt="...">
                                     <h4>A</h4>
                                     <p>시나리오 작가</p>

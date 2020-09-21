@@ -2,6 +2,7 @@
  * 
  */
 $(document).ready(function(){
+	console.log('asdf');
 	getFileList();
 	$('#nomi').click(function(e) {
 		var ta = e.target;
@@ -46,15 +47,6 @@ $(document).ready(function(){
 	$('#newAuthor').click(function(){
 		$('#nomi').empty();
 		$('#invite').empty();
-		$.urlParam = function(name){
-		    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-		    if (results==null){
-		       return null;
-		    }
-		    else{
-		       return results[1] || 0;
-		    }
-		}
 
 		var data ={workplace_id: $.urlParam('workplace_id')};
 		$.ajax({
@@ -72,16 +64,7 @@ $(document).ready(function(){
 		});
 
 	$('#sendInvite').click(function(){
-		$.urlParam = function(name){
-		    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-		    if (results==null){
-		       return null;
-		    }
-		    else{
-		       return results[1] || 0;
-		    }
-		}
-		
+
 		var data=new Array();
 		$.each($('#invite').find('input'), function(key,value){
 			var str= new Object();
@@ -140,6 +123,11 @@ $(document).ready(function(){
 		$('#no-page').remove();
 	});
 	
+	$('#edit').click(function(){
+		console.log('편집');
+		var popup = window.open('/author/editContents?workplace_id='+$.urlParam('workplace_id'),'동화 편집',"width=1540px,height=1080px",true);
+	})
+	
 });
 	
 function pageFileUpload(e){
@@ -151,7 +139,7 @@ function pageFileUpload(e){
     
 	data.append("file", $('#'+e.id).prop('files')[0]);
 	data.append("file_page", e.id.split('_')[1]);
-	data.append("workplace_id",RegExp('[\?&]workplace_id=([^&#]*)').exec(window.location.href)[1]);
+	data.append("workplace_id",$.urlParam('workplace_id'));
 	for (var pair of data.entries()) { console.log(pair[0]+ ', ' + pair[1]); }
 
 	$.ajax({
@@ -201,16 +189,6 @@ function pageFileUpload(e){
 }
 
 function getFileList(){
-	$.urlParam = function(name){
-	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	    if (results==null){
-	       return null;
-	    }
-	    else{
-	       return results[1] || 0;
-	    }
-	}
-
 	var data ={workplace_id: $.urlParam('workplace_id')};
 	$.ajax({
 		data:data,
@@ -236,4 +214,15 @@ function getFileList(){
 		}
 	}); 
 };
+
+
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+}
 	

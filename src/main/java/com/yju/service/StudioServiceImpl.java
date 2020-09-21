@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yju.domain.FairytaleContentDTO;
+import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
@@ -70,6 +72,31 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 	@Override
 	public void uploadFile(WorkplaceFileDTO dto) {
 		mapper.uploadFile(dto);
+	}
+
+	@Override
+	public FairytaleDTO getInfo(String workplace_id) {
+		return mapper.getInfo(workplace_id);
+	}
+
+	@Override
+	public void insertInfo(FairytaleDTO dto) {
+		mapper.insertInfo(dto);
+	}
+
+	@Override
+	public void updateInfo(FairytaleDTO dto) {
+		mapper.updateInfo(dto);
+	}
+
+	@Override
+	public List<FairytaleContentDTO> getWorkingPages(String workplace_id) {
+		return mapper.getWorkingPages(workplace_id);
+	}
+
+	@Override
+	public void newPage(FairytaleContentDTO dto) {
+		mapper.addPage(dto);
 	}
 
 }

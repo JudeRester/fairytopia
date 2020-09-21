@@ -3,6 +3,8 @@ package com.yju.service;
 import java.util.List;
 import java.util.Map;
 
+import com.yju.domain.FairytaleContentDTO;
+import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
@@ -27,4 +29,14 @@ public interface StudioService {
 	public List<WorkplaceFileDTO> getFiles(WorkplaceFileDTO dto);
 
 	public void uploadFile(WorkplaceFileDTO dto);
+
+	public FairytaleDTO getInfo(String workplace_id);
+
+	public void insertInfo(FairytaleDTO dto);
+
+	public void updateInfo(FairytaleDTO dto);
+
+	public List<FairytaleContentDTO> getWorkingPages(String workplace_id);
+
+	public void newPage(FairytaleContentDTO dto);
 }
