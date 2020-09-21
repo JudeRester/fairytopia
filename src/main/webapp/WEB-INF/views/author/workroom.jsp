@@ -23,7 +23,7 @@
 
 <div class="container-fuild">
 	<div class="row">
-		<div class="col-xs-offset-1 col-xs-10 content">
+		<div class="col-xs-offset-2 col-xs-7 content">
 			<div role="tabpanel">
 
 				<!-- Nav tabs -->
@@ -42,7 +42,7 @@
 					<div role="tabpanel" class="tab-pane fade in active" id="writer">
 						<div class="row" id="writer-img">
 							<c:forEach items="${members}" var="m">
-								<div class="col-xs-offset-1 col-xs-3">
+								<div class="col-xs-4">
 									<img src="/fairy/profile/${m.mem_id }/profile"
 										onerror="this.src='/resources/img/empty_profile.png'"
 										alt="...">
@@ -140,8 +140,6 @@
 		<!-- col -->
 	</div>
 	<!-- row -->
-</div>
-<!-- container-fuild -->
 
 <!-- 모달 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -193,12 +191,12 @@
 	aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header text-center">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				작가 초대 하기
+				<b>작가 초대 하기</b>
 			</div>
 
 			<div class="modal-body" style="padding-left: 50px;">

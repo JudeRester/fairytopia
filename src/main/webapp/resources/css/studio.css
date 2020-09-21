@@ -2,7 +2,7 @@
 
 /*왼 네비*/
 #nav-left {
-	padding: 170px 50px;
+	margin: 170px 50px;
 }
 
 #nav-left ul li a {
@@ -16,11 +16,13 @@
 }
 
 #right-all {
-	padding: 100px 200px;
+	margin-top: 100px;
+	margin-right:100px;
 }
 
 #right-work {
-	padding-left: 100px;
+	margin-top: 80px;
+	
 }
 
 /*작업실*/

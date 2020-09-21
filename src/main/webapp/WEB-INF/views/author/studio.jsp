@@ -4,15 +4,15 @@
 <%@include file="../hf/stheader.jsp"%>
 
 <link href="/resources/css/studio.css" rel="stylesheet" />
-<!-- 
-<hr /> -->
+
+<hr />
 
 <div class="container-fulid">
 	<div class="row">
 		<div class="col-sm-12">
 			<div role="tabpanel">
 				<div class="row">
-					<div class="col-sm-3" id="nav-left">
+					<div class="col-sm-2" id="nav-left">
 						<ul class="nav nav-pills nav-stacked" role="tablist">
 							<li role="presentation" class="active text-center"><a
 								href="#all" aria-controls="all" role="tab" data-toggle="tab">전체
@@ -21,7 +21,7 @@
 								aria-controls="work" role="tab" data-toggle="tab">작업실</a></li>
 						</ul>
 					</div>
-					<div class="col-sm-8">
+					<div class="col-sm-7">
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="all">
 								<div class="list-group" id="right-all">
@@ -124,6 +124,7 @@
 			<form class="form-horizontal" id="cwpForm" name="cwpForm"
 				enctype="multipart/form-data" action="/author/createwp"
 				method="post">
+				
 				<div class="modal-body">
 					<!--  <form class="form-horizontal"> -->
 					<div class="form-group">
@@ -161,5 +162,6 @@
 		</div>
 	</div>
 </div>
+
 
 <%@include file="../hf/footer.jsp"%>

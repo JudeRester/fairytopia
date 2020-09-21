@@ -179,6 +179,21 @@
 	padding-bottom: 10px;
 }
 
+#page-list{
+   overflow-y: scroll;
+   width: 190px; 
+   height: 870px;
+}
+
+#page-list {
+	-ms-overflow-style: none;
+}
+#page-list::-webkit-scrollbar{
+ 	display:none; 
+}
+
+
+
 .page b {
 	color: gray;
 }
@@ -216,6 +231,9 @@
 .modal-footer a:hover {
 	text-decoration: none;
 }
+#header{
+	margin:30px;
+}
 </style>
 </head>
 <body>
@@ -238,7 +256,7 @@
 
 		<hr />
 
-		<div class="row">
+		<div class="row" >
 			<div class="col-xs-2">
 				<div class="page">
 					<a href="#" class="btn btn-default" role="button" id="addPage">

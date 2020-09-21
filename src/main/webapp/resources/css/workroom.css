@@ -87,9 +87,9 @@
 }
 
 /*일정*/
-.cal {
-	padding-top: 50px;
-	padding-left: 70px;
+#calendar {
+	margin-top: 90px;
+	margin-left: 75px;
 }
 
 .info {
