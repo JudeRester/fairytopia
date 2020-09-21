@@ -13,7 +13,7 @@
 	</insert>
 	
 	<insert id="addAuthor">
-		insert into workplace_person values(#{workplace_id}, #{mem_id})
+		insert into workplace_person(workplace_id, mem_id) values(#{workplace_id}, #{mem_id})
 	</insert>
 	
 	<select id="getMembers" resultType="com.yju.domain.MemberDTO">

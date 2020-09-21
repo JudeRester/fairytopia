@@ -36,16 +36,35 @@
 						return results[1] || 0;
 					}
 				}
-
+			
 				getInfo();
 				getPages();
+				
 				$('#summernote').summernote({
 					height : 1280 / 3 * 2,
 					width : 1280,
 					focut : true,
 					lang : 'ko-kr'
 				});
-
+				load();
+				function snImageUpload(file, editor) {
+					data = new FormData();
+					data.append("file", file);
+					data.append("path", path);
+					$.ajax({
+						data : data,
+						type : "POST",
+						url : "summernoteImageUpload",
+						contentType : false,
+						processData : false,
+						success : function(data) {
+							$(editor).summernote('insertImage',
+									data.url);
+							path = data.path;
+						}
+					});
+				}
+				
 				$('#saveInfo').click(function() {
 					var dto = $('#cwpForm').serialize();
 					dto = dto + '&workplace_id=' + $.urlParam('workplace_id');
@@ -141,6 +160,19 @@
 			}
 		});
 	};
+
+	function load(){
+		dto = {workplace_id : $.urlParam('workplace_id'),
+				pageNum : $.urlParam('page')};
+		$.ajax({
+			data : dto,
+			type : "post",
+			url : "/author/loadPage",
+			success : function(data){
+				$('.note-editable').html(data);
+				}
+			});
+		}
 </script>
 <style>
 .page {

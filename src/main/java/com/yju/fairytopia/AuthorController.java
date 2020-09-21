@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.JsonObject;
 import com.yju.domain.FairytaleContentDTO;
 import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
@@ -174,17 +176,15 @@ public class AuthorController {
 	@GetMapping("/editContents")
 	public void editContents() {
 		log.info("editContents");
-		File f = new File("/fairy/workplace/");
-		try {
-			EpubReader epubReader = new EpubReader();
-			if (f.exists()) {
-
-			} else {
-
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		/*
+		 * File f = new File("/fairy/workplace/"); try { EpubReader epubReader = new
+		 * EpubReader(); if (f.exists()) {
+		 * 
+		 * } else {
+		 * 
+		 * } } catch (Exception e) { e.printStackTrace(); }
+		 */
+		
 	}
 
 	@PostMapping("/getInfo")
@@ -241,7 +241,38 @@ public class AuthorController {
 		
 		service.newPage(dto);
 	}
+	
+	@PostMapping(value = "/summernoteImageUpload", produces = "application/json")
+	@ResponseBody
+	public JsonObject summernoteImage(@RequestParam("file") MultipartFile multipartFile, @RequestParam("path") String path) {
+		log.info("uploading image");
+		JsonObject json = new JsonObject();
+		String prefixPath = "/fairy/workplace/coworkers/";
+		if (path.equals("1")) {
+			path = "" + UUID.randomUUID(); // 기존에 만들어진 폴더가 없으면 폴더명을 새로 생성
+		}
+//		String fileName = multipartFile.getOriginalFilename();
+		String fileName = "" + UUID.randomUUID();
+		String extension = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
+		File file = new File(prefixPath + path, fileName+"."+extension);
 
+		try {
+//			multipartFile.transferTo(file);
+			InputStream fileStream = multipartFile.getInputStream();
+			FileUtils.copyInputStreamToFile(fileStream, file); // 파일 저장
+			json.addProperty("url", "/fairy/workplace/coworkers/" + path + "/" + fileName+"."+extension);
+			json.addProperty("path", path);
+			json.addProperty("responseCode", "success");
+			log.info("upload complete");
+		} catch (Exception e) {
+			FileUtils.deleteQuietly(file); // 저장된 파일 삭제
+			json.addProperty("responseCode", "error");
+			e.printStackTrace();
+		}
+
+		return json;
+	}
+	
 	private String saveFile(MultipartFile file, String filename, String UPLOAD_PATH) {
 		// 파일 이름 변경
 		String saveName = filename;
