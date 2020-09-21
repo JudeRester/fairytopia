@@ -92,12 +92,4 @@
 		where workplace_id=#{workplace_id}) 
 		order by fai_cont_page
 	</select>
-	
-	<insert id="addPage" parameterType="com.yju.domain.FairytaleContentDTO">
-		insert into fairytale_content 
-		values(#{fai_cont_page},
-		(select fairytale_id from fairytale 
-		where workplace_id=#{workplace_id}),
-		'd:\\workplace\\'||#{workplace_id})
-	</insert>
 </mapper>

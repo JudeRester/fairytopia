@@ -94,9 +94,4 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 		return mapper.getWorkingPages(workplace_id);
 	}
 
-	@Override
-	public void newPage(FairytaleContentDTO dto) {
-		mapper.addPage(dto);
-	}
-
 }

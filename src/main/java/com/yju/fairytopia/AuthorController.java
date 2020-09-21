@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,7 @@ public class AuthorController {
 		} else {
 			List<WorkplaceDTO> list = service.getList((MemberDTO) request.getSession().getAttribute("user"));
 //			log.info(list.toString());
-			for (WorkplaceDTO i : list) {
+			for(WorkplaceDTO i : list) {
 				i.setMembers(service.getMembers(i.getWorkplace_id()));
 				System.out.println(i.getMembers().size());
 			}
@@ -58,7 +59,7 @@ public class AuthorController {
 			return "/author/studio";
 		}
 	}
-
+	
 	@PostMapping("/createwp")
 	public String createWP(WorkplaceDTO dto, @RequestParam("upload_thumbnail") MultipartFile file) {
 		log.info("createWP : " + dto);
@@ -88,57 +89,58 @@ public class AuthorController {
 		dto.setWorkplace_thumbnail(name);
 		service.addThumbnail(dto);
 		service.addAuthor(dto);
-
+		
 		return "redirect:/author/studio";
 	}
-
+	
 	@GetMapping("/workroom")
 	public void workroom(Model model, String workplace_id) {
-		model.addAttribute("members", service.getMembers(workplace_id));
+		model.addAttribute("members",service.getMembers(workplace_id));
 	}
-
+	
 	@PostMapping("/getInvite")
 	@ResponseBody
 	public List<MemberDTO> getInvite(String workplace_id, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		WorkplaceDTO dto = new WorkplaceDTO();
-		dto.setMem_id(((MemberDTO) session.getAttribute("user")).getMem_id());
+		dto.setMem_id(((MemberDTO)session.getAttribute("user")).getMem_id());
 		dto.setWorkplace_id(workplace_id);
 		List<MemberDTO> list = service.getInvite(dto);
-		return list;
+		return list;	
 	}
-
+	
 	@PostMapping("/sendInvite")
 	@ResponseBody
-	public void sendInvite(@RequestBody List<Map<String, String>> list, HttpServletRequest request) {
+	public void sendInvite(@RequestBody List<Map<String, String>> list,HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		for (Map<String, String> i : list) {
+		for(Map<String, String> i : list) {
 			Map<String, String> invitation = new HashMap<>();
-			invitation.put("workplace_id", i.get("workplace_id"));
-			invitation.put("mem_send", ((MemberDTO) session.getAttribute("user")).getMem_id());
-			invitation.put("mem_receive", i.get("mem_receive"));
+			invitation.put("workplace_id",i.get("workplace_id"));
+			invitation.put("mem_send", ((MemberDTO)session.getAttribute("user")).getMem_id());
+			invitation.put("mem_receive",i.get("mem_receive"));
 			service.sendInvite(invitation);
 		}
 	}
-
+	
 	@PostMapping("/getPage")
 	@ResponseBody
-	public Map<Integer, List<WorkplaceFileDTO>> getPage(String workplace_id) {
-		log.info("getPage workplace_id : " + workplace_id);
+	public Map<Integer,List<WorkplaceFileDTO>> getPage(String workplace_id) {
+		log.info("getPage workplace_id : "+workplace_id);
 		List<WorkplaceFileDTO> pagenum = service.getPages(workplace_id);
 		Map<Integer, List<WorkplaceFileDTO>> list = new HashMap<>();
-		for (WorkplaceFileDTO i : pagenum) {
+		for(WorkplaceFileDTO i : pagenum) {
 			list.put(i.getFile_page(), service.getFiles(i));
 		}
 		return list;
 	}
-
+	
 	@PostMapping("/fileupload")
 	@ResponseBody
 	public void photoUpload(@RequestParam("file") MultipartFile multipartfile,
-			@RequestParam("workplace_id") String workplace_id, @RequestParam("file_page") int file_page) {
-
-		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\" + file_page;
+			@RequestParam("workplace_id")String workplace_id,
+			@RequestParam("file_page") int file_page) {
+		
+		String prefixPath = "d:\\fairy\\workplace\\"+workplace_id+"\\"+file_page;
 		String fileName = multipartfile.getOriginalFilename();
 		File file = new File(prefixPath, fileName);
 		System.out.println(fileName);
@@ -159,89 +161,86 @@ public class AuthorController {
 		} else {
 			System.out.println("이미 폴더가 생성되어 있습니다.");
 		}
-
+		
 		try {
 			InputStream fileStream = multipartfile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, file);
 			log.info("upload complete");
-
+			
 			service.uploadFile(dto);
-		} catch (Exception e) {
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@GetMapping("/editContents")
-	public void editContents() {
+	public void editContents(){
 		log.info("editContents");
 		File f = new File("/fairy/workplace/");
 		try {
 			EpubReader epubReader = new EpubReader();
-			if (f.exists()) {
-
-			} else {
-
+			if(f.exists()) {
+				
+			}else {
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@PostMapping("/getInfo")
 	@ResponseBody
 	public FairytaleDTO getInfo(String workplace_id) {
 		log.info(workplace_id);
 		return service.getInfo(workplace_id);
 	}
-
+	
 	@PostMapping("/updateInfo")
 	@ResponseBody
-	public void updateInfo(FairytaleDTO dto) {
-		if (service.getInfo(dto.getWorkplace_id()) == null) {
-			log.info("1:" + dto.toString());
+	public void updateInfo(FairytaleDTO dto ) {
+		if(service.getInfo(dto.getWorkplace_id()) == null) {
+			log.info("1:"+dto.toString());
 			service.insertInfo(dto);
-		} else {
-			log.info("2:" + dto.toString());
+		}else {
+			log.info("2:"+dto.toString());
 			service.updateInfo(dto);
 		}
 	}
-
+	
 	@PostMapping("/getWorkingPages")
 	@ResponseBody
 	public List<FairytaleContentDTO> getWorkingPages(String workplace_id) {
-		log.info("getWorkingPages workplace_id : " + workplace_id);
-		List<FairytaleContentDTO> list = service.getWorkingPages(workplace_id);
+		log.info("getWorkingPages workplace_id : "+workplace_id);
+		List<FairytaleContentDTO>  list = service.getWorkingPages(workplace_id);
 		return list;
 	}
-
+	
 	@PostMapping("/newPage")
 	@ResponseBody
-	public void newPage(@RequestParam("workplace_id") String workplace_id,
-			@RequestParam("pageNum") int file_page) {
-
-		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
-		String fileName = "";
-		System.out.println(fileName);
-		File Folder = new File(prefixPath);
-		FairytaleContentDTO dto = new FairytaleContentDTO();
-		dto.setWorkplace_id(workplace_id);
-		dto.setFai_cont_page(file_page);
-		// 해당 디렉토리가 없을경우 디렉토리를 생성
-		if (!Folder.exists()) {
-			try {
-				Folder.mkdirs(); // 폴더 생성합니다.
-				System.out.println("폴더가 생성되었습니다.");
-
-			} catch (Exception e) {
-				e.getStackTrace();
-			}
-		} else {
-			System.out.println("이미 폴더가 생성되어 있습니다.");
-		}
+	public void newPage(@RequestParam("workplace_id")String workplace_id,
+			@RequestParam("file_page") int file_page) {
 		
-		service.newPage(dto);
+		/*
+		 * String prefixPath = "d:\\fairy\\workplace\\"+workplace_id+"\\"+file_page;
+		 * String fileName = ""; File file = new File(prefixPath, fileName);
+		 * System.out.println(fileName); File Folder = new File(prefixPath);
+		 * WorkplaceFileDTO dto = new WorkplaceFileDTO(); dto.setFile_name(fileName);
+		 * dto.setWorkplace_id(workplace_id); dto.setFile_page(file_page); // 해당 디렉토리가
+		 * 없을경우 디렉토리를 생성 if (!Folder.exists()) { try { Folder.mkdir(); // 폴더 생성합니다.
+		 * System.out.println("폴더가 생성되었습니다.");
+		 * 
+		 * } catch (Exception e) { e.getStackTrace(); } } else {
+		 * System.out.println("이미 폴더가 생성되어 있습니다."); }
+		 * 
+		 * try { InputStream fileStream = multipartfile.getInputStream();
+		 * FileUtils.copyInputStreamToFile(fileStream, file);
+		 * log.info("upload complete");
+		 * 
+		 * service.uploadFile(dto); }catch (Exception e) { e.printStackTrace(); }
+		 */
 	}
-
+	
 	private String saveFile(MultipartFile file, String filename, String UPLOAD_PATH) {
 		// 파일 이름 변경
 		String saveName = filename;
@@ -260,5 +259,5 @@ public class AuthorController {
 
 		return saveName;
 	} // end saveFile(
-
+	
 }
