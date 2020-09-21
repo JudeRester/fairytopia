@@ -65,8 +65,10 @@
 
 				$('#addPage').click(function(){
 					key =parseInt($('#addPage').children().val())+1;
+					dto = {workplace_id : $.urlParam('workplace_id'),
+							pageNum : key};
 					$.ajax({
-						url : '/author/addWorkingPage',
+						url : '/author/newPage',
 						type : 'post',
 						data : dto,
 						success : function(data) {

@@ -38,4 +38,6 @@ public interface StudioMapper {
 	public void updateInfo(FairytaleDTO dto);
 
 	public List<FairytaleContentDTO> getWorkingPages(String workplace_id);
+
+	public void addPage(FairytaleContentDTO dto);
 }

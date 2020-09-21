@@ -37,4 +37,6 @@ public interface StudioService {
 	public void updateInfo(FairytaleDTO dto);
 
 	public List<FairytaleContentDTO> getWorkingPages(String workplace_id);
+
+	public void newPage(FairytaleContentDTO dto);
 }
