@@ -138,11 +138,15 @@
 
 .th_snippet {
 	display: block;
-	text-decoration: none;
 	left: 210px;
 	right: 40px;
-	padding-left: 60px;
 	line-height: 55px;
+	color:black;	
+}
+
+.th_snippet:hover{
+	text-decoration: none;
+	color:black;
 }
 
 .pm_thread.new .th_wrap {
@@ -161,6 +165,11 @@
 .th_wrap:hover, .pm_thread.new .th_wrap:hover {
 	background-color: #eee;
 	border-color: #eee;
+}
+
+#threads_right a.msg_username{
+	color:black;	
+	text-decoration: none;
 }
 
 #threads_right_bottom #msg_submit {
