@@ -11,6 +11,8 @@ public interface MemberService {
 
 	public MemberDTO login(MemberDTO dto);
 	
+//	public MemberDTO android_login(MemberDTO dto);
+	
 	public void uploadPhoto();
 
 	public MemberDTO profile(String mem_id);

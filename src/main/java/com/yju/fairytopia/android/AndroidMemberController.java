@@ -18,7 +18,7 @@ import com.yju.fairytopia.HomeController;
 import com.yju.service.MemberService;
 
 @Controller
-@RequestMapping("/android/member")
+@RequestMapping("/android")
 public class AndroidMemberController {
 
 	private static final Logger log = LoggerFactory.getLogger(HomeController.class);

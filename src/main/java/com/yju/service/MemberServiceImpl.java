@@ -33,6 +33,11 @@ public class MemberServiceImpl implements MemberService{
 		log.info("service.....login....");
 		return mapper.login(dto);
 	}
+	
+//	@Override
+//	public MemberDTO android_login(MemberDTO dto) {
+//		return mapper.android_login(dto);
+//	}
 
 	@Override
 	public MemberDTO profile(String mem_id) {
