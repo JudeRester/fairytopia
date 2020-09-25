@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.yju.domain.BuyinglistVO;
 import com.yju.domain.FairyTagVO;
 import com.yju.domain.FairyTaleVO;
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 
 public interface FairyTaleMapper {
 	public ArrayList<FairyTaleVO> select(MemberDTO dto);

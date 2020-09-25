@@ -11,7 +11,7 @@ import com.yju.domain.BuyinglistVO;
 import com.yju.domain.FairyTagVO;
 import com.yju.domain.FairyTaleVO;
 import com.yju.domain.MemberDTO;
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 import com.yju.mapper.FairyTaleMapper;
 
 @Service

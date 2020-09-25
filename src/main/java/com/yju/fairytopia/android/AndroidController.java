@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yju.domain.BuyinglistVO;
 import com.yju.domain.FairyTagVO;
 import com.yju.domain.FairyTaleVO;
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 import com.yju.fairytopia.HomeController;
 import com.yju.service.FairyTaleServiceImpl;
 import com.yju.service.MemberService;
@@ -34,8 +34,8 @@ public class AndroidController {
 	
 	@PostMapping(value = "/fix")
 	@ResponseBody
-	public void updata(MemberVO vo) {
-		service.update(vo);
+	public void updata(MemberDTO dto) {
+		service.update(dto);
 	}
 
 	@GetMapping(value = "/checkId")
@@ -48,9 +48,9 @@ public class AndroidController {
 
 	@PostMapping(value = "/join")
 	@ResponseBody
-	public void joinPro(MemberVO vo) {
-		log.info("register:" + vo);
-		service.join(vo);
+	public void joinPro(MemberDTO dto) {
+		log.info("register:" + dto);
+		service.join(dto);
 	}
 
 	@PostMapping(value = "/login")
@@ -63,17 +63,17 @@ public class AndroidController {
 	
 	@PostMapping(value = "/update")
 	@ResponseBody
-	public void update(MemberVO vo) {
-		service.update(vo);
+	public void update(MemberDTO dto) {
+		service.update(dto);
 	}
 	
 	
 	@PostMapping(value = "/select")
 	@ResponseBody
-	public ArrayList<FairyTaleVO> select(MemberVO vo) {
-		String mem_id = vo.getMem_id();
+	public ArrayList<FairyTaleVO> select(MemberDTO dto) {
+		String mem_id = dto.getMem_id();
 		log.info("select.....\n"+mem_id);
-		return buy.select(vo);
+		return buy.select(dto);
 	}
 	
 	@PostMapping(value = "/fairytale")
