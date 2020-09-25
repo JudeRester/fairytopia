@@ -35,4 +35,12 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 		return mapper.getList(vo);
 		}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public void addThumbnail(WorkplaceVO vo) {
+		mapper.addThumbnail(vo);
+	}
+
+>>>>>>> master
 }

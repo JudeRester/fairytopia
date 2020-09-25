@@ -53,3 +53,55 @@
 #studioModal .nav li {
 	background-color: white;
 }
+
+/*작업실 생성*/
+.workplace {
+	padding-top: 20px;
+}
+
+.workplace div {
+	width: 250px;
+	text-align: center;
+	display: inline-block;
+}
+
+.workplace div a {
+	position: relative;
+}
+
+.workplace div .thu img {
+	width: 35px;
+	display: inline-block;
+	margin: 10px;
+}
+
+.workplace div a p {
+	font-size: 18px;
+	color: #393939;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: absolute;
+	top: 0%;
+	margin: 0px 25px;
+	padding-top: 5px;
+	background-color: rgba(255, 255, 255, 0.59);
+	width: 200px;
+	height: 35px;
+	text-align: center;
+}
+
+.workplace div a p:hover {
+	/*opacity: 0.5;*/
+	background-color: rgba(255, 255, 255, 0.77);
+}
+
+.workplace div a img {
+	width: 150px;
+	height: 150px;
+}
+
+.workplace div a:hover {
+	text-decoration: none;
+	color: #ffa900;
+}

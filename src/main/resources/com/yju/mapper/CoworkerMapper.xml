@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yju.mapper.CoworkerMapper">
+
+
+	<select resultType="com.yju.domain.CoworkerVO" id="getList" >
+		select * from (select b.*,c.mem_nickname from find_coworker b,member c where b.mem_id=c.mem_id and board_type=#{board_type} order by seq desc) a 
+		where rownum between (#{pageNum}-1)*#{amount}+1 and #{pageNum}*#{amount}
+	</select>
+	
+	<insert id="write">
+		insert into find_coworker(seq, mem_id, board_type, title, cont, uploadedfile) 
+		values(find_coworker_seq.nextval, #{mem_id},#{board_type},#{title},#{cont},#{uploadedfile})
+	</insert>
+	
+	<select resultType="com.yju.domain.CoworkerVO" id="get">
+		select a.*,b.mem_nickname from find_coworker a, member b where seq=#{seq} and a.mem_id=b.mem_id
+	</select>
+		
+</mapper>

@@ -2,10 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="./hf/header.jsp"%>
-
-
-
-    <div class="container">
+<!--     <div class="container">
         <div class="row" id="search">
             <div class="col-lg-offset-3 col-lg-9">
                 <form class="navbar-form" role="search">
@@ -16,12 +13,12 @@
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
                         </span>
-                    </div><!-- /input-group -->
+                    </div>/input-group
                 </form>
                 <h4><strong>찾고 싶은 도서를 입력해보세요.</strong></h4>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="container-fuild">
         <div class="row" id="bestbook">

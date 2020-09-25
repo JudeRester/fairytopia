@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: n
 Build-Jdk: 1.8.0_241
+=======
+Built-By: ruker
+Build-Jdk: 1.8.0_251
+>>>>>>> master
 Created-By: Maven Integration for Eclipse
 

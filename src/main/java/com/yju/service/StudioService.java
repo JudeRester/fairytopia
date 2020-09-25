@@ -11,4 +11,9 @@ public interface StudioService {
 	public void addAuthor(WorkplaceVO vo);
 	
 	public List<WorkplaceVO> getList(MemberVO vo);
+<<<<<<< HEAD
+=======
+	
+	public void addThumbnail(WorkplaceVO vo);
+>>>>>>> master
 }
