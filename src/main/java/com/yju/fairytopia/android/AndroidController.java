@@ -55,10 +55,10 @@ public class AndroidController {
 
 	@PostMapping(value = "/login")
 	@ResponseBody
-	public MemberVO login(MemberVO vo, HttpServletRequest request) {
-		vo = service.login(vo);
-		vo.setMem_passwd(null);
-		return vo;
+	public MemberDTO login(MemberDTO dto, HttpServletRequest request) {
+		dto = service.login(dto);
+		dto.setMem_passwd(null);
+		return dto;
 	}
 	
 	@PostMapping(value = "/update")

@@ -46,8 +46,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
-	public void update(MemberVO vo) {
+	public void update(MemberDTO dto) {
 		log.info("service....update...");
-		mapper.update(vo);
+		mapper.update(dto);
 	}
 }

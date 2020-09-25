@@ -8,7 +8,7 @@ import com.yju.domain.FairyTaleVO;
 import com.yju.domain.MemberVO;
 
 public interface FairyTaleService {
-	public ArrayList<FairyTaleVO> select(MemberVO vo);
+	public ArrayList<FairyTaleVO> select(MemberDTO dto);
 	
 	public ArrayList<FairyTaleVO> fairytale();
 	

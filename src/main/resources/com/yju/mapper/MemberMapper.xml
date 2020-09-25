@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -17,13 +16,13 @@
 		select * from member where mem_id=#{mem_id} and mem_passwd=#{mem_passwd}
 	</select>
 
-<select id="update">
+	<select id="update">
 		update member
 		set mem_passwd = #{mem_passwd}, mem_nickname = #{mem_nickname}, mem_ph = #{mem_ph}
 		where mem_id = #{mem_id}
+	</select>
 
 	<select resultType="com.yju.domain.MemberDTO" id="profile">
 		select * from member where mem_id=#{mem_id}
-
 	</select>
 </mapper>

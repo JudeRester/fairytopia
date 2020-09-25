@@ -7,7 +7,7 @@ public interface MemberService {
 
 	public void join(MemberDTO dto);
 
-	public void update(MemberVO vo);
+	public void update(MemberDTO dto);
 
 	public MemberDTO login(MemberDTO dto);
 	

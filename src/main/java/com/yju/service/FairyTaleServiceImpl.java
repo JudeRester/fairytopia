@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.yju.domain.BuyinglistVO;
 import com.yju.domain.FairyTagVO;
 import com.yju.domain.FairyTaleVO;
+import com.yju.domain.MemberDTO;
 import com.yju.domain.MemberVO;
 import com.yju.mapper.FairyTaleMapper;
 
@@ -21,8 +22,8 @@ public class FairyTaleServiceImpl implements FairyTaleService{
 	private FairyTaleMapper mapper;
 	
 	@Override
-	public ArrayList<FairyTaleVO> select(MemberVO vo){
-		return mapper.select(vo);
+	public ArrayList<FairyTaleVO> select(MemberDTO dto){
+		return mapper.select(dto);
 	}
 	
 	@Override
