@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yju.mapper.NoteMapper">
+
+
+	<select resultType="com.yju.domain.TalkRoomDTO" id="getList" >
+		<!-- select talk_id, mem_a,mem_b from talkroom where mem_a=#{mem_id} or mem_b=#{mem_id} order by last_update desc -->
+		select a.talk_id, a.mem_a, b.mem_nickname as anick,a.mem_b,c.mem_nickname as bnick 
+		from talkroom a,member b, member c 
+		where a.mem_a=b.mem_id and a.mem_b=c.mem_id and 
+		(mem_a=#{mem_id} or mem_b=#{mem_id}) 
+		order by last_update desc
+	</select>
+	
+	<select resultType="String" id="getSnippet" >
+		select * from  (select cont as snippet from talk_content where talk_id=#{talk_id} and rownum = 1 order by send_date desc)
+	</select>
+	
+	<insert id="send">
+		insert into talk_content(talk_id, mem_send, mem_receive, cont) 
+		values(#{talk_id}, #{mem_send},#{mem_receive},#{cont})
+	</insert>
+	
+	<select id="checkRoom" resultType="String">
+		select talk_id from talkroom where (mem_a=#{mem_send} or mem_a=#{mem_receive}) and (mem_b=#{mem_send} or mem_b=#{mem_receive})
+	</select>
+	
+	<insert id="makeRoom" parameterType="com.yju.domain.TalkContentDTO">
+		<selectKey order="BEFORE" keyProperty="talk_id" resultType="String">
+			select talkroom_date('now') from dual
+		</selectKey>
+		insert into talkroom(talk_id,mem_a, mem_b)
+		values(#{talk_id},#{mem_send},#{mem_receive})
+	</insert>
+	
+	<select resultType="com.yju.domain.TalkContentDTO" id="get" parameterType="com.yju.domain.TalkContentDTO">
+		select b.mem_nickname,a.* from member b,talk_content a where talk_id=#{talk_id} and a.mem_send=b.mem_id order by send_date desc
+	</select>
+
+	<select id="total" resultType="Integer">
+		select count(*) from find_coworker where board_type=#{board_type}
+	</select>
+		
+</mapper>

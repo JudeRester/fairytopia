@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+/*왼 네비*/
+#wform {
+      margin: 45px 400px;
+}
+
+.drop select {
+      padding: 7px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+}
+
+.title {
+	  margin-bottom: 20px;
+}
+
+.btn {
+	  margin-top: 20px;
+}
+
+.btn:hover{
+	  background-color: white;
+      font-weight: bold;
+} 

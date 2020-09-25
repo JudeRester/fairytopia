@@ -2,13 +2,15 @@ package com.yju.service;
 
 import java.util.List;
 
-import com.yju.domain.CoworkerVO;
+import com.yju.domain.CoworkerDTO;
 import com.yju.domain.Criteria;
 
 public interface CoworkerService {
-	public List<CoworkerVO> getList(Criteria crt);
+	public List<CoworkerDTO> getList(Criteria crt);
 	
-	public void write(CoworkerVO vo);
+	public void write(CoworkerDTO dto);
 
-	public CoworkerVO get(int seq);
+	public CoworkerDTO get(int seq);
+
+	public int total(Criteria crt);
 }

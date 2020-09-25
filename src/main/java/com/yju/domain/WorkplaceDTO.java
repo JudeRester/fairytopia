@@ -1,15 +1,16 @@
 package com.yju.domain;
 
-public class WorkplaceVO {
+import java.util.List;
+
+public class WorkplaceDTO {
 	String workplace_id;
 	String workplace_name;
 	String workplace_detail;
 	char workplace_status;
+	List<MemberDTO> members;
 	String mem_id;
-<<<<<<< HEAD
-=======
+
 	String workplace_thumbnail;
->>>>>>> master
 
 	/*
 	 * MultipartFile workplace_thumbnail;
@@ -50,18 +51,22 @@ public class WorkplaceVO {
 	}
 	@Override
 	public String toString() {
-		return "WorkplaceVO [workplace_id=" + workplace_id + ", workplace_name=" + workplace_name
-				+ ", workplace_detail=" + workplace_detail + ", workplace_status=" + workplace_status + ", mem_id="
-<<<<<<< HEAD
-				+ mem_id + "]";
-=======
-				+ mem_id + ", workplace_thumbnail=" + workplace_thumbnail + "]";
+
+		return "WorkplaceDTO [workplace_id=" + workplace_id + ", workplace_name=" + workplace_name
+				+ ", workplace_detail=" + workplace_detail + ", workplace_status=" + workplace_status + ", members="
+				+ members + ", mem_id=" + mem_id + ", workplace_thumbnail=" + workplace_thumbnail + "]";
 	}
 	public String getWorkplace_thumbnail() {
 		return workplace_thumbnail;
 	}
 	public void setWorkplace_thumbnail(String workplace_thumbnail) {
 		this.workplace_thumbnail = workplace_thumbnail;
->>>>>>> master
+
+	}
+	public List<MemberDTO> getMembers() {
+		return members;
+	}
+	public void setMembers(List<MemberDTO> list) {
+		this.members = list;
 	}
 }

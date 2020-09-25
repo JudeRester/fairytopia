@@ -4,8 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 import com.yju.mapper.MemberMapper;
 
 @Service
@@ -22,15 +23,26 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void join(MemberVO vo) {
+	public void join(MemberDTO dto) {
 		log.info("service.....join....");
-		mapper.join(vo);
+		mapper.join(dto);
 	}
 
 	@Override
-	public MemberVO login(MemberVO vo) {
+	public MemberDTO login(MemberDTO dto) {
 		log.info("service.....login....");
-		return mapper.login(vo);
+		return mapper.login(dto);
+	}
+
+	@Override
+	public MemberDTO profile(String mem_id) {
+		return mapper.profile(mem_id);
+	}
+
+	@Override
+	public void uploadPhoto() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	@Override

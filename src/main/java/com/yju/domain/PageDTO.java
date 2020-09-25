@@ -1,6 +1,6 @@
 package com.yju.domain;
 
-public class PageVO {
+public class PageDTO {
 	private int startPage;
 	private int endPage;
 	private boolean prev, next;
@@ -8,12 +8,12 @@ public class PageVO {
 	private int total;
 	private Criteria crt;
 	
-	public PageVO(Criteria crt, int total) {
+	public PageDTO(Criteria crt, int total) {
 		this.crt = crt;
 		this.total = total;
-		this.endPage = (int)(Math.ceil(crt.getPageNum()/10.0)) * 10;
-		this.startPage = this.endPage - 9;
-		int realEnd = (int)(Math.ceil(total * 1.0) / crt.getAmount());
+		this.endPage = (int)(Math.ceil(crt.getPageNum()/5.0)) * 5;
+		this.startPage = this.endPage - 4;
+		int realEnd = (int)(Math.ceil(total * 1.0 / crt.getAmount()));
 		
 		if(realEnd < this.endPage) {
 			this.endPage = realEnd;

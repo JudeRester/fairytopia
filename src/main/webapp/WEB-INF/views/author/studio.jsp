@@ -4,8 +4,8 @@
 <%@include file="../hf/stheader.jsp"%>
 
 <link href="/resources/css/studio.css" rel="stylesheet" />
-<!-- 
-<hr /> -->
+
+<hr />
 
 <div class="container-fulid">
 	<div class="row">
@@ -21,7 +21,7 @@
 								aria-controls="work" role="tab" data-toggle="tab">작업실</a></li>
 						</ul>
 					</div>
-					<div class="col-sm-8">
+					<div class="col-sm-7">
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="all">
 								<div class="list-group" id="right-all">
@@ -61,14 +61,18 @@
 														<a
 															href="/author/workroom?workplace_id=${wp.workplace_id }">
 															<img src="/fairy/workplace/${wp.workplace_id }/${wp.workplace_thumbnail}"
+															onerror="this.src='/resources/img/workshop.png'; this.classList.remove('img-circle');"
 															alt="" class="img-circle" />
 															<p>${wp.workplace_name }</p>
 														</a>
-															<div class="thu">
-															<img src="https://via.placeholder.com/150" alt="..."
-																class="img-circle"> <img
-																src="https://via.placeholder.com/150" alt="..."
-																class="img-circle">
+														<div class="thu">
+														<c:forEach items="${wp.members }" var="m">
+															<img src="/fairy/profile/${m.mem_id }/profile" 
+															onerror="this.src='/resources/img/empty_profile.png'"
+															alt="..." class="img-circle" >
+														</c:forEach>
+															 
+															<!-- <img src="https://via.placeholder.com/150" alt="..." class="img-circle"> -->
 														</div>
 													</div>
 												</c:when>
@@ -120,6 +124,7 @@
 			<form class="form-horizontal" id="cwpForm" name="cwpForm"
 				enctype="multipart/form-data" action="/author/createwp"
 				method="post">
+				
 				<div class="modal-body">
 					<!--  <form class="form-horizontal"> -->
 					<div class="form-group">
@@ -139,9 +144,9 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="workplace_thumbnail" class="col-sm-3 control-label">작업실
-							썸네일</label> <input type="file" id="workplace_thumbnail"
-							name="workplace_thumbnail" placeholder="파일 선택" />
+						<label for="upload_thumbnail" class="col-sm-3 control-label">작업실
+							썸네일</label> <input type="file" id="upload_thumbnail"
+							name="upload_thumbnail" placeholder="파일 선택" />
 					</div>
 					<input type="hidden" name="mem_id"
 						value="${sessionScope.user.mem_id}" />
@@ -157,5 +162,6 @@
 		</div>
 	</div>
 </div>
+
 
 <%@include file="../hf/footer.jsp"%>

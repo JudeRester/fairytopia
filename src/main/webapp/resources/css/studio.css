@@ -2,7 +2,7 @@
 
 /*왼 네비*/
 #nav-left {
-	padding: 170px 50px;
+	margin: 170px 50px;
 }
 
 #nav-left ul li a {
@@ -16,11 +16,13 @@
 }
 
 #right-all {
-	padding: 100px 200px;
+	margin-top: 100px;
+	margin-right:100px;
 }
 
 #right-work {
-	padding-left: 100px;
+	margin-top: 80px;
+	
 }
 
 /*작업실*/
@@ -44,6 +46,7 @@
 
 #studioModal .modal-footer a {
 	text-decoration: none;
+	color: #ffa900;
 }
 
 #studioModal .modal-body {
@@ -71,8 +74,12 @@
 
 .workplace div .thu img {
 	width: 35px;
-	display: inline-block;
-	margin: 10px;
+	float:inherit;
+	margin:10px;
+	margin-left:-10px;
+	margin-right:-10px;
+	/* display: inline-block;
+	margin: 10px; */
 }
 
 .workplace div a p {

@@ -13,7 +13,7 @@
 		insert into member values(#{mem_id},#{mem_passwd},#{mem_nickname},#{mem_ph},#{mem_aut})
 	</insert>
 	
-	<select id="login" resultType="com.yju.domain.MemberVO">
+	<select id="login" resultType="com.yju.domain.MemberDTO">
 		select * from member where mem_id=#{mem_id} and mem_passwd=#{mem_passwd}
 	</select>
 
@@ -21,5 +21,9 @@
 		update member
 		set mem_passwd = #{mem_passwd}, mem_nickname = #{mem_nickname}, mem_ph = #{mem_ph}
 		where mem_id = #{mem_id}
+
+	<select resultType="com.yju.domain.MemberDTO" id="profile">
+		select * from member where mem_id=#{mem_id}
+
 	</select>
 </mapper>

@@ -8,6 +8,7 @@
 #header .navbar-brand {
 	/* color: lightsalmon; */
 	color: #ffa900;
+	font-weight:bold;
 }
 
 .navbar-brand {
@@ -54,7 +55,7 @@
 }
 
 .navtop a:hover {
-	color: orange;
+	color: #ffa900;
 }
 
 .navtop .glyphicon {
@@ -78,15 +79,11 @@
 }
 
 .navbar-default {
-	/* background-color: white; */
+	background-color: white;
 	font-size: 15px;
 }
 
-/* .navbar-default .navbar-nav li a {
-	color: black;
-} */
 .navbar-default .navbar-nav li a:hover {
-	/* color: orange; */
 	color: white;
 }
 
@@ -106,13 +103,10 @@
 
 /*베스트 셀러 e8cb99  f1c0a7 #f6b07a*/
 #bestbook {
-	/* background-color: lightsalmon; */
-	background-color: #f8f8f8;
 	padding: 40px 0px;
 }
 
 #bestbook h4 {
-	/* color: white; */
 	margin-left: 30px;
 }
 
@@ -199,7 +193,6 @@ h3 a:hover {
 
 .modal-body .btngroup {
 	padding-top: 30px;
-	/* border: 1px solid lightgray; */
 }
 
 .modal-body a {

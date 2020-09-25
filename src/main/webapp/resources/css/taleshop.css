@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#fairytale{
+     padding-left: 40px;
+}
+
+#fairytale button {
+     margin-top: 12px;
+     width: 150px;
+}
+
+.classic {
+     margin-bottom: 20px;
+}
+
+.title a {
+     color: black;
+     text-decoration: none;
+}
+
+.title p {
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+}

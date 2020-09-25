@@ -1,0 +1,452 @@
+@charset "UTF-8";
+
+#gradBgBox {
+	clear: left;
+	overflow: hidden;
+	text-align: left;
+	padding: 0;
+	width: 70%;
+	min-width: 1000px;
+}
+
+#gradBgBox.gry {
+	padding-top: 3px;
+	border-top: 1px solid #fff;
+}
+
+#mainContainer {
+	font-family: Tahoma, Helvetica, sans-serif, Arial;
+	margin: 0;
+	padding-top: 5px;
+	overflow: hidden;
+}
+
+#mainContWBar {
+	min-width: 620px;
+	width: expression(document.body.clientWidth > 620 ? "620px" : "auto");
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+#threads_main {
+	background-color: #ccc;
+	position: relative;
+	padding: 1px;
+}
+
+#threads_right_bottom {
+	display: none;
+}
+
+#threads_main.full #threads_right_bottom {
+	bottom: 0;
+	display: block;
+	left: 244px;
+	position: absolute;
+	background-color: #fff;
+	right: 0;
+	overflow: hidden;
+	margin: 1px 1px 1px 0;
+	height: 45px;
+	background: #eee;
+}
+
+#threads_main.full, #threads_main.full #threads_left {
+	height: 396px;
+	max-height: none;
+}
+
+#threads_main, #threads_left {
+	max-height: 442px;
+}
+
+#threads_main.full #threads_right {
+	height: 350px;
+}
+
+#threads_main.full.send #threads_right {
+	height: 259px;
+}
+
+#threads_main.full.send #message {
+	height: 130px;
+}
+
+#threads_main.full.send.big_msg #message {
+	height: 270px;
+}
+
+#threads_main.full.send #threads_right_bottom {
+	height: 180px;
+}
+
+#threads_main.full.send.big_msg #threads_right_bottom {
+	height: 320px;
+}
+
+#threads_main.full.send #msg_submit {
+	top: 1px;
+}
+
+#threads_main.full .th_snippet {
+	display: none;
+}
+
+#threads_main.full #threads_left {
+	width: 242px;
+	position: absolute;
+	left: 1px;
+}
+
+#threads_main.full #threads_right {
+	display: block;
+}
+
+#threads_main.paged, #threads_main.paged #threads_left {
+	max-height: none;
+}
+
+#threads_left, #threads_right {
+	overflow-y: auto;
+}
+
+#threads_right {
+	display: none;
+	position: absolute;
+	left: 244px;
+	right: 0;
+	margin: 0 1px 1px 0;
+	background-color: white;
+}
+
+#threads_left {
+	background-color: #fff;
+}
+
+.th_wrap {
+	background-color: white;
+	border: 4px solid transparent;
+	height: 78px;
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+	position: relative;
+	padding: 8px;
+	cursor: pointer;
+}
+
+.th_snippet {
+	display: block;
+	left: 210px;
+	right: 40px;
+	line-height: 55px;
+	color:black;	
+}
+
+.th_snippet:hover{
+	text-decoration: none;
+	color:black;
+}
+
+.pm_thread.new .th_wrap {
+	background: #ffdbec;
+}
+
+.pm_thread, #load_more_conversations {
+	border-bottom: 1px solid #ccc;
+}
+
+.pm_thread.active .th_wrap {
+	background-color: #d7eaff;
+	border-color: #d7eaff;
+}
+
+.th_wrap:hover, .pm_thread.new .th_wrap:hover {
+	background-color: #eee;
+	border-color: #eee;
+}
+
+#threads_right a.msg_username{
+	color:black;	
+	text-decoration: none;
+}
+
+#threads_right_bottom #msg_submit {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+#threads_main, #threads_left {
+	max-height: 762px;
+}
+
+#threads_main.full, #threads_main.full #threads_left {
+	height: 762px;
+}
+
+#threads_main.full #threads_right {
+	height: 716px;
+}
+
+#threads_main.full.send #threads_right {
+	height: 581px;
+}
+
+#threads_main.full.send.big_msg #threads_right {
+	height: 441px;
+}
+
+.msg_txt IMG {
+	max-width: 537px;
+}
+
+.th_user_thumb, .th_user_info, .th_new, .th_snippet, .th_controls {
+	height: 55px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.th_snippet.pm_new {
+	background: #ffebf0;
+	border: 1px solid #ffd1dd;
+}
+
+.th_user_info {
+	width: 120px;
+	overflow: hidden;
+	word-wrap: break-word;
+	line-height: 18px;
+	left: 70px;
+}
+
+.tui_username {
+	float: left;
+	width: 120px;
+	overflow: hidden;
+	height: 15px;
+	line-height: 11px;
+}
+
+.tui_el {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100px;
+	display: block;
+	height: 16px;
+}
+
+.th_controls {
+	font-size: 20px;
+	width: 30px;
+	text-align: center;
+	right: 0;
+}
+
+.th_controls .fa-ban {
+	margin-top: 11px;
+}
+
+.msg_buttons {
+	float: right;
+	clear: right;
+	margin-right: 3px;
+}
+
+.msg_buttons .fa-warning {
+	font-size: 15px;
+	margin: 3px 5px 0 0;
+}
+
+.msg_buttons .fa-times {
+	font-size: 20px;
+}
+
+.pm_date_div {
+	text-align: center;
+	padding: 0 15px;
+	min-width: 350px;
+	margin: 15px 30px 0 30px;
+}
+
+.pm_date_div hr {
+	height: 1px;
+}
+
+.pm_date {
+	margin: 0 auto;
+	background-color: white;
+	margin-top: -12px;
+	width: 80px;
+	padding: 0 5px;
+	color: #888;
+}
+
+.pm_msg {
+	max-width: 650px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+#single_thread_wrapper .pm_msg {
+	border-bottom: 1px dotted #bbb;
+}
+
+.msg_user_thumb {
+	height: 30px;
+	float: left;
+	margin-left: 7px;
+	margin-right: 0;
+}
+
+.msg_user_thumb .thumb {
+	height: 30px;
+	width: 30px;
+	margin-top: 2px;
+}
+
+.msg_user {
+	font-weight: bold;
+	padding-left: 50px;
+	margin-bottom: 3px;
+}
+
+.msg_buttons {
+	float: right;
+	clear: right;
+	margin-right: 3px;
+}
+
+.msg_buttons .fa-warning {
+	font-size: 15px;
+	margin: 3px 5px 0 0;
+}
+
+.msg_buttons .fa-times {
+	font-size: 20px;
+}
+
+.msg_buttons .cog-rot {
+	color: gray;
+	font-size: 21px;
+	margin: -6px 6px 0 0;
+	line-height: 31px;
+	-moz-animation: spin 4s linear infinite;
+	-webkit-animation: spin 4s linear infinite;
+	animation: spin 4s linear infinite;
+}
+
+.fa-1 {
+	font-size: 14px;
+}
+
+.pm_time {
+	color: #999;
+	float: left;
+	margin-top: 3px;
+	margin-right: 5px;
+	padding-left: 5px;
+}
+
+.msg_buttons_placeholder {
+	visibility: hidden;
+}
+
+.msg_body {
+	margin: 0 110px 0 45px;
+	padding: 3px 5px;
+	font-family: Tahoma, Arial, Verdana, sans-serif, 'Lucida Sans';
+	line-height: 16px;
+	font-size: 12px;
+	min-width: 350px;
+	word-wrap: break-word;
+	overflow-x: hidden;
+}
+
+.msg_body IMG {
+	max-width: 480px;
+}
+
+.pm_new .msg_body, .pm_unread .msg_body {
+	background: #ffebf0;
+	border: 1px solid #ffd1dd;
+}
+
+#single_thread_wrapper .msg_body {
+	max-width: 420px;
+	margin-bottom: 5px;
+}
+
+#single_thread_wrapper .msg_body {
+	clear: both;
+	margin: 10px 0;
+	max-width: 95%;
+}
+
+#threads_right_bottom .markItUp #message {
+	height: 25px;
+	resize: none;
+}
+
+#threads_right_bottom .markItUpHeader {
+	display: none;
+}
+
+#threads_main.send .markItUpHeader {
+	display: inline-block;
+	margin: 3px 0;
+}
+
+#threads_right_bottom .markItUpEditor {
+	border: 0;
+	width: 100%;
+	background: #fff;
+	font-family: "Verdana";
+	letter-spacing: 1px;
+	border: 1px solid #ccc;
+}
+
+#threads_right_bottom #markItUpMessage {
+	left: 5px;
+	top: 5px;
+	position: absolute;
+	right: 83px;
+	width: auto;
+}
+
+#threads_main.send #threads_right_bottom #markItUpMessage {
+	right: 15px;
+}
+
+#threads_right_bottom #msg_submit {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+#threads_main .markItUp .palette ul {
+	width: 162px;
+}
+
+#markitup_msg {
+	color: grey;
+	font-size: 11px;
+	position: absolute;
+	right: 85px;
+	top: 8px;
+	display: none;
+}
+
+#threads_main.send #markitup_msg {
+	display: block;
+}
+
+#single_thread_wrapper #markitup_msg {
+	display: inline;
+	padding-right: 15px;
+	position: relative;
+	top: auto;
+	right: auto;
+}
