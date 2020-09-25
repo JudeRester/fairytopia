@@ -11,6 +11,31 @@
       width: 100px;
 }
 
+.nav2 .collapse{
+	margin: 50px 0px;
+}
+
+.nav2 .navbar {
+	border:1px solid white;
+}
+
+.nav2 .navbar li a:hover {
+	background-color: white;
+	color: black;
+}
+
+.nav2 .navbar li {
+	margin-left: 60px;
+}
+
+.nav2 .navbar-default .navbar-nav>.active>a {
+	background-color: white;
+}
+
+hr {
+	margin: 100px 0px;	
+}
+
 /*별점*/
 .star_rating {
       font-size:0; 
@@ -31,23 +56,31 @@
 
 .star_rating a.on {color:#777;}
 
+/*뷰*/
+#preview .box {
+	width: 1000px;
+	height: 500px;
+	border:1px solid #ececec;
+}
+
 /*리뷰*/
-.tab {
-      margin-top: 40px;
+/*
+#review .contents p{
+	width: 1000px;
+	height: 100px;
+	border:1px solid #ececec;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
+*/
 
-.tab .nav li a {
-      color: black;
-      font-size: 15px;
-      border:1px solid #ececec;
-}
-
-.tab-content {
-      padding: 40px;
+#review h4{
+	margin-bottom: 20px;
 }
 
 #review .row{
-      margin-bottom: 20px;
+      margin-top: 20px;
 }
 
 #review a {
@@ -62,21 +95,21 @@
 }
 
 /*작가의 다른책*/
-#ot div h4{
+#book1 div h4{
       margin-bottom:50px; 
       color: black;
 }
 
-#ot div a:hover {
+#book1 div a:hover {
       text-decoration:none;
 }
 
 /*관련된 책*/
-#re div h4 {
+#book2 div h4 {
       margin-bottom: 50px;
       color: black;
 }
 
-#re div a:hover {
+#book2 div a:hover {
       text-decoration: none;
 }
