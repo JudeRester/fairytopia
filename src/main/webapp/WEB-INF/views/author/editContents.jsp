@@ -66,6 +66,7 @@
 						success : function(data) {
 							$(editor).summernote('insertImage',
 									data.url);
+							console.log(data.url);
 						}
 					});
 				}
@@ -114,16 +115,18 @@
 				});
 
 				$('#save').click(function(){
-					var dto = "workplace_id="+$.urlParam('workplace_id')
-							 +"&file_page="+$.urlParam('page')
+					var dto = {"workplace_id":$.urlParam('workplace_id'),
+							 "file_page":$.urlParam('page')}
 					var markupStr = $('#summernote').summernote('code');
-					dto=dto+"&cont="+markupStr;
+					dto.cont=markupStr;
 					console.log(dto);
 
 					$.ajax({
 						url : '/author/save',
 						type : 'post',
-						data : dto,
+						contentType:'application/json',
+						dataType: 'json',
+						data :  JSON.stringify(dto),
 						success : function(){
 								window.alert('성공적으로 저장되었습니다.');
 							},
@@ -189,14 +192,16 @@
 	};
 
 	function load(){
-		dto = {workplace_id : $.urlParam('workplace_id'),
-				pageNum : $.urlParam('page')};
+		dto = {"workplace_id" : $.urlParam('workplace_id'),
+				"file_page" : $.urlParam('page')};
 		$.ajax({
-			data : dto,
+			data : JSON.stringify(dto),
 			type : "post",
-			url : "/author/loadPage",
+			contentType:'application/json',
+			dataType: 'json',
+			url : "/author/load",
 			success : function(data){
-				$('.note-editable').html(data);
+				$('.note-editable').html(data.cont);
 				}
 			});
 		}
