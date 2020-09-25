@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yju.domain.BuyinglistVO;
+import com.yju.domain.FairyTagVO;
 import com.yju.domain.FairyTaleVO;
 import com.yju.domain.MemberVO;
 import com.yju.mapper.FairyTaleMapper;
@@ -31,7 +32,7 @@ public class FairyTaleServiceImpl implements FairyTaleService{
 	
 	@Override
 	public void buyinsert(BuyinglistVO vo) {
-		log.info("success" + vo);
+		log.info("success " + vo);
 		mapper.buyinsert(vo);
 	}
 	
@@ -39,7 +40,7 @@ public class FairyTaleServiceImpl implements FairyTaleService{
 	public ArrayList<FairyTaleVO> recommendlist(){
 		return mapper.recommendlist();
 	}
-
+	
 	@Override
 	public int maxcount() {
 		return mapper.maxcount();
@@ -53,5 +54,25 @@ public class FairyTaleServiceImpl implements FairyTaleService{
 	@Override
 	public ArrayList<FairyTaleVO> tagrecommend(String tag){
 		return mapper.tagrecommend(tag);
+	}
+	
+	@Override
+	public long grade(String name) {
+		return mapper.grade(name);
+	}
+	
+	@Override
+	public void updatecount(FairyTaleVO vo) {
+		mapper.updatecount(vo);
+	}
+	
+	@Override
+	public ArrayList<FairyTaleVO> search(String name) {
+		return mapper.search(name);
+	}
+	
+	@Override
+	public String book(String name) {
+		return mapper.book(name);
 	}
 }

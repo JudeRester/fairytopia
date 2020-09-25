@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yju.domain.BuyinglistVO;
+import com.yju.domain.FairyTagVO;
 import com.yju.domain.FairyTaleVO;
 import com.yju.domain.MemberVO;
 import com.yju.fairytopia.HomeController;
@@ -55,7 +56,6 @@ public class AndroidController {
 	@PostMapping(value = "/login")
 	@ResponseBody
 	public MemberVO login(MemberVO vo, HttpServletRequest request) {
-		log.info("login...\n"+vo);
 		vo = service.login(vo);
 		vo.setMem_passwd(null);
 		return vo;
@@ -64,7 +64,6 @@ public class AndroidController {
 	@PostMapping(value = "/update")
 	@ResponseBody
 	public void update(MemberVO vo) {
-		log.info("update......"+ vo);
 		service.update(vo);
 	}
 	
@@ -86,6 +85,8 @@ public class AndroidController {
 	@PostMapping(value = "/buyinsert")
 	@ResponseBody
 	public void buyinsert(BuyinglistVO vo) {
+		log.info("binglist = " + vo.getBuying_id());
+		log.info("fairytale_id = " + vo.getFairytale_id());
 		buy.buyinsert(vo);
 	}
 	
@@ -106,4 +107,44 @@ public class AndroidController {
 			return buy.recommendlist();
 		}
 	}
+	
+	@PostMapping(value="/grade")
+	@ResponseBody
+	public long grade(FairyTaleVO vo) {
+		String name = vo.getFairytale_name();
+		long i = buy.grade(name);
+		return i;
+	}
+	
+	@PostMapping(value = "/count")
+	@ResponseBody
+	public void updatecount(FairyTaleVO vo) {
+		log.info("update = " + vo);
+		buy.updatecount(vo);
+	} 
+	
+	@PostMapping(value = "/search")
+	@ResponseBody
+	public ArrayList<FairyTaleVO> search(FairyTaleVO vo) {
+		String name = vo.getFairytale_name();
+		log.info("찾고있는 동화  = " + name);
+		return buy.search(name);
+	}
+	
+	@PostMapping(value="/book")
+	@ResponseBody
+	public int book(FairyTaleVO vo) {
+		int mybook;
+		String name = vo.getFairytale_name();
+		String id = buy.book(name);
+		
+		if(id==null) {
+			mybook = 0;
+		}else {
+			mybook = 1;
+		}
+		
+		return mybook;
+	}
+	
 }

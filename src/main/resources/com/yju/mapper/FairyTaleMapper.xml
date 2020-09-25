@@ -6,18 +6,86 @@
 	<select id="select" resultType="com.yju.domain.FairyTaleVO">
 		select *
 		from fairytale
-		where fairytale_id in (select fairytale_id from buyinglist where mem_id = #{mem_id})
+		where
+		fairytale_id in (select fairytale_id from buyinglist where mem_id =
+		#{mem_id})
 	</select>
 	<select id="fairytale" resultType="com.yju.domain.FairyTaleVO">
 		select *
 		from fairytale
 	</select>
+	
 	<insert id="buyinsert">
-		insert into buyinglist(buying_id, fairytale_id, mem_id) values(#{buying_id}, #{fairytale_id}, #{mem_id})
+		insert into buyinglist(buying_id,fairytale_id, mem_id)
+		values(buyinglist_date('now'), #{fairytale_id}, #{mem_id})
 	</insert>
-	<select id="recommendlist" resultType="com.yju.domain.FairyTaleVO">
+	
+	<select id="recommendlist"
+		resultType="com.yju.domain.FairyTaleVO">
 		select fairytale_name, fairytale_price, fai_avg_grade
-		from fairytale
+		from
+		fairytale
 		where fai_avg_grade >= 3.5
+		order by fai_avg_grade desc
+	</select>
+
+	<select id="maxcount" resultType="int">
+		select MAX(count(fai_tag_name))
+		from fairytale_tag
+		where fairytale_id in (
+		select fairytale_id
+		from
+		buyinglist)
+		group by fai_tag_name
+	</select>
+
+	<select id="gettag" resultType="String">
+		select fai_tag_name,
+		count(fai_tag_name)
+		from fairytale_tag
+		where fairytale_id in (
+		select
+		fairytale_id
+		from buyinglist)
+		group by fai_tag_name
+		having
+		count(fai_tag_name) in #{count(fai_tag_name)}
+	</select>
+
+	<select id="tagrecommend" resultType="com.yju.domain.FairyTaleVO">
+		select *
+		from fairytale
+		where fairytale_id in (
+		select fairytale_id
+		from fairytale_tag
+		where fai_tag_name = #{fai_tag_name}
+		)
+	</select>
+	
+	<select id="grade" resultType="long">
+		select fai_avg_grade
+		from fairytale
+		where fairytale_name in #{fairytale_name}
+	</select>
+	
+	<update id="updatecount">
+		update fairytale set fai_avg_grade = (#{fai_avg_grade} + fai_avg_grade)/2
+		where fairytale_name = #{fairytale_name}
+	</update>
+	
+	<select id="search" resultType="com.yju.domain.FairyTaleVO">
+		select *
+		from fairytale
+		where fairytale_name like '%'||#{fairytale_name}||'%'
+	</select>
+	
+	<select id="book" resultType="String">
+		select mem_id
+		from buyinglist
+		where fairytale_id = (
+		    select fairytale_id
+		    from fairytale
+		    where fairytale_name = #{fairytale_name}
+		)
 	</select>
 </mapper>
