@@ -1,5 +1,6 @@
 package com.yju.fairytopia;
 
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -258,6 +260,18 @@ public class AuthorController {
 			
 			String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
 			String fileName = file_page + ".html";
+			File Folder = new File(prefixPath);
+			if (!Folder.exists()) {
+				try {
+					Folder.mkdirs(); // 폴더 생성합니다.
+					System.out.println("폴더가 생성되었습니다.");
+
+				} catch (Exception e) {
+					e.getStackTrace();
+				}
+			}
+			
+			
 			File file = new File(prefixPath, fileName);
 			BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(file));
 			bs.write(cont.getBytes());
@@ -284,12 +298,14 @@ public class AuthorController {
 		
 		try {
 			BufferedInputStream is = new BufferedInputStream(new FileInputStream(file));
-			String cont = new String(is.readAllBytes(),"UTF-8");
-			System.out.println(cont);
+			String cont = new String(IOUtils.toByteArray(is),"UTF-8");
 			result.addProperty("cont", cont);
 			result.addProperty("responseCode", "success");
-		} catch (Exception e) {
-			result.addProperty("responseCode", "erroe");
+		}catch(FileNotFoundException e) {
+			result.addProperty("cont", "");
+			result.addProperty("responseCode", "success");
+		}catch (Exception e) {
+			result.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}
 		

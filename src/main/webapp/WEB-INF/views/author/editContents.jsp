@@ -101,7 +101,7 @@
 								 +'<!-- 페이지 --><div class="panel panel-default">'
 								 +'<div class="panel-heading" role="tab" id="heading'+key+'">'
 								 +'<h4 class="panel-title"><!-- 페이지 번호 -->'
-								 +'<a data-toggle="collapse" data-parent="#accordion" href="#collapse'+key+'"'
+								 +'<a data-toggle="collapse" onclick="changePage('+key+')" data-parent="#accordion" href="#collapse'+key+'"'
 								 +' aria-expanded="true" aria-controls="collapse'+key+'">'+key+'페이지</a>';
 							$('#page-list').append(str);
 							$('#addPage').children().val(key)
@@ -137,6 +137,7 @@
 					
 					
 					});
+				
 			});
 
 	function getInfo() {
@@ -157,7 +158,14 @@
 			}
 		});
 	}
-
+	function changePage(pageNum){
+	    var renewURL = location.href;
+	    renewURL = renewURL.replace(/\&page=([0-9]+)/ig,'');
+	    renewURL += '&page='+pageNum;
+	    history.pushState(null, null, renewURL);
+		load();
+		}
+	
 	function getPages() {
 		var data = {
 			workplace_id : $.urlParam('workplace_id')
@@ -177,7 +185,7 @@
 						str = '<div class="panel-group" id="accordion" role="tablist"	aria-multiselectable="true">'
 								+ '<!-- 페이지 --><div class="panel panel-default"><div class="panel-heading" role="tab" id="heading'+key+'">'
 								+ '<h4 class="panel-title">'
-								+ '<!-- 페이지 번호 --><a data-toggle="collapse" data-parent="#accordion" href="#collapse'+key+
+								+ '<!-- 페이지 번호 --><a data-toggle="collapse" onclick="changePage('+key+')" data-parent="#accordion" href="#collapse'+key+
 								+'" aria-expanded="true" aria-controls="collapse'+key+'">'
 								+ key
 								+ '페이지</a> <label for="page_'+key+'">';
