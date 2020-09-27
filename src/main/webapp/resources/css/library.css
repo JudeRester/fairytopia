@@ -7,19 +7,6 @@
      background: lightgray;
 }
 
-.header {
-     padding: 10px 0px;
-}
-
-.header h3 a {
-     color: #ffa900;
-}
-
-.header h3 a:hover {
-     color: #ffa900;
-     text-decoration: none;
-}
-
 .navbar {
      background-color: white;
 }
