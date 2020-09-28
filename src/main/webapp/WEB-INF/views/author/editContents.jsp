@@ -231,13 +231,13 @@
 	margin-left: 50px;
 }
 
-.set a {
+.set button {
 	color: #5c5c5c;
 	text-decoration: none;
 	font-size: 20px;
 }
 
-.set a:hover {
+.set button:hover {
 	color: #5c5c5c;
 	text-decoration: none;
 }
@@ -261,6 +261,27 @@
 #header{
 	margin:30px;
 }
+
+.file label {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #fff;
+  background-color: #ffa900;
+  cursor: pointer;
+  border-radius: .25em;
+}
+
+input[type="file"] { /* 파일 필드 숨기기 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
 </style>
 </head>
 <body>
@@ -321,20 +342,45 @@
 				<form class="form-horizontal" id="cwpForm">
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="inputname" class="col-sm-3 control-label"> 동화
+							<div class="col-xs-offset-4 col-xs-6 file">
+									<img src="https://via.placeholder.com/100" alt="" />
+								    <label for="exampleInputFile">표지 업로드</label>
+								    <input type="file" id="exampleInputFile">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="fairytale_name" class="col-sm-3 control-label"> 동화
 								제목 </label>
-							<div class="col-sm-8">
+							<div class="col-xs-8">
 								<input type="text" class="form-control" id="fairytale_name"
 									name="fairytale_name" placeholder="동화 제목을 기입해주세요.">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="inputtext" class="col-sm-3 control-label"> 동화
+							<label for="fairytale_detail" class="col-sm-3 control-label"> 동화
 								줄거리 </label>
-							<div class="col-sm-8">
+							<div class="col-xs-8">
 								<textarea class="form-control" id="fairytale_detail"
 									name="fairytale_detail" placeholder="동화 줄거리를 기입해주세요."></textarea>
+							</div>
+						</div>
+												
+						<div class="form-group">
+							<label for="exampleInputAmount" class="col-xs-3 control-label"> 가격 </label>
+							<div class="col-xs-8">
+								<div class="input-group">
+							        <div class="input-group-addon">$</div>
+							        <input type="text" class="form-control" id="exampleInputAmount">
+						         </div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="tag" class="col-xs-3 control-label"> 태그 </label>
+							<div class="col-xs-8">
+								<input type="text" class="form-control" id="tag" placeholder="ex)#감동">
 							</div>
 						</div>
 

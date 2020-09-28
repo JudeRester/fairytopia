@@ -38,9 +38,6 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 	public List<WorkplaceDTO> getList(MemberDTO dto) {
 		return mapper.getList(dto);
 		}
-
-<<<<<<< HEAD
-=======
 	@Override
 	public void addThumbnail(WorkplaceDTO dto) {
 		mapper.addThumbnail(dto);
@@ -101,5 +98,4 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 		mapper.addPage(dto);
 	}
 
->>>>>>> master
 }

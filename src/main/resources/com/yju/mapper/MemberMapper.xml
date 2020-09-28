@@ -21,7 +21,7 @@
 		update member
 		set mem_passwd = #{mem_passwd}, mem_nickname = #{mem_nickname}, mem_ph = #{mem_ph}
 		where mem_id = #{mem_id}
-
+</select>
 	<select resultType="com.yju.domain.MemberDTO" id="profile">
 		select * from member where mem_id=#{mem_id}
 

@@ -13,8 +13,6 @@
 						<span class="glyphicon glyphicon-chevron-left"></span>작업실
 					</h4>
 			</a></li>
-			<li class="col-sm-2"><h4>일정:</h4></li>
-			<li class="col-sm-2"><h4>완료 페이지:</h4></li>
 		</ul>
 	</div>
 </div>

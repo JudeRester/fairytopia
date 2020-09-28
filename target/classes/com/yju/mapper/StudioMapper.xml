@@ -8,6 +8,7 @@
 		<selectKey order="BEFORE" keyProperty="workplace_id" resultType="String">
 			select workplace_date('now') from dual
 		</selectKey>
+
 		insert into workplace(workplace_id,workplace_name, workplace_detail)
 		values(#{workplace_id},#{workplace_name},#{workplace_detail})
 	</insert>
@@ -15,7 +16,7 @@
 	<insert id="addAuthor">
 		insert into workplace_person(workplace_id, mem_id) values(#{workplace_id}, #{mem_id})
 	</insert>
-	
+
 	<select id="getMembers" resultType="com.yju.domain.MemberDTO">
 		<!-- select mem_id from workplace_person where workplace_id=#{workplace_id} -->
 		select a.mem_id,b.mem_nickname,a.mem_role
@@ -24,13 +25,13 @@
 	</select>
 	
 	<select resultType="com.yju.domain.WorkplaceDTO" id="getList" >
+
 		select * from workplace where workplace_id in (select workplace_id from workplace_person where mem_id=#{mem_id})
 	</select>
 	
 	<update id="addThumbnail">
 		update workplace set workplace_thumbnail=#{workplace_thumbnail} where workplace_id=#{workplace_id}
 	</update>
-	
 	<select id="getInvite" resultType="com.yju.domain.MemberDTO">
 		select mem_id, mem_nickname from member a, (select
 		case when mem_a=#{mem_id}

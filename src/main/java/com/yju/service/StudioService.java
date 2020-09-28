@@ -14,12 +14,10 @@ public interface StudioService {
 	
 	public void addAuthor(WorkplaceDTO dto);
 
-	public void addThumbnail(WorkplaceVO vo);
+	public void addThumbnail(WorkplaceDTO vo);
 
 	public List<WorkplaceDTO> getList(MemberDTO dto);
 	
-	public void addThumbnail(WorkplaceDTO dto);
-
 	public List<MemberDTO> getMembers(String workplace_id);
 
 	public List<MemberDTO> getInvite(WorkplaceDTO dto);
