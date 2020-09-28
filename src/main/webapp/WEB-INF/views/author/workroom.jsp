@@ -114,32 +114,29 @@
 								<!-- 페이지 추가 -->
 								<div class="page">
 									<a href="#" class="btn btn-default" role="button" id="addPage">
-										<input type='hidden' value='-1'/>
-										<b>페이지 추가</b>
+										<input type='hidden' value='-1' /> <b>페이지 추가</b>
 									</a>
 								</div>
-								<div id="page-list">
-									페이지가 없습니다
-								</div>
+								<div id="page-list">페이지가 없습니다</div>
 								<!--panel-group-->
-								</div>
-
 							</div>
-							<!--col-->
+
 						</div>
-						<!--row-->
+						<!--col-->
 					</div>
-
-					<!--편집-->
-
+					<!--row-->
 				</div>
-				<!-- tab-content -->
+
+				<!--편집-->
+
 			</div>
-			<!-- tabpane -->
+			<!-- tab-content -->
 		</div>
-		<!-- col -->
+		<!-- tabpane -->
 	</div>
-	<!-- row -->
+	<!-- col -->
+</div>
+<!-- row -->
 
 <!-- 모달 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -156,27 +153,30 @@
 				</h4>
 			</div>
 			<div class="modal-body">
-				<div class="form-group">
-					<div class='input-group date' id='datetimepicker2'>
-						<input type='text' class="form-control" /> <span
-							class="input-group-addon"> <span
-							class="glyphicon glyphicon-calendar"></span>
-						</span>
+				<form action="" id="addSchedule">
+					<div class="form-group">
+						<div class='input-group date' id='datetimepicker2'>
+							<input type='text' class="form-control" /> <span
+								class="input-group-addon"> <span
+								class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class='input-group date' id='datetimepicker3'>
-						<input type='text' class="form-control" /> <span
-							class="input-group-addon"> <span
-							class="glyphicon glyphicon-calendar"></span>
-						</span>
+					<div class="form-group">
+						<div class='input-group date' id='datetimepicker3'>
+							<input type='text' class="form-control" /> <span
+								class="input-group-addon"> <span
+								class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
 					</div>
-				</div>
 
-				<strong>메모</strong> <input type="text" class="form-control">
+					<strong>메모</strong> <input type="text" class="form-control">
+				</form>
+
 			</div>
 			<div class="modal-footer">
-				<a href="">
+				<a href="#">
 					<h4 class="text-center">
 						<b>저장</b>
 					</h4>
@@ -237,22 +237,24 @@
 </div>
 
 <!-- progress Modal -->
-<div class="modal fade" id="pleaseWaitDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>업로드 중 페이지를 벗어나시면 업로드가 취소됩니다.</h3>
-            </div>
-            <div class="modal-body">
-                <!-- progress , bar, percent를 표시할 div 생성한다. -->
-                <div class="progress">
-                    <div class="bar"></div>
-                    <div class="percent">0%</div>
-                </div>
-                <div id="status"></div>
-            </div>
-        </div>
-    </div>
+<div class="modal fade" id="pleaseWaitDialog" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+	data-backdrop="static">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>업로드 중 페이지를 벗어나시면 업로드가 취소됩니다.</h3>
+			</div>
+			<div class="modal-body">
+				<!-- progress , bar, percent를 표시할 div 생성한다. -->
+				<div class="progress">
+					<div class="bar"></div>
+					<div class="percent">0%</div>
+				</div>
+				<div id="status"></div>
+			</div>
+		</div>
+	</div>
 </div>
 
 

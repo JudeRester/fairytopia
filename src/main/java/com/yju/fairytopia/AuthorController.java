@@ -273,6 +273,7 @@ public class AuthorController {
 			
 			
 			File file = new File(prefixPath, fileName);
+			if(!file.exists()) cont="<meta charset=\"UTF-8\">" + cont;
 			BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(file));
 			bs.write(cont.getBytes());
 			bs.close();

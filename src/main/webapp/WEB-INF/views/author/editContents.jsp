@@ -44,8 +44,6 @@
  	display:none; 
 }
 
-
-
 .page b {
 	color: gray;
 }
