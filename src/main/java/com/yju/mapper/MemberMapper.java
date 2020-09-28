@@ -7,7 +7,10 @@ public interface MemberMapper {
 	
 	public void join(MemberDTO dto);
 
+	public void update(MemberVO vo);
+
 	public MemberDTO login(MemberDTO dto);
 	
 	public MemberDTO profile(String mem_id);
+
 }

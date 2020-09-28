@@ -14,7 +14,9 @@ public interface StudioMapper {
 	public void createWorkplace(WorkplaceDTO dto);
 	
 	public void addAuthor(WorkplaceDTO dto);
-	
+
+	public void addThumbnail(WorkplaceVO vo);
+
 	public List<WorkplaceDTO> getList(MemberDTO dto);
 	
 	public void addThumbnail(WorkplaceDTO dto);
@@ -40,4 +42,5 @@ public interface StudioMapper {
 	public List<FairytaleContentDTO> getWorkingPages(String workplace_id);
 
 	public void addPage(FairytaleContentDTO dto);
+
 }

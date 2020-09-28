@@ -13,7 +13,9 @@ public interface StudioService {
 	public void createWorkplace(WorkplaceDTO dto);
 	
 	public void addAuthor(WorkplaceDTO dto);
-	
+
+	public void addThumbnail(WorkplaceVO vo);
+
 	public List<WorkplaceDTO> getList(MemberDTO dto);
 	
 	public void addThumbnail(WorkplaceDTO dto);

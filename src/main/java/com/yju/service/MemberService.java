@@ -7,9 +7,12 @@ public interface MemberService {
 
 	public void join(MemberDTO dto);
 
+	public void update(MemberVO vo);
+
 	public MemberDTO login(MemberDTO dto);
 	
 	public void uploadPhoto();
 
 	public MemberDTO profile(String mem_id);
+
 }

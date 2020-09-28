@@ -13,9 +13,15 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		id="dataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+<<<<<<< HEAD
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="username" value="root" />
+		<property name="password" value="oracle1941" />
+=======
 		<property name="url" value="jdbc:oracle:thin:@52.78.55.253:1521:orcl" />
 		<property name="username" value="fairy" />
 		<property name="password" value="fairy" />
+>>>>>>> master
 	</bean>
 
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="SqlSessionFactory">

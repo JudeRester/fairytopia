@@ -44,23 +44,28 @@
 					height : 1280 / 3 * 2,
 					width : 1280,
 					focut : true,
-					lang : 'ko-kr'
+					lang : 'ko-kr',
+					callbacks : {
+						onImageUpload : function(files) {
+							snImageUpload(files[0], this);
+						}
+					}
 				});
 				load();
 				function snImageUpload(file, editor) {
 					data = new FormData();
 					data.append("file", file);
-					data.append("path", path);
+					data.append("workplace_id", $.urlParam('workplace_id'));
+					data.append("file_page", $.urlParam('page'));
 					$.ajax({
 						data : data,
 						type : "POST",
-						url : "summernoteImageUpload",
+						url : "/author/summernoteImageUpload",
 						contentType : false,
 						processData : false,
 						success : function(data) {
 							$(editor).summernote('insertImage',
 									data.url);
-							path = data.path;
 						}
 					});
 				}
@@ -107,6 +112,28 @@
 					});
 					
 				});
+
+				$('#save').click(function(){
+					var dto = "workplace_id="+$.urlParam('workplace_id')
+							 +"&file_page="+$.urlParam('page')
+					var markupStr = $('#summernote').summernote('code');
+					dto=dto+"&cont="+markupStr;
+					console.log(dto);
+
+					$.ajax({
+						url : '/author/save',
+						type : 'post',
+						data : dto,
+						success : function(){
+								window.alert('성공적으로 저장되었습니다.');
+							},
+						error : function(){
+								window.alert('저장에 실패했습니다. 잠시 후 다시 시도해 주세요');
+							}
+						});
+					
+					
+					});
 			});
 
 	function getInfo() {
@@ -240,8 +267,7 @@
 	<div class="container" style="margin: 0px;">
 		<div class="row" id="header">
 			<div class="col-xs-1">
-				<a href="" class="btn btn-default" role="button"> <b>편집내용 저장</b>
-				</a>
+				<button class="btn btn-default" id="save"> <b>편집내용 저장</b></button>
 			</div>
 			<div class="col-xs-2 text-center">
 				<a href="" class="btn btn-default" role="button"> <b>투고하기</b>
@@ -249,8 +275,8 @@
 			</div>
 
 			<div class="col-xs-8 set">
-				<a href="" class="btn btn-link" role="button" data-toggle="modal"
-					data-target="#myModal"> 기본정보 설정 </a>
+				<button class="btn btn-link" role="button" data-toggle="modal"
+					data-target="#myModal"> 기본정보 설정 </button>
 			</div>
 		</div>
 

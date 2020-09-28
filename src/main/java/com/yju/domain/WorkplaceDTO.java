@@ -9,6 +9,7 @@ public class WorkplaceDTO {
 	char workplace_status;
 	List<MemberDTO> members;
 	String mem_id;
+
 	String workplace_thumbnail;
 
 	/*
@@ -50,6 +51,7 @@ public class WorkplaceDTO {
 	}
 	@Override
 	public String toString() {
+
 		return "WorkplaceDTO [workplace_id=" + workplace_id + ", workplace_name=" + workplace_name
 				+ ", workplace_detail=" + workplace_detail + ", workplace_status=" + workplace_status + ", members="
 				+ members + ", mem_id=" + mem_id + ", workplace_thumbnail=" + workplace_thumbnail + "]";
@@ -59,6 +61,7 @@ public class WorkplaceDTO {
 	}
 	public void setWorkplace_thumbnail(String workplace_thumbnail) {
 		this.workplace_thumbnail = workplace_thumbnail;
+
 	}
 	public List<MemberDTO> getMembers() {
 		return members;
