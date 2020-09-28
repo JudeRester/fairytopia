@@ -74,13 +74,11 @@
         		<h4>리뷰</h4>
         	</div>
 
-        	
-        	<!--
         	<div class="row">
         		<div class="col-xs-2">
 		             <img src="https://via.placeholder.com/100" alt="..." class="img-circle">
 		        </div>
-		        <div class="col-xs-10">
+		        <div class="text col-xs-10">
 		             <a href="#">
 		             	<h4>리뷰 제목</h4>
 		             </a>
@@ -92,14 +90,13 @@
         		<div class="col-xs-2">
 		             <img src="https://via.placeholder.com/100" alt="..." class="img-circle">
 		        </div>
-		        <div class="col-xs-10">
+		        <div class="text col-xs-10">
 		             <a href="#">
 		             	<h4>리뷰 제목</h4>
 		             </a>
 		             <p>리뷰 내용</p>
 		        </div>
         	</div>
-        	-->
         	
 	        <div class="row">
 	             <div class="col-xs-offset-4 col-xs-5">
