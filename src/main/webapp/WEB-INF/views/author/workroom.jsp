@@ -89,17 +89,25 @@
 								</h4>
 								<hr />
 
-								<div class="row con">
-									<div class="col-xs-6 text-center">
-										<p>
-											<b>date</b>
-										</p>
-									</div>
-									<div class="col-lg-6 text-center">
-										<p>메모</p>
-									</div>
-								</div>
-								<hr />
+                                    <div class="row con">
+                                        <div class="col-xs-6 text-center">
+                                            <p><b>9/20</b>-<b>9/23</b></p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>page1 시나리오 작성</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row con">
+                                        <div class="col-xs-6 text-center">
+                                            <p><b>9/23</b>-<b>9/26</b></p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>page1 러프</p>
+                                        </div>
+                                    </div>
+                                    <hr />
 
 							</div>
 						</div>
