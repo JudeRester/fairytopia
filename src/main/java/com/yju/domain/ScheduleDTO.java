@@ -1,10 +1,27 @@
 package com.yju.domain;
 
+import java.sql.Date;
+
 public class ScheduleDTO {
 	private String calendar_id;
 	private String workplace_id;
 	private String calendar_name;
 	private String calendar_detail;
+	private Date calendar_start;
+	private Date calendar_end;
+	
+	public Date getCalendar_start() {
+		return calendar_start;
+	}
+	public void setCalendar_start(Date calendar_start) {
+		this.calendar_start = calendar_start;
+	}
+	public Date getCalendar_end() {
+		return calendar_end;
+	}
+	public void setCalendar_end(Date calendar_end) {
+		this.calendar_end = calendar_end;
+	}
 	public String getCalendar_id() {
 		return calendar_id;
 	}
@@ -32,6 +49,7 @@ public class ScheduleDTO {
 	@Override
 	public String toString() {
 		return "ScheduleDTO [calendar_id=" + calendar_id + ", workplace_id=" + workplace_id + ", calendar_name="
-				+ calendar_name + ", calendar_detail=" + calendar_detail + "]";
+				+ calendar_name + ", calendar_detail=" + calendar_detail + ", calendar_start=" + calendar_start
+				+ ", calendar_end=" + calendar_end + "]";
 	}
 }

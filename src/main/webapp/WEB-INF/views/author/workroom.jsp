@@ -90,18 +90,32 @@
 									</a>
 								</h4>
 								<hr />
+								<div id="scheduleList">
+									<p id="no-schedule">등록된 일정이 없습니다.</p>
+								</div>
+								<!-- <div class="row con">
+									<div class="col-xs-6 text-center">
+										<p>
+											<b>9/20</b>-<b>9/23</b>
+										</p>
+									</div>
+									<div class="col-xs-6">
+										<p>page1 시나리오 작성</p>
+									</div>
+								</div>
+								<hr />
 
 								<div class="row con">
 									<div class="col-xs-6 text-center">
 										<p>
-											<b>date</b>
+											<b>9/23</b>-<b>9/26</b>
 										</p>
 									</div>
-									<div class="col-lg-6 text-center">
-										<p>메모</p>
+									<div class="col-xs-6">
+										<p>page1 러프</p>
 									</div>
 								</div>
-								<hr />
+								<hr /> -->
 
 							</div>
 						</div>
@@ -156,7 +170,7 @@
 				<form action="" id="addSchedule">
 					<div class="form-group">
 						<div class='input-group date' id='datetimepicker2'>
-							<input type='text' class="form-control" /> <span
+							<input type='text' class="form-control" name="calendar_start" /> <span
 								class="input-group-addon"> <span
 								class="glyphicon glyphicon-calendar"></span>
 							</span>
@@ -164,19 +178,19 @@
 					</div>
 					<div class="form-group">
 						<div class='input-group date' id='datetimepicker3'>
-							<input type='text' class="form-control" /> <span
+							<input type='text' class="form-control" name="calendar_end" /> <span
 								class="input-group-addon"> <span
 								class="glyphicon glyphicon-calendar"></span>
 							</span>
 						</div>
 					</div>
 
-					<strong>메모</strong> <input type="text" class="form-control">
+					<strong>메모</strong> <input type="text" name="calendar_detail" class="form-control">
 				</form>
 
 			</div>
 			<div class="modal-footer">
-				<a href="#">
+				<a href="#" id="submitSchedule">
 					<h4 class="text-center">
 						<b>저장</b>
 					</h4>

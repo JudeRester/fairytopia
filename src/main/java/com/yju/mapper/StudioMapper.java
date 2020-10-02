@@ -6,6 +6,7 @@ import java.util.Map;
 import com.yju.domain.FairytaleContentDTO;
 import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
+import com.yju.domain.ScheduleDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
 
@@ -40,4 +41,8 @@ public interface StudioMapper {
 	public List<FairytaleContentDTO> getWorkingPages(String workplace_id);
 
 	public void addPage(FairytaleContentDTO dto);
+
+	public List<ScheduleDTO> loadSchedule(String workplace_id);
+
+	public void addSchedule(ScheduleDTO serialized_Json);
 }

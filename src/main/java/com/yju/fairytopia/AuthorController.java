@@ -1,6 +1,5 @@
 package com.yju.fairytopia;
 
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -9,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,10 +35,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.sun.glass.ui.CommonDialogs.Type;
 import com.yju.domain.FairytaleContentDTO;
 import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
+import com.yju.domain.ScheduleDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
 import com.yju.service.StudioService;
@@ -139,6 +147,23 @@ public class AuthorController {
 			list.put(i.getFile_page(), service.getFiles(i));
 		}
 		return list;
+	}
+
+	@PostMapping("/loadSchedule")
+	@ResponseBody
+	public List<ScheduleDTO> loadSchedule(String workplace_id) {
+		log.info("loadSchedule workplace_id : " + workplace_id);
+		return service.loadSchedule(workplace_id);
+	}
+
+	@PostMapping("/addSchedule")
+	@ResponseBody
+	public void addSchedule(@RequestBody String json) {
+		log.info("addSchedule");
+		Gson gson = new GsonBuilder().setDateFormat("yyyy.MM.dd.").create();
+		ScheduleDTO serialized_Json = gson.fromJson(json, ScheduleDTO.class);
+		
+		service.addSchedule(serialized_Json);
 	}
 
 	@PostMapping("/fileupload")
@@ -252,12 +277,12 @@ public class AuthorController {
 	public JsonObject save(@RequestBody String json) {
 		JsonObject result = new JsonObject();
 		try {
-			Map serialized_Json =new Gson().fromJson(json, Map.class);
+			Map serialized_Json = new Gson().fromJson(json, Map.class);
 			System.out.println(serialized_Json.toString());
 			String workplace_id = (String) serialized_Json.get("workplace_id");
 			String file_page = (String) serialized_Json.get("file_page");
 			String cont = (String) serialized_Json.get("cont");
-			
+
 			String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
 			String fileName = file_page + ".html";
 			File Folder = new File(prefixPath);
@@ -270,10 +295,10 @@ public class AuthorController {
 					e.getStackTrace();
 				}
 			}
-			
-			
+
 			File file = new File(prefixPath, fileName);
-			if(!file.exists()) cont="<meta charset=\"UTF-8\">" + cont;
+			if (!file.exists())
+				cont = "<meta charset=\"UTF-8\">" + cont;
 			BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(file));
 			bs.write(cont.getBytes());
 			bs.close();
@@ -284,7 +309,7 @@ public class AuthorController {
 		}
 		return result;
 	}
-	
+
 	@PostMapping("/load")
 	@ResponseBody
 	public JsonObject load(@RequestBody String json) {
@@ -292,24 +317,24 @@ public class AuthorController {
 		String workplace_id = (String) serialized_Json.get("workplace_id");
 		String file_page = (String) serialized_Json.get("file_page");
 		JsonObject result = new JsonObject();
-		
+
 		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
 		String fileName = file_page + ".html";
 		File file = new File(prefixPath, fileName);
-		
+
 		try {
 			BufferedInputStream is = new BufferedInputStream(new FileInputStream(file));
-			String cont = new String(IOUtils.toByteArray(is),"UTF-8");
+			String cont = new String(IOUtils.toByteArray(is), "UTF-8");
 			result.addProperty("cont", cont);
 			result.addProperty("responseCode", "success");
-		}catch(FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			result.addProperty("cont", "");
 			result.addProperty("responseCode", "success");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			result.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}
-		
+
 		return result;
 	}
 
