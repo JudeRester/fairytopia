@@ -54,11 +54,11 @@
 
 	<div class="container">
 		<div class="row" id="header">
-			<div class="col-lg-2 col-xs-5">
+			<div class="col-xs-3">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/">
 					FAIRYTOPIA </a>
 			</div>
-			<div class="col-lg-6 col-xs-4">
+			<div class="col-xs-6">
 				<div class="input-group ">
 					<input type="text" class="form-control input-lg" placeholder="도서검색">
 					<span class="input-group-btn">
@@ -70,7 +70,7 @@
 			</div>
 			<c:choose>
 				<c:when test="${!empty sessionScope.user.mem_id }">
-					<div class="user col-lg-offset-1 col-lg-3">
+					<div class="user col-xs-3">
 						<div class="btn-group" role="group">
 							<c:if test="${sessionScope.user.mem_aut == 1 }">
 								<button type="button" class="btn btn-default btn-user">
@@ -83,7 +83,6 @@
 									<span class="glyphicon glyphicon-bell">
 									</span>
 									<!-- <span class="badge">4</span>  -->
-
 								</button>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="">ooo님의 쪽지입니다.</a></li>

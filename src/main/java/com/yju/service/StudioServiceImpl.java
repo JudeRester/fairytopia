@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.yju.domain.FairytaleContentDTO;
 import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
+import com.yju.domain.ScheduleDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
 import com.yju.mapper.StudioMapper;
@@ -39,8 +40,6 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 		return mapper.getList(dto);
 		}
 
-<<<<<<< HEAD
-=======
 	@Override
 	public void addThumbnail(WorkplaceDTO dto) {
 		mapper.addThumbnail(dto);
@@ -101,5 +100,14 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 		mapper.addPage(dto);
 	}
 
->>>>>>> master
+	@Override
+	public List<ScheduleDTO> loadSchedule(String workplace_id) {
+		return mapper.loadSchedule(workplace_id);
+	}
+
+	@Override
+	public void addSchedule(ScheduleDTO serialized_Json) {
+		mapper.addSchedule(serialized_Json);
+	}
+
 }

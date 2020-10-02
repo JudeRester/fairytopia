@@ -101,4 +101,18 @@
 		where workplace_id=#{workplace_id}),
 		'd:\\workplace\\'||#{workplace_id})
 	</insert>
+	
+	<select id="loadSchedule" resultType="com.yju.domain.ScheduleDTO">
+		select * from workplace_calendar
+		where workplace_id = #{workplace_id}
+		order by calendar_start
+	</select>
+	
+	<insert id="addSchedule" parameterType="com.yju.domain.ScheduleDTO">
+		<selectKey order="BEFORE" keyProperty="calendar_id" resultType="String">
+			select workcalendar_date('now') from dual
+		</selectKey>
+		insert into workplace_calendar(calendar_id,workplace_id,calendar_name,calendar_detail,calendar_start,calendar_end)
+		values(#{calendar_id},#{workplace_id},'name',#{calendar_detail},#{calendar_start},#{calendar_end})
+	</insert>
 </mapper>

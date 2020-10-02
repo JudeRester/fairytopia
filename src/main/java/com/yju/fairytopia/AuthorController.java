@@ -1,11 +1,15 @@
 package com.yju.fairytopia;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +34,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.sun.glass.ui.CommonDialogs.Type;
 import com.yju.domain.FairytaleContentDTO;
 import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
+import com.yju.domain.ScheduleDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
 import com.yju.service.StudioService;
@@ -136,6 +149,23 @@ public class AuthorController {
 		return list;
 	}
 
+	@PostMapping("/loadSchedule")
+	@ResponseBody
+	public List<ScheduleDTO> loadSchedule(String workplace_id) {
+		log.info("loadSchedule workplace_id : " + workplace_id);
+		return service.loadSchedule(workplace_id);
+	}
+
+	@PostMapping("/addSchedule")
+	@ResponseBody
+	public void addSchedule(@RequestBody String json) {
+		log.info("addSchedule");
+		Gson gson = new GsonBuilder().setDateFormat("yyyy.MM.dd.").create();
+		ScheduleDTO serialized_Json = gson.fromJson(json, ScheduleDTO.class);
+		
+		service.addSchedule(serialized_Json);
+	}
+
 	@PostMapping("/fileupload")
 	@ResponseBody
 	public void photoUpload(@RequestParam("file") MultipartFile multipartfile,
@@ -185,7 +215,7 @@ public class AuthorController {
 		 * 
 		 * } } catch (Exception e) { e.printStackTrace(); }
 		 */
-		
+
 	}
 
 	@PostMapping("/getInfo")
@@ -217,8 +247,7 @@ public class AuthorController {
 
 	@PostMapping("/newPage")
 	@ResponseBody
-	public void newPage(@RequestParam("workplace_id") String workplace_id,
-			@RequestParam("pageNum") int file_page) {
+	public void newPage(@RequestParam("workplace_id") String workplace_id, @RequestParam("pageNum") int file_page) {
 
 		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
 		String fileName = "";
@@ -239,47 +268,94 @@ public class AuthorController {
 		} else {
 			System.out.println("이미 폴더가 생성되어 있습니다.");
 		}
-		
+
 		service.newPage(dto);
 	}
-	
+
 	@PostMapping("/save")
 	@ResponseBody
-	public void save(String workplace_id, String file_page, String cont) {
-		System.out.println("workplace_id : "+workplace_id);
-		System.out.println("file_page : "+file_page);
-		System.out.println("cont : "+cont);
-		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
-		String fileName = file_page+".html";
-		File file = new File(prefixPath, fileName);
+	public JsonObject save(@RequestBody String json) {
+		JsonObject result = new JsonObject();
 		try {
+			Map serialized_Json = new Gson().fromJson(json, Map.class);
+			System.out.println(serialized_Json.toString());
+			String workplace_id = (String) serialized_Json.get("workplace_id");
+			String file_page = (String) serialized_Json.get("file_page");
+			String cont = (String) serialized_Json.get("cont");
+
+			String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
+			String fileName = file_page + ".html";
+			File Folder = new File(prefixPath);
+			if (!Folder.exists()) {
+				try {
+					Folder.mkdirs(); // 폴더 생성합니다.
+					System.out.println("폴더가 생성되었습니다.");
+
+				} catch (Exception e) {
+					e.getStackTrace();
+				}
+			}
+
+			File file = new File(prefixPath, fileName);
+			if (!file.exists())
+				cont = "<meta charset=\"UTF-8\">" + cont;
 			BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(file));
 			bs.write(cont.getBytes());
 			bs.close();
+			result.addProperty("responseCode", "success");
 		} catch (Exception e) {
+			result.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}
-		
+		return result;
 	}
-	
+
+	@PostMapping("/load")
+	@ResponseBody
+	public JsonObject load(@RequestBody String json) {
+		Map serialized_Json = new Gson().fromJson(json, Map.class);
+		String workplace_id = (String) serialized_Json.get("workplace_id");
+		String file_page = (String) serialized_Json.get("file_page");
+		JsonObject result = new JsonObject();
+
+		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
+		String fileName = file_page + ".html";
+		File file = new File(prefixPath, fileName);
+
+		try {
+			BufferedInputStream is = new BufferedInputStream(new FileInputStream(file));
+			String cont = new String(IOUtils.toByteArray(is), "UTF-8");
+			result.addProperty("cont", cont);
+			result.addProperty("responseCode", "success");
+		} catch (FileNotFoundException e) {
+			result.addProperty("cont", "");
+			result.addProperty("responseCode", "success");
+		} catch (Exception e) {
+			result.addProperty("responseCode", "error");
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
 	@PostMapping(value = "/summernoteImageUpload", produces = "application/json")
 	@ResponseBody
-	public JsonObject summernoteImage(@RequestParam("file") MultipartFile multipartFile, 
-			@RequestParam("workplace_id") String workplace_id,
-			@RequestParam("file_page") String file_page) {
+	public JsonObject summernoteImage(@RequestParam("file") MultipartFile multipartFile,
+			@RequestParam("workplace_id") String workplace_id, @RequestParam("file_page") String file_page) {
 		log.info("uploading image");
 		JsonObject json = new JsonObject();
 		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
 //		String fileName = multipartFile.getOriginalFilename();
 		String fileName = "" + UUID.randomUUID();
 		String extension = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
-		File file = new File(prefixPath, fileName+"."+extension);
+		File file = new File(prefixPath, fileName + "." + extension);
 
 		try {
 //			multipartFile.transferTo(file);
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, file); // 파일 저장
-			json.addProperty("url", "/fairy/workplace/"+workplace_id+"/workfiles/"+file_page+"/" + fileName+"."+extension);
+			json.addProperty("url",
+					"/fairy/workplace/" + workplace_id + "/workfiles/" + file_page + "/" + fileName + "." + extension);
 			json.addProperty("responseCode", "success");
 			log.info("upload complete");
 		} catch (Exception e) {
@@ -290,7 +366,7 @@ public class AuthorController {
 
 		return json;
 	}
-	
+
 	private String saveFile(MultipartFile file, String filename, String UPLOAD_PATH) {
 		// 파일 이름 변경
 		String saveName = filename;
