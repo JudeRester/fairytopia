@@ -102,12 +102,25 @@
 }
 
 .con {
-	padding: 0px 140px;
+	padding: 0px 100px;
 }
 
 .con p {
 	font-size: 18px;
 }
+
+.info {
+
+    overflow-y: scroll;
+    width: 700px;
+    height: 300px;
+    -ms-overflow-style: none;
+}
+
+.info::-webkit-scrollbar {
+    display: none;
+}
+
 
 /*모달*/
 #myModal {
