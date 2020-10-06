@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.yju.domain.MemberDTO;
 import com.yju.mapper.MemberMapper;
@@ -46,7 +45,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
-	public void update(MemberVO vo) {
+	public void update(MemberDTO vo) {
 		log.info("service....update...");
 		mapper.update(vo);
 	}

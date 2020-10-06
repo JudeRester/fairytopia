@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yju.domain.BuyinglistVO;
-import com.yju.domain.FairyTagVO;
 import com.yju.domain.FairyTaleVO;
-import com.yju.domain.MemberVO;
+import com.yju.domain.MemberDTO;
 import com.yju.fairytopia.HomeController;
 import com.yju.service.FairyTaleServiceImpl;
 import com.yju.service.MemberService;
@@ -34,7 +33,7 @@ public class AndroidController {
 	
 	@PostMapping(value = "/fix")
 	@ResponseBody
-	public void updata(MemberVO vo) {
+	public void updata(MemberDTO vo) {
 		service.update(vo);
 	}
 
@@ -48,14 +47,14 @@ public class AndroidController {
 
 	@PostMapping(value = "/join")
 	@ResponseBody
-	public void joinPro(MemberVO vo) {
+	public void joinPro(MemberDTO vo) {
 		log.info("register:" + vo);
 		service.join(vo);
 	}
 
 	@PostMapping(value = "/login")
 	@ResponseBody
-	public MemberVO login(MemberVO vo, HttpServletRequest request) {
+	public MemberDTO login(MemberDTO vo, HttpServletRequest request) {
 		vo = service.login(vo);
 		vo.setMem_passwd(null);
 		return vo;
@@ -63,14 +62,14 @@ public class AndroidController {
 	
 	@PostMapping(value = "/update")
 	@ResponseBody
-	public void update(MemberVO vo) {
+	public void update(MemberDTO vo) {
 		service.update(vo);
 	}
 	
 	
 	@PostMapping(value = "/select")
 	@ResponseBody
-	public ArrayList<FairyTaleVO> select(MemberVO vo) {
+	public ArrayList<FairyTaleVO> select(MemberDTO vo) {
 		String mem_id = vo.getMem_id();
 		log.info("select.....\n"+mem_id);
 		return buy.select(vo);
@@ -127,7 +126,7 @@ public class AndroidController {
 	@ResponseBody
 	public ArrayList<FairyTaleVO> search(FairyTaleVO vo) {
 		String name = vo.getFairytale_name();
-		log.info("Ã£°íÀÖ´Â µ¿È­  = " + name);
+		log.info("Ã£ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½È­  = " + name);
 		return buy.search(name);
 	}
 	

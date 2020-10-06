@@ -16,8 +16,6 @@ public interface StudioMapper {
 	
 	public void addAuthor(WorkplaceDTO dto);
 
-	public void addThumbnail(WorkplaceVO vo);
-
 	public List<WorkplaceDTO> getList(MemberDTO dto);
 	
 	public void addThumbnail(WorkplaceDTO dto);
