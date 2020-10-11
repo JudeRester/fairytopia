@@ -8,6 +8,8 @@ public class FairytaleDTO {
 	private int fairytale_page;
 	private int fai_avg_grade;
 	private String fairytale_detail;
+	private String cover;
+	private String fai_tag_name;
 	public String getWorkplace_id() {
 		return workplace_id;
 	}
@@ -49,7 +51,8 @@ public class FairytaleDTO {
 	public String toString() {
 		return "FairytaleDTO [workplace_id=" + workplace_id + ", fairytale_id=" + fairytale_id + ", fairytale_name="
 				+ fairytale_name + ", fairytale_price=" + fairytale_price + ", fairytale_page=" + fairytale_page
-				+ ", fai_avg_grade=" + fai_avg_grade + ", fairytale_detail=" + fairytale_detail + "]";
+				+ ", fai_avg_grade=" + fai_avg_grade + ", fairytale_detail=" + fairytale_detail + ", cover=" + cover
+				+ ", fai_tag_name=" + fai_tag_name + "]";
 	}
 	public String getFairytale_detail() {
 		return fairytale_detail;
@@ -57,7 +60,17 @@ public class FairytaleDTO {
 	public void setFairytale_detail(String fairytale_detail) {
 		this.fairytale_detail = fairytale_detail;
 	}
-	
-	
+	public String getCover() {
+		return cover;
+	}
+	public void setCover(String cover) {
+		this.cover = cover;
+	}
+	public String getFai_tag_name() {
+		return fai_tag_name;
+	}
+	public void setFai_tag_name(String fai_tag_name) {
+		this.fai_tag_name = fai_tag_name;
+	}
 	
 }

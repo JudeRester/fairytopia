@@ -3,6 +3,7 @@ package com.yju.service;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.JsonObject;
 import com.yju.domain.FairytaleContentDTO;
 import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
@@ -44,4 +45,10 @@ public interface StudioService {
 	public List<ScheduleDTO> loadSchedule(String workplace_id);
 
 	public void addSchedule(ScheduleDTO serialized_Json);
+
+	public void coverUpload(Map<String, String> tmp);
+
+	public void addTag(Map<String, Object> data);
+
+	public List<FairytaleDTO> getTags(String workplace_id);
 }

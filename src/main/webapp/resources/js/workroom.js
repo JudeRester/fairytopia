@@ -100,7 +100,7 @@
 		
 		$('#edit').click(function(){
 			console.log('편집');
-			var popup = window.open('/author/editContents?workplace_id='+$.urlParam('workplace_id')+'&page=0','동화 편집',"width=1540px,height=1080px",true);
+			var popup = window.open('/author/editContents?workplace_id='+$.urlParam('workplace_id')+'&page=1','동화 편집',"width=1540px,height=1080px",true);
 		})
 		
 		$('#submitSchedule').click(function(){

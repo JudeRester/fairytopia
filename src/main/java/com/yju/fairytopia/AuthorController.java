@@ -8,9 +8,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -155,7 +157,7 @@ public class AuthorController {
 		log.info("addSchedule");
 		Gson gson = new GsonBuilder().setDateFormat("yyyy.MM.dd.").create();
 		ScheduleDTO serialized_Json = gson.fromJson(json, ScheduleDTO.class);
-		
+
 		service.addSchedule(serialized_Json);
 	}
 
@@ -215,7 +217,14 @@ public class AuthorController {
 	@ResponseBody
 	public FairytaleDTO getInfo(String workplace_id) {
 		log.info(workplace_id);
-		return service.getInfo(workplace_id);
+		FairytaleDTO dto = service.getInfo(workplace_id);
+		List<FairytaleDTO> tags = service.getTags(workplace_id);
+		for(FairytaleDTO i : tags) {
+			if(dto.getFai_tag_name()==null) dto.setFai_tag_name("#"+i.getFai_tag_name());
+			else dto.setFai_tag_name(dto.getFai_tag_name()+" #"+i.getFai_tag_name());	
+		}
+		System.out.println(dto.getFai_tag_name());
+		return dto;
 	}
 
 	@PostMapping("/updateInfo")
@@ -228,6 +237,21 @@ public class AuthorController {
 			log.info("2:" + dto.toString());
 			service.updateInfo(dto);
 		}
+		Map<String, Object> data = new HashMap<>();
+		StringTokenizer tags = new StringTokenizer(dto.getFai_tag_name().replaceAll("[\\s.,]", ""), "#");
+		if (dto.getFai_tag_name() != "") {
+			System.out.println(dto.getFai_tag_name());
+			List<String> tag = new ArrayList<>();
+			while (tags.hasMoreElements()) {
+				tag.add(tags.nextToken());
+			}
+			data.put("workplace_id", dto.getWorkplace_id());
+			data.put("tag", tag);
+			System.out.println(tag);
+			service.addTag(data);
+			
+		}
+
 	}
 
 	@PostMapping("/getWorkingPages")
@@ -329,6 +353,35 @@ public class AuthorController {
 		}
 
 		return result;
+	}
+
+	@PostMapping(value = "/coverUpload")
+	@ResponseBody
+	public JsonObject coverUpload(@RequestParam("file") MultipartFile multipartFile,
+			@RequestParam("workplace_id") String workplace_id) {
+		JsonObject json = new JsonObject();
+		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\";
+		String fileName = "" + UUID.randomUUID();
+		String extension = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
+		File file = new File(prefixPath, fileName + "." + extension);
+		try {
+			InputStream fileStream = multipartFile.getInputStream();
+			FileUtils.copyInputStreamToFile(fileStream, file); // 파일 저장
+			json.addProperty("url", "/fairy/workplace/" + workplace_id + "/workfiles/" + fileName + "." + extension);
+			Map<String, String> tmp = new HashMap<>();
+			tmp.put("workplace_id", workplace_id);
+			tmp.put("url", "/fairy/workplace/" + workplace_id + "/workfiles/" + fileName + "." + extension);
+			service.coverUpload(tmp);
+
+			json.addProperty("responseCode", "success");
+			log.info("upload complete");
+		} catch (Exception e) {
+			FileUtils.deleteQuietly(file); // 저장된 파일 삭제
+			json.addProperty("responseCode", "error");
+			e.printStackTrace();
+		}
+
+		return json;
 	}
 
 	@PostMapping(value = "/summernoteImageUpload", produces = "application/json")

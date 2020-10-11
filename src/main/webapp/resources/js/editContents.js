@@ -114,6 +114,31 @@
 					
 					});
 				
+				$('#coverUpload').change(function(){
+					console.log('upload cover');
+					var data = new FormData();
+					data.append("file", $('#coverUpload').prop('files')[0]);
+					data.append("workplace_id", $.urlParam('workplace_id'));
+					console.log(data);
+					
+					$.ajax({
+						type : "POST",
+						enctype : 'multipart/form-data',
+						url : "/author/coverUpload",
+						processData : false,
+						contentType : false,
+						data : data,
+						success : function(result) {
+							$('#cover').attr('src',result.url);
+						},
+						error : function(e) {
+							console.log("실패");
+						}
+
+					});
+					
+				});
+				
 			});
 
 	function getInfo() {
@@ -128,8 +153,18 @@
 				if ($.isEmptyObject(data)) {
 					$('#myModal').modal();
 				} else {
+					$('#cover').attr('src',data.cover);
 					$('#fairytale_name').val(data.fairytale_name);
 					$('#fairytale_detail').val(data.fairytale_detail);
+					$('#fairytale_price').val(data.fairytale_price);
+					if(data.fai_tag_name ==null){
+						console.log('null');
+					}else{
+						$('#fai_tag_name').val(data.fai_tag_name)
+						.attr("disabled",true)
+						.attr("name","");
+					}
+					
 				}
 			}
 		});
@@ -157,7 +192,9 @@
 					$('#page-list').html(
 							'<p id="no-page">페이지가 없습니다.</p>');
 				} else {
-					$.each(data,function(key, value) {
+					$.each(data,function(keys, value) {
+						key=keys+1
+						console.log(keys);
 						str = '<div class="panel-group" id="accordion" role="tablist"	aria-multiselectable="true">'
 								+ '<!-- 페이지 --><div class="panel panel-default"><div class="panel-heading" role="tab" id="heading'+key+'">'
 								+ '<h4 class="panel-title">'

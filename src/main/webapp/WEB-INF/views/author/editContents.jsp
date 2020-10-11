@@ -129,7 +129,7 @@ input[type="file"] { /* 파일 필드 숨기기 */
 			<div class="col-xs-2">
 				<div class="page">
 					<a href="#" class="btn btn-default" role="button" id="addPage">
-						<input type='hidden' value='-1' /> <b>페이지 추가</b>
+						<input type='hidden' value='0' /> <b>페이지 추가</b>
 					</a>
 				</div>
 
@@ -165,9 +165,9 @@ input[type="file"] { /* 파일 필드 숨기기 */
 					<div class="modal-body">
 						<div class="form-group">
 							<div class="col-xs-offset-4 col-xs-6 file">
-									<img src="https://via.placeholder.com/100" alt="" />
-								    <label for="exampleInputFile">표지 업로드</label>
-								    <input type="file" id="exampleInputFile">
+									<img id="cover" src="https://via.placeholder.com/152x225" alt="" style="width:152px;height:225px;"/>
+								    <label for="coverUpload">표지 업로드</label>
+								    <input type="file" id="coverUpload">
 							</div>
 						</div>
 
@@ -215,19 +215,19 @@ input[type="file"] { /* 파일 필드 숨기기 */
 						</div> -->
 					</div>
 					<div class="form-group">
-							<label for="exampleInputAmount" class="col-xs-3 control-label"> 가격 </label>
+							<label for="price" class="col-xs-3 control-label"> 가격 </label>
 							<div class="col-xs-8">
 								<div class="input-group">
-							        <div class="input-group-addon">$</div>
-							        <input type="text" class="form-control" id="exampleInputAmount">
+							        <div class="input-group-addon">₩</div>
+							        <input type="text" class="form-control" id="fairytale_price" name="fairytale_price">
 						         </div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="tag" class="col-xs-3 control-label"> 태그 </label>
+							<label for="fai_tag_name" class="col-xs-3 control-label"> 태그 </label>
 							<div class="col-xs-8">
-								<input type="text" class="form-control" id="tag" placeholder="ex)#감동">
+								<input type="text" class="form-control" id="fai_tag_name" name="fai_tag_name" placeholder="ex)#감동">
 							</div>
 						</div>
 				</form>

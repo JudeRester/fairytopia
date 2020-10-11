@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.JsonObject;
 import com.yju.domain.FairytaleContentDTO;
 import com.yju.domain.FairytaleDTO;
 import com.yju.domain.MemberDTO;
@@ -108,6 +109,22 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 	@Override
 	public void addSchedule(ScheduleDTO serialized_Json) {
 		mapper.addSchedule(serialized_Json);
+	}
+
+	@Override
+	public void coverUpload(Map<String, String> tmp) {
+		mapper.coverUpload(tmp);
+	}
+
+	@Override
+	public void addTag(Map<String, Object> data) {
+		log.info("add Tag");
+		mapper.addTag(data);
+	}
+
+	@Override
+	public List<FairytaleDTO> getTags(String workplace_id) {
+		return mapper.getTags(workplace_id);
 	}
 
 }

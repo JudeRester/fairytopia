@@ -4,115 +4,190 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yju.mapper.StudioMapper">
-	<insert id="createWorkplace" parameterType="com.yju.domain.WorkplaceDTO">
-		<selectKey order="BEFORE" keyProperty="workplace_id" resultType="String">
+	<insert id="createWorkplace"
+		parameterType="com.yju.domain.WorkplaceDTO">
+		<selectKey order="BEFORE" keyProperty="workplace_id"
+			resultType="String">
 			select workplace_date('now') from dual
 		</selectKey>
 
 		insert into workplace(workplace_id,workplace_name, workplace_detail)
 		values(#{workplace_id},#{workplace_name},#{workplace_detail})
 	</insert>
-	
+
 	<insert id="addAuthor">
-		insert into workplace_person(workplace_id, mem_id) values(#{workplace_id}, #{mem_id})
+		insert into workplace_person(workplace_id, mem_id)
+		values(#{workplace_id}, #{mem_id})
 	</insert>
 
 	<select id="getMembers" resultType="com.yju.domain.MemberDTO">
 		<!-- select mem_id from workplace_person where workplace_id=#{workplace_id} -->
 		select a.mem_id,b.mem_nickname,a.mem_role
-		from workplace_person a,member b 
+		from workplace_person
+		a,member b
 		where workplace_id=#{workplace_id} and a.mem_id=b.mem_id
 	</select>
-	
-	<select resultType="com.yju.domain.WorkplaceDTO" id="getList" >
 
-		select * from workplace where workplace_id in (select workplace_id from workplace_person where mem_id=#{mem_id})
+	<select resultType="com.yju.domain.WorkplaceDTO" id="getList">
+
+		select * from workplace where workplace_id in (select workplace_id
+		from workplace_person where mem_id=#{mem_id})
 	</select>
-	
+
 	<update id="addThumbnail">
-		update workplace set workplace_thumbnail=#{workplace_thumbnail} where workplace_id=#{workplace_id}
+		update workplace set
+		workplace_thumbnail=#{workplace_thumbnail} where
+		workplace_id=#{workplace_id}
 	</update>
 	<select id="getInvite" resultType="com.yju.domain.MemberDTO">
-		select mem_id, mem_nickname from member a, (select
+		select mem_id, mem_nickname
+		from member a, (select
 		case when mem_a=#{mem_id}
-		then mem_b else mem_a end as mem
+		then mem_b else mem_a
+		end as mem
 		from talkroom
 		where mem_a=#{mem_id}
 		or mem_b=#{mem_id}) b
 		where a.mem_id=b.mem
 		and mem_id not in
-		(select mem_id 
-		from workplace_person 
+		(select mem_id
+		from workplace_person
 		where workplace_id=#{workplace_id})
 		and mem_id not in
-        (select mem_receive
-        from workplace_invitation
-        where workplace_id=#{workplace_id})
+		(select mem_receive
+		from workplace_invitation
+		where workplace_id=#{workplace_id})
 	</select>
-	
+
 	<insert id="sendInvite">
-		insert into workplace_invitation(workplace_id,mem_send,mem_receive)
+		insert into
+		workplace_invitation(workplace_id,mem_send,mem_receive)
 		values(#{workplace_id},#{mem_send},#{mem_receive})
 	</insert>
-	
-	<select id="getPages" resultType="com.yju.domain.WorkplaceFileDTO">
-		select file_page,workplace_id from workplace_file where workplace_id=#{workplace_id} group by file_page,workplace_id order by file_page
+
+	<select id="getPages"
+		resultType="com.yju.domain.WorkplaceFileDTO">
+		select file_page,workplace_id from workplace_file where
+		workplace_id=#{workplace_id} group by file_page,workplace_id order by
+		file_page
 	</select>
-	<select id="getFiles" resultType="com.yju.domain.WorkplaceFileDTO">
-		select * from workplace_file where workplace_id=#{workplace_id} and file_page=#{file_page}
+	<select id="getFiles"
+		resultType="com.yju.domain.WorkplaceFileDTO">
+		select * from workplace_file where
+		workplace_id=#{workplace_id} and file_page=#{file_page}
 	</select>
-	
+
 	<insert id="uploadFile">
-		insert into workplace_file values(workfile_date('now'),#{workplace_id},#{file_name},#{file_page},'')
+		insert into workplace_file
+		values(workfile_date('now'),#{workplace_id},#{file_name},#{file_page},'')
 	</insert>
-	
+
 	<select id="getInfo" resultType="com.yju.domain.FairytaleDTO">
-		select * from fairytale where workplace_id=#{workplace_id}
+		<!-- select * from fairytale where workplace_id=#{workplace_id} -->
+		select *
+		from fairytale
+		where workplace_id=#{workplace_id}
 	</select>
-	
-	<insert id="insertInfo" parameterType="com.yju.domain.FairytaleDTO">
-		<selectKey order="BEFORE" keyProperty="fairytale_id" resultType="String">
+
+	<insert id="insertInfo"
+		parameterType="com.yju.domain.FairytaleDTO">
+		<selectKey order="BEFORE" keyProperty="fairytale_id"
+			resultType="String">
 			select fairytale_date('now') from dual
 		</selectKey>
-		insert into fairytale(fairytale_id,workplace_id,fairytale_name,fairytale_detail)
-		values(#{fairytale_id},#{workplace_id},#{fairytale_name},#{fairytale_detail})
+		insert into
+		fairytale(fairytale_id,workplace_id,fairytale_name,fairytale_detail, fairytale_price)
+		values(#{fairytale_id},#{workplace_id},#{fairytale_name},#{fairytale_detail},#{fairytale_price})
 	</insert>
-	
-	<update id="updateInfo" parameterType="com.yju.domain.FairytaleDTO">
-		update fairytale 
+
+	<update id="updateInfo"
+		parameterType="com.yju.domain.FairytaleDTO">
+		update fairytale
 		set fairytale_name=#{fairytale_name},
-			fairytale_detail=#{fairytale_detail}
+		fairytale_detail=#{fairytale_detail},
+		fairytale_price=#{fairytale_price}
 		where workplace_id=#{workplace_id}
 	</update>
-	
-	<select id="getWorkingPages" resultType="com.yju.domain.FairytaleContentDTO">
-		select * from fairytale_content 
+
+	<select id="getWorkingPages"
+		resultType="com.yju.domain.FairytaleContentDTO">
+		select * from fairytale_content
 		where fairytale_id=
-		(select fairytale_id 
-		from fairytale 
-		where workplace_id=#{workplace_id}) 
+		(select fairytale_id
+		from fairytale
+		where workplace_id=#{workplace_id})
 		order by fai_cont_page
 	</select>
-	
-	<insert id="addPage" parameterType="com.yju.domain.FairytaleContentDTO">
-		insert into fairytale_content 
+
+	<insert id="addPage"
+		parameterType="com.yju.domain.FairytaleContentDTO">
+		insert into fairytale_content
 		values(#{fai_cont_page},
-		(select fairytale_id from fairytale 
+		(select fairytale_id from fairytale
 		where workplace_id=#{workplace_id}),
 		'd:\\workplace\\'||#{workplace_id})
 	</insert>
-	
-	<select id="loadSchedule" resultType="com.yju.domain.ScheduleDTO">
+
+	<select id="loadSchedule"
+		resultType="com.yju.domain.ScheduleDTO">
 		select * from workplace_calendar
-		where workplace_id = #{workplace_id}
+		where workplace_id =
+		#{workplace_id}
 		order by calendar_start
 	</select>
-	
-	<insert id="addSchedule" parameterType="com.yju.domain.ScheduleDTO">
-		<selectKey order="BEFORE" keyProperty="calendar_id" resultType="String">
+
+	<insert id="addSchedule"
+		parameterType="com.yju.domain.ScheduleDTO">
+		<selectKey order="BEFORE" keyProperty="calendar_id"
+			resultType="String">
 			select workcalendar_date('now') from dual
 		</selectKey>
-		insert into workplace_calendar(calendar_id,workplace_id,calendar_name,calendar_detail,calendar_start,calendar_end)
+		insert into
+		workplace_calendar(calendar_id,workplace_id,calendar_name,calendar_detail,calendar_start,calendar_end)
 		values(#{calendar_id},#{workplace_id},'name',#{calendar_detail},#{calendar_start},#{calendar_end})
 	</insert>
+
+	<insert id="coverUpload">
+		<!-- insert into fairytale_content values(0, (select fairytale_id from 
+			fairytale where workplace_id=#{workplace_id}), #{url}) on duplicate key update 
+			fai_cont_file=#{url} -->
+
+		<!-- MERGE INTO fairytale_content USING DUAL ON (fai_cont_page = '0' and 
+			fairytale_id= (select fairytale_id from fairytale where workplace_id=#{workplace_id})) 
+			WHEN MATCHED THEN UPDATE SET fai_cont_file=#{url} WHEN NOT MATCHED THEN INSERT 
+			VALUES ('0', (select fairytale_id from fairytale where workplace_id=#{workplace_id}), 
+			#{url}) -->
+
+		update fairytale
+		set cover=#{url}
+		where workplace_id=#{workplace_id}
+	</insert>
+
+	<insert id="addTag">
+		<!-- INSERT ALL
+		<foreach collection="tag" item="item">
+		INTO fairytale_tag
+		VALUES (#{item},(select fairytale_id from fairytale where workplace_id=#{workplace_id}))
+		</foreach>
+
+		select * from dual -->
+		
+		{call
+			declare
+			begin
+			 <foreach collection="tag" item="item">
+			 	insert into fairytale_tag
+			 	VALUES (#{item},(select fairytale_id from fairytale where workplace_id=#{workplace_id}));
+			 </foreach>
+			 end
+		}
+	</insert>
+	
+	<select id="getTags" resultType="com.yju.domain.FairytaleDTO">
+		select fai_tag_name from fairytale_tag 
+		where fairytale_id =
+		(select fairytale_id
+		from fairytale
+		where workplace_id=#{workplace_id})
+	</select>
 </mapper>
