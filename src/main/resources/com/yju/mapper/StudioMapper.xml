@@ -190,4 +190,9 @@
 		from fairytale
 		where workplace_id=#{workplace_id})
 	</select>
+	
+	<select id="getAuthors" resultType="com.yju.domain.WorkplacePersonDTO">
+		select a.*, b.mem_nickname from workplace_person a, member b
+		where a.mem_id=b.mem_id and a.workplace_id=#{workplace_id}
+	</select>
 </mapper>

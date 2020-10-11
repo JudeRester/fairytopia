@@ -189,30 +189,19 @@ input[type="file"] { /* 파일 필드 숨기기 */
 							</div>
 						</div>
 
-						<!-- <div class="form-group">
+						<div class="form-group">
 							<label for="inputtext" class="col-sm-3 control-label">장르</label>
 							<div class="col-sm-4">
-								<div class="dropdown">
-									<button class="btn btn-default dropdown-toggle" type="button"
-										id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-										장르 <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu"
-										aria-labelledby="dropdownMenu">
-										<li role="presentation"><a role="menuitem" tabindex="-1"
-											href="# ">전래동화</a></li>
-										<li role="presentation"><a role="menuitem" tabindex="-1"
-											href="#">환상동화</a></li>
-										<li role="presentation"><a role="menuitem" tabindex="-1"
-											href="#">생활동화</a></li>
-										<li role="presentation"><a role="menuitem" tabindex="-1"
-											href="#">학습동화</a></li>
-										<li role="presentation"><a role="menuitem" tabindex="-1"
-											href="#">활동그림책</a></li>
-									</ul>
-								</div>
+								<select name="" id="genre">
+									<option id="genreTitle" value="">장르</option>
+									<option value="0">전래동화</option>
+									<option value="1">환상동화</option>
+									<option value="2">생활동화</option>
+									<option value="3">학습동화</option>
+									<option value="4">활동그림책</option>
+								</select>
 							</div>
-						</div> -->
+						</div>
 					</div>
 					<div class="form-group">
 							<label for="price" class="col-xs-3 control-label"> 가격 </label>

@@ -139,8 +139,21 @@
 					
 				});
 				
+				$('#genre').change(function(){
+					disableG();
+					$('#genre').attr("name","genre");
+				});
+				
+				function publish(){
+					
+				}
+				
 			});
-
+	
+	function disableG(){
+		$('#genreTitle').attr("disabled","disabled");
+	}
+	
 	function getInfo() {
 		var data = {
 			workplace_id : $.urlParam('workplace_id')
@@ -164,7 +177,8 @@
 						.attr("disabled",true)
 						.attr("name","");
 					}
-					
+					$('#genre').val(data.genre).prop("selected",true);
+					disableG();
 				}
 			}
 		});

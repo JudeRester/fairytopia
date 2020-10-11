@@ -10,6 +10,7 @@ import com.yju.domain.MemberDTO;
 import com.yju.domain.ScheduleDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
+import com.yju.domain.WorkplacePersonDTO;
 
 public interface StudioService {
 	public void createWorkplace(WorkplaceDTO dto);
@@ -51,4 +52,6 @@ public interface StudioService {
 	public void addTag(Map<String, Object> data);
 
 	public List<FairytaleDTO> getTags(String workplace_id);
+
+	public List<WorkplacePersonDTO> getAuthors(String workplace_id);
 }

@@ -15,6 +15,7 @@ import com.yju.domain.MemberDTO;
 import com.yju.domain.ScheduleDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
+import com.yju.domain.WorkplacePersonDTO;
 import com.yju.mapper.StudioMapper;
 
 @Service
@@ -125,6 +126,11 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 	@Override
 	public List<FairytaleDTO> getTags(String workplace_id) {
 		return mapper.getTags(workplace_id);
+	}
+
+	@Override
+	public List<WorkplacePersonDTO> getAuthors(String workplace_id) {
+		return mapper.getAuthors(workplace_id);
 	}
 
 }

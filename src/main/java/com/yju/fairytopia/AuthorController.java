@@ -43,7 +43,12 @@ import com.yju.domain.MemberDTO;
 import com.yju.domain.ScheduleDTO;
 import com.yju.domain.WorkplaceDTO;
 import com.yju.domain.WorkplaceFileDTO;
+import com.yju.domain.WorkplacePersonDTO;
 import com.yju.service.StudioService;
+
+import nl.siegmann.epublib.domain.Author;
+import nl.siegmann.epublib.domain.Book;
+import nl.siegmann.epublib.domain.Resource;
 
 @Controller
 @RequestMapping("/author")
@@ -382,6 +387,27 @@ public class AuthorController {
 		}
 
 		return json;
+	}
+	
+	@PostMapping(value="/publish")
+	@ResponseBody
+	public void publish(String workplace_id) {
+		FairytaleDTO dto = service.getInfo(workplace_id);
+		List<WorkplacePersonDTO> authors = service.getAuthors(workplace_id);
+		try {
+			Book book = new Book();
+			book.getMetadata().addTitle(dto.getFairytale_name());
+			for(WorkplacePersonDTO i : authors) {
+				book.getMetadata().addAuthor(new Author(i.getMem_nickname(),i.getMem_id()));
+			}
+			String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\";
+			String fileName = dto.getCover().split("/workfiles/")[1];
+			File file = new File(prefixPath, fileName);
+			book.setCoverImage(new Resource(new BufferedInputStream(new FileInputStream(file)), fileName));
+			
+		}catch (Exception e) {
+			
+		}
 	}
 
 	@PostMapping(value = "/summernoteImageUpload", produces = "application/json")
