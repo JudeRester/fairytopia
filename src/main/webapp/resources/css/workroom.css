@@ -93,8 +93,11 @@
 }
 
 .info {
-	padding-top: 40px;
+    overflow-y: scroll;
+    width: 700px;
+    height: 300px;
 }
+
 
 .info a span {
 	font-size: 25px;
@@ -109,17 +112,6 @@
 	font-size: 18px;
 }
 
-.info {
-
-    overflow-y: scroll;
-    width: 700px;
-    height: 300px;
-    -ms-overflow-style: none;
-}
-
-.info::-webkit-scrollbar {
-    display: none;
-}
 
 
 /*모달*/

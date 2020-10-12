@@ -80,7 +80,7 @@
                                         </div>
                                     -->
 							</div>
-							<div class="col-xs-offset-1 col-xs-6 info">
+							<div class="col-xs-6 info">
 								<h4 class="text-center">
 									일정 <a href="" class="btn btn-link" role="button"
 										data-toggle="modal" data-target="#myModal"> <span
@@ -90,7 +90,7 @@
 								<hr />
 
                                     <div class="row con">
-                                        <div class="col-xs-6 text-center">
+                                        <div class="col-xs-6">
                                             <p><b>9/20</b>-<b>9/23</b></p>
                                         </div>
                                         <div class="col-xs-6">
@@ -100,7 +100,27 @@
                                     <hr />
 
                                     <div class="row con">
-                                        <div class="col-xs-6 text-center">
+                                        <div class="col-xs-6">
+                                            <p><b>9/23</b>-<b>9/26</b></p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>page1 러프</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    
+                                    <div class="row con">
+                                        <div class="col-xs-6">
+                                            <p><b>9/20</b>-<b>9/23</b></p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>page1 시나리오 작성</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row con">
+                                        <div class="col-xs-6">
                                             <p><b>9/23</b>-<b>9/26</b></p>
                                         </div>
                                         <div class="col-xs-6">
@@ -129,15 +149,12 @@
 								</div>
 								<!--panel-group-->
 								</div>
-
 							</div>
 							<!--col-->
 						</div>
 						<!--row-->
 					</div>
-
 					<!--편집-->
-
 				</div>
 				<!-- tab-content -->
 			</div>
@@ -145,7 +162,7 @@
 		</div>
 		<!-- col -->
 	</div>
-	<!-- row -->
+<!-- row -->
 
 <!-- 모달 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
