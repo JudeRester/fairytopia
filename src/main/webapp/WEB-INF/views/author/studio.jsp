@@ -12,38 +12,8 @@
 		<div class="col-sm-12">
 			<div role="tabpanel">
 				<div class="row">
-					<div class="col-sm-2" id="nav-left">
-						<ul class="nav nav-pills nav-stacked" role="tablist">
-							<li role="presentation" class="active text-center"><a
-								href="#all" aria-controls="all" role="tab" data-toggle="tab">전체
-									작업 현황</a></li>
-							<li role="presentation" class="text-center"><a href="#work"
-								aria-controls="work" role="tab" data-toggle="tab">작업실</a></li>
-						</ul>
-					</div>
-					<div class="col-sm-7">
-						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane active" id="all">
-								<div class="list-group" id="right-all">
-									<a href="#" class="list-group-item text-center">
-										<h5>
-											전체 <span class="badge">${fn:length(wplist) }</span>
-										</h5>
-									</a> <a href="#" class="list-group-item text-center">
-										<h5>
-											완료 <span class="badge">1</span>
-										</h5>
-									</a> <a href="#" class="list-group-item text-center">
-										<h5>
-											투고 <span class="badge">1</span>
-										</h5>
-									</a> <a href="#" class="list-group-item text-center">
-										<h5>
-											취소 <span class="badge">0</span>
-										</h5>
-									</a>
-								</div>
-							</div>
+
+					<div class="col-xs-offset-2 col-xs-8">
 							<div role="tabpanel" class="tab-pane" id="work">
 								<div class="list-group" id="right-work">
 									<h4>
