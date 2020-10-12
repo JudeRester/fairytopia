@@ -2,20 +2,37 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="../hf/header.jsp"%>
-
+<style>
+.img {
+	width : 250px;
+	height : 250px;
+}
+#img1 {
+	width : 1000px;
+	height : 500px;
+}
+.img2 {
+	width : 100px;
+	height : 100px;
+}
+.img3 {
+	width : 150px;
+	height : 150px;
+}
+</style>
 <link href="/resources/css/detail.css" rel="stylesheet" />
 
     <div class="container" id="fairytale">
         <div class="row">
             <div class="col-xs-3">
-                <img src="https://via.placeholder.com/250" alt="" />
+                <img class="img" src="/resources/img/1.jpg" alt="" />
             </div>
             <div class="col-xs-5">
-                <h4><b>동화 제목</b></h4>
-                <h4><b>가격</b></h4>
-                <p class="text-muted">작가이름 / 투고날짜</p>
+                <h4><b>금도끼 은도끼</b></h4>
+                <h4><b>1500 원</b></h4>
+                <p class="text-muted">엄혜숙</p>
                 <br />
-                <h4><b>책소개</b></h4>
+                <h4><b>도끼를 호수 빠뜨린 나무꾼과 산신령의 이야기</b></h4>
             </div>
             <div class="col-xs-4">
 
@@ -62,7 +79,7 @@
             <div class="col-xs-12">
                 <h4>미리보기</h4>
                 <div class="box">
-                	
+                	<img id="img1" src="/resources/img/3.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -76,25 +93,25 @@
 
         	<div class="row">
         		<div class="col-xs-2">
-		             <img src="https://via.placeholder.com/100" alt="..." class="img-circle">
+		             <img class="img2" "img2" src="/resources/img/4.png" alt="..." class="img-circle">
 		        </div>
 		        <div class="text col-xs-10">
 		             <a href="#">
-		             	<h4>리뷰 제목</h4>
+		             	<h4>아이가 좋아하네요 *^^*</h4>
 		             </a>
-		             <p>리뷰 내용</p>
+		             <p>아이가 사달래서 샀는데 여러 번 읽어달라 하고 참 좋아하네요~</p>
 		        </div>
         	</div>
         	
         	<div class="row">
         		<div class="col-xs-2">
-		             <img src="https://via.placeholder.com/100" alt="..." class="img-circle">
+		             <img class="img2" src="/resources/img/5.png" alt="..." class="img-circle">
 		        </div>
 		        <div class="text col-xs-10">
 		             <a href="#">
-		             	<h4>리뷰 제목</h4>
+		             	<h4>역시 엄혜숙 작가님</h4>
 		             </a>
-		             <p>리뷰 내용</p>
+		             <p>샵에 엄작가님 보여서 구매했더니 역시 믿고보게 되네요</p>
 		        </div>
         	</div>
         	
@@ -132,15 +149,15 @@
         	
             <div class="col-xs-3">
 	           <a href="#">
-		           <img src="https://via.placeholder.com/150" alt="...">
-		           <h4>책 제목</h4>
+		           <img class="img3" src="/resources/img/6.jpg" alt="...">
+		           <h4>숲 속 피아노</h4>
 	           </a>
 	        </div>
 	
 	        <div class="col-xs-3">
 	           <a href="#">
-	               <img src="https://via.placeholder.com/150" alt="...">
-	               <h4>책 제목</h4>
+	               <img class="img3" src="/resources/img/7.jpg" alt="...">
+	               <h4>하품하는 악어</h4>
 	           </a>
 	        </div>
 	        
@@ -154,15 +171,15 @@
         	</div>
             <div class="col-xs-3">
 	           <a href="#">
-		           <img src="https://via.placeholder.com/150" alt="...">
-		           <h4>책 제목</h4>
+		           <img class="img3" src="/resources/img/2.jpg" alt="...">
+		           <h4>토끼의 간</h4>
 	           </a>
 	        </div>
 	
 	        <div class="col-xs-3">
 	           <a href="#">
-	               <img src="https://via.placeholder.com/150" alt="...">
-	               <h4>책 제목</h4>
+	               <img class="img3" src="/resources/img/10.jpg" alt="...">
+	               <h4>견우와 직녀</h4>
 	           </a>
 	        </div>
         </div>
