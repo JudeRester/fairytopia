@@ -102,8 +102,21 @@
 }
 
 .con {
-	padding: 0px 140px;
+	padding: 0px 100px;
 }
+
+.info {
+
+    overflow-y: scroll;
+    width: 700px;
+    height: 300px;
+    -ms-overflow-style: none;
+}
+
+.info::-webkit-scrollbar {
+    display: none;
+}
+
 
 .con p {
 	font-size: 18px;

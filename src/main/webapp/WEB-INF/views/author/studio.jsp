@@ -13,7 +13,7 @@
 			<div role="tabpanel">
 				<div class="row">
 				<div class="col-xs-offset-2 col-xs-8">
-							
+
 							<div role="tabpanel" class="tab-pane" id="work">
 								<div class="list-group" id="right-work">
 									<h4>

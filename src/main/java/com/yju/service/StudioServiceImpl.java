@@ -133,4 +133,9 @@ public static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class
 		return mapper.getAuthors(workplace_id);
 	}
 
+	@Override
+	public void publish(String workplace_id) {
+		mapper.publish(workplace_id);
+	}
+
 }
