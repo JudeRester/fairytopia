@@ -12,7 +12,7 @@
 <link href="/resources/css/taleshop.css" rel="stylesheet" />
 
     <div class="container" id="fairytale">
-        <!-- <div class="row">
+        <div class="row">
             <div class="col-xs-12 classic">
                 <h4>
                     <strong>전래동화</strong>
@@ -23,7 +23,7 @@
                 <img class="img" src="/resources/img/1.jpg" alt="" />
             </div>
             <div class="col-xs-6 title">
-                <a href="#">
+                <a href="/shop/detail">
                     <h4><b>금도끼 은도끼</b></h4>
                 </a>
                 <p class="text-muted">엄혜숙</p>
@@ -42,7 +42,7 @@
                     	찜하기
                 </button>
             </div>
-        </div> -->
+        </div>
 
         <hr />
         <div class="row">
