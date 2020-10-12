@@ -54,4 +54,6 @@ public interface StudioService {
 	public List<FairytaleDTO> getTags(String workplace_id);
 
 	public List<WorkplacePersonDTO> getAuthors(String workplace_id);
+
+	public void publish(String workplace_id);
 }

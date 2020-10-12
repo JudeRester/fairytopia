@@ -56,4 +56,6 @@ public interface StudioMapper {
 
 	public List<WorkplacePersonDTO> getAuthors(String workplace_id);
 
+	public void publish(String workplace_id);
+
 }

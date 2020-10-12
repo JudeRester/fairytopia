@@ -5,7 +5,7 @@
 <link href="/resources/css/taleshop.css" rel="stylesheet" />
 
     <div class="container" id="fairytale">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-xs-12 classic">
                 <h4>
                     <strong>전래동화</strong>
@@ -35,10 +35,9 @@
                     	찜하기
                 </button>
             </div>
-        </div>
+        </div> -->
 
         <hr />
-
         <div class="row">
             <div class="col-xs-2">
                 <img src="https://via.placeholder.com/150" alt="" />

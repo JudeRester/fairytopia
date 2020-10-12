@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yju.mapper.ShopMapper">
+
+	<select resultType="com.yju.domain.CoworkerDTO" id="getList" >
+		select * from (select row_number() over (order by a.seq desc) as rn,a.*, b.mem_nickname from find_coworker a, member b where a.mem_id=b.mem_id and board_type=#{board_type}) a 
+		where a.rn between (#{pageNum}-1)*#{amount}+1 and #{pageNum}*#{amount}
+	</select>
+	
+	<insert id="write">
+		insert into find_coworker(seq, mem_id, board_type, title, cont, uploadedfile) 
+		values(find_coworker_seq.nextval, #{mem_id},#{board_type},#{title},#{cont},#{uploadedfile})
+	</insert>
+	
+	<select resultType="com.yju.domain.CoworkerDTO" id="get">
+		select a.*,b.mem_nickname from find_coworker a, member b where seq=#{seq} and a.mem_id=b.mem_id
+	</select>
+
+	<select id="total" resultType="Integer">
+		select count(*) from find_coworker where board_type=#{board_type}
+	</select>
+		
+</mapper>

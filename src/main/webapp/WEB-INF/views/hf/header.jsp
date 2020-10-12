@@ -173,14 +173,13 @@
 						</button>
 					</div>
 
-					<div class="collapse navbar-collapse"
-						id="bs-example-navbar-collapse-1">
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-left">
-							<li><a href="">전래동화</a></li>
-							<li><a href="">환상동화</a></li>
-							<li><a href="">생활동화</a></li>
-							<li><a href="">학습동화</a></li>
-							<li><a href="">활동그림책</a></li>
+							<li><a href="/shop?genre=0">전래동화</a></li>
+							<li><a href="/shop?genre=1">환상동화</a></li>
+							<li><a href="/shop?genre=2">생활동화</a></li>
+							<li><a href="/shop?genre=3">학습동화</a></li>
+							<li><a href="/shop?genre=4">활동그림책</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->

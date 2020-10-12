@@ -195,4 +195,10 @@
 		select a.*, b.mem_nickname from workplace_person a, member b
 		where a.mem_id=b.mem_id and a.workplace_id=#{workplace_id}
 	</select>
+	
+	<update id="publish">
+		update fairytale
+		set published=1
+		where workplace_id=#{workplace_id}
+	</update>
 </mapper>

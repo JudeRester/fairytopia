@@ -49,6 +49,7 @@ import com.yju.service.StudioService;
 import nl.siegmann.epublib.domain.Author;
 import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Resource;
+import nl.siegmann.epublib.epub.EpubWriter;
 
 @Controller
 @RequestMapping("/author")
@@ -405,8 +406,12 @@ public class AuthorController {
 			File file = new File(prefixPath, fileName);
 			book.setCoverImage(new Resource(new BufferedInputStream(new FileInputStream(file)), fileName));
 			
+			EpubWriter epubWriter = new EpubWriter();
+			epubWriter.write(book, new FileOutputStream("d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\"+dto.getFairytale_name()+".epub"));
 		}catch (Exception e) {
-			
+			e.printStackTrace();
+		}finally {
+			service.publish(workplace_id);
 		}
 	}
 
