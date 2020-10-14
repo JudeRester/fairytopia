@@ -113,8 +113,8 @@ input[type="file"] { /* 파일 필드 숨기기 */
 				<button class="btn btn-default" id="save"> <b>편집내용 저장</b></button>
 			</div>
 			<div class="col-xs-2 text-center">
-				<a href="" class="btn btn-default" role="button"> <b>투고하기</b>
-				</a>
+				<button onclick="publish()" class="btn btn-default" role="button"> <b>투고하기</b>
+				</button>
 			</div>
 
 			<div class="col-xs-8 set">

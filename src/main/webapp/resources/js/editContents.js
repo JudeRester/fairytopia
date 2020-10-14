@@ -144,14 +144,21 @@
 					$('#genre').attr("name","genre");
 				});
 				
-				function publish(){
-					
-				}
-				
 			});
 	
 	function disableG(){
 		$('#genreTitle').attr("disabled","disabled");
+	}
+	
+	function publish(){
+		$.ajax({
+			data:{workplace_id : $.urlParam('workplace_id')},
+			type:"post",
+			url:"/author/publish",
+			success : function(data){
+				console.log('published');
+			}
+		});
 	}
 	
 	function getInfo() {

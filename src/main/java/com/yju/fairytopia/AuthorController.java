@@ -393,6 +393,7 @@ public class AuthorController {
 	@PostMapping(value="/publish")
 	@ResponseBody
 	public void publish(String workplace_id) {
+		log.info("publishing....."+workplace_id);
 		FairytaleDTO dto = service.getInfo(workplace_id);
 		List<WorkplacePersonDTO> authors = service.getAuthors(workplace_id);
 		try {
@@ -405,7 +406,11 @@ public class AuthorController {
 			String fileName = dto.getCover().split("/workfiles/")[1];
 			File file = new File(prefixPath, fileName);
 			book.setCoverImage(new Resource(new BufferedInputStream(new FileInputStream(file)), fileName));
+			//책 페이지 삽입
 			
+			
+			
+			//epub 생성
 			EpubWriter epubWriter = new EpubWriter();
 			epubWriter.write(book, new FileOutputStream("d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\"+dto.getFairytale_name()+".epub"));
 		}catch (Exception e) {
