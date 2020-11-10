@@ -91,7 +91,7 @@ public class MemberController {
 	@ResponseBody
 	public void photoUpload(@RequestParam("file") MultipartFile multipartfile, @RequestParam("mem_id") String mem_id) {
 		
-		String prefixPath = "d:\\fairy\\profile\\"+mem_id+"\\";
+		String prefixPath = "/fairy/profile/"+mem_id+"/";
 		String fileName = "profile";
 		File file = new File(prefixPath, fileName);
 		

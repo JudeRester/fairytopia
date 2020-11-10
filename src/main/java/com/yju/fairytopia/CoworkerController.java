@@ -92,7 +92,7 @@ public class CoworkerController {
 	public JsonObject summernoteImage(@RequestParam("file") MultipartFile multipartFile, @RequestParam("path") String path) {
 		log.info("uploading image");
 		JsonObject json = new JsonObject();
-		String prefixPath = "d:\\fairy\\workplace\\coworkers\\";
+		String prefixPath = "/fairy/workplace/coworkers/";
 		if (path.equals("1")) {
 			path = "" + UUID.randomUUID(); // 기존에 만들어진 폴더가 없으면 폴더명을 새로 생성
 		}

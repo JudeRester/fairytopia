@@ -125,7 +125,7 @@
 		values(#{fai_cont_page},
 		(select fairytale_id from fairytale
 		where workplace_id=#{workplace_id}),
-		'd:\\workplace\\'||#{workplace_id})
+		'/workplace/'||#{workplace_id})
 	</insert>
 
 	<select id="loadSchedule"

@@ -83,7 +83,7 @@ public class AuthorController {
 		String[] token;
 		service.createWorkplace(dto);
 		System.out.println("workplace created");
-		path = "d:\\fairy\\workplace\\" + dto.getWorkplace_id();
+		path = "/fairy/workplace/" + dto.getWorkplace_id();
 		File Folder = new File(path);
 		String name = "0." + FilenameUtils.getExtension(file.getOriginalFilename());
 
@@ -172,7 +172,7 @@ public class AuthorController {
 	public void photoUpload(@RequestParam("file") MultipartFile multipartfile,
 			@RequestParam("workplace_id") String workplace_id, @RequestParam("file_page") int file_page) {
 
-		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\" + file_page;
+		String prefixPath = "/fairy/workplace/" + workplace_id + "/" + file_page;
 		String fileName = multipartfile.getOriginalFilename();
 		File file = new File(prefixPath, fileName);
 		System.out.println(fileName);
@@ -272,7 +272,7 @@ public class AuthorController {
 	@ResponseBody
 	public void newPage(@RequestParam("workplace_id") String workplace_id, @RequestParam("pageNum") int file_page) {
 
-		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
+		String prefixPath = "/fairy/workplace/" + workplace_id + "/workfiles/" + file_page;
 		String fileName = "";
 		System.out.println(fileName);
 		File Folder = new File(prefixPath);
@@ -306,7 +306,7 @@ public class AuthorController {
 			String file_page = (String) serialized_Json.get("file_page");
 			String cont = (String) serialized_Json.get("cont");
 
-			String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
+			String prefixPath = "/fairy/workplace/" + workplace_id + "/workfiles/" + file_page;
 			String fileName = file_page + ".html";
 			File Folder = new File(prefixPath);
 			if (!Folder.exists()) {
@@ -341,7 +341,7 @@ public class AuthorController {
 		String file_page = (String) serialized_Json.get("file_page");
 		JsonObject result = new JsonObject();
 
-		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
+		String prefixPath = "/fairy/workplace/" + workplace_id + "/workfiles/" + file_page;
 		String fileName = file_page + ".html";
 		File file = new File(prefixPath, fileName);
 
@@ -366,7 +366,7 @@ public class AuthorController {
 	public JsonObject coverUpload(@RequestParam("file") MultipartFile multipartFile,
 			@RequestParam("workplace_id") String workplace_id) {
 		JsonObject json = new JsonObject();
-		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\";
+		String prefixPath = "/fairy/workplace/" + workplace_id + "/workfiles/";
 		String fileName = "" + UUID.randomUUID();
 		String extension = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
 		File file = new File(prefixPath, fileName + "." + extension);
@@ -402,7 +402,7 @@ public class AuthorController {
 			for(WorkplacePersonDTO i : authors) {
 				book.getMetadata().addAuthor(new Author(i.getMem_nickname(),i.getMem_id()));
 			}
-			String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\";
+			String prefixPath = "/fairy/workplace/" + workplace_id + "/workfiles/";
 			String fileName = dto.getCover().split("/workfiles/")[1];
 			File file = new File(prefixPath, fileName);
 			book.setCoverImage(new Resource(new BufferedInputStream(new FileInputStream(file)), fileName));
@@ -412,7 +412,7 @@ public class AuthorController {
 			
 			//epub 생성
 			EpubWriter epubWriter = new EpubWriter();
-			epubWriter.write(book, new FileOutputStream("d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\"+dto.getFairytale_name()+".epub"));
+			epubWriter.write(book, new FileOutputStream("/fairy/workplace/" + workplace_id + "/workfiles/"+dto.getFairytale_name()+".epub"));
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -426,7 +426,7 @@ public class AuthorController {
 			@RequestParam("workplace_id") String workplace_id, @RequestParam("file_page") String file_page) {
 		log.info("uploading image");
 		JsonObject json = new JsonObject();
-		String prefixPath = "d:\\fairy\\workplace\\" + workplace_id + "\\workfiles\\" + file_page;
+		String prefixPath = "/fairy/workplace/" + workplace_id + "/workfiles/" + file_page;
 //		String fileName = multipartFile.getOriginalFilename();
 		String fileName = "" + UUID.randomUUID();
 		String extension = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
